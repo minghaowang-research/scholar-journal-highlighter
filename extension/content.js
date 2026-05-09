@@ -247,7 +247,7 @@ function clearHighlights() {
       "sjh-sjr"
     );
   });
-  document.querySelectorAll(".sjh-badge, .sjh-quartile").forEach((el) => el.remove());
+  document.querySelectorAll(".sjh-tags, .sjh-quartile").forEach((el) => el.remove());
 }
 
 function loadPrefsAndProcess() {
