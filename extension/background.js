@@ -7,9 +7,9 @@ const CACHE_TS_KEY = "journalDataTimestamp";
 const CONFIG_CACHE_KEY = "configData";
 const CONFIG_CACHE_TS_KEY = "configDataTimestamp";
 const CACHE_TTL = 7 * 24 * 60 * 60 * 1000;
-const DOI_CACHE_TTL = 30 * 24 * 60 * 60 * 1000;
+const DOI_CACHE_TTL = 7 * 24 * 60 * 60 * 1000;
 const CURRENT_VERSION = 3;
-const S2_API = "https://api.semanticscholar.org/graph/v1/paper/search";
+const CROSSREF_API = "https://api.crossref.org/works";
 
 async function loadBundledData() {
   const url = chrome.runtime.getURL("journals.json");
@@ -100,19 +100,16 @@ async function lookupDOIWithStatus(title) {
 async function fetchDOIWithStatus(title) {
   try {
     const query = encodeURIComponent(title.substring(0, 300));
-    const s2Settings = await chrome.storage.sync.get({ s2ApiKey: "" });
-    const headers = {};
-    if (s2Settings.s2ApiKey) headers["x-api-key"] = s2Settings.s2ApiKey;
-    const resp = await fetch(`${S2_API}?query=${query}&fields=externalIds&limit=1`, { headers });
+    const resp = await fetch(`${CROSSREF_API}?query.bibliographic=${query}&rows=1`);
     if (resp.status === 429) {
-      return { doi: null, error: s2Settings.s2ApiKey ? "rate_limited" : "need_api_key" };
+      return { doi: null, error: "rate_limited" };
     }
     if (!resp.ok) return { doi: null, error: "api_error" };
     const data = await resp.json();
 
     let doi = null;
-    if (data.data && data.data.length > 0 && data.data[0].externalIds?.DOI) {
-      doi = data.data[0].externalIds.DOI;
+    if (data.message?.items?.length > 0) {
+      doi = data.message.items[0].DOI || null;
     }
 
     const key = doiCacheKey(title);
@@ -127,16 +124,13 @@ async function fetchDOIWithStatus(title) {
 async function fetchDOI(title) {
   try {
     const query = encodeURIComponent(title.substring(0, 300));
-    const s2Settings = await chrome.storage.sync.get({ s2ApiKey: "" });
-    const headers = {};
-    if (s2Settings.s2ApiKey) headers["x-api-key"] = s2Settings.s2ApiKey;
-    const resp = await fetch(`${S2_API}?query=${query}&fields=externalIds&limit=1`, { headers });
+    const resp = await fetch(`${CROSSREF_API}?query.bibliographic=${query}&rows=1`);
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     const data = await resp.json();
 
     let doi = null;
-    if (data.data && data.data.length > 0 && data.data[0].externalIds?.DOI) {
-      doi = data.data[0].externalIds.DOI;
+    if (data.message?.items?.length > 0) {
+      doi = data.message.items[0].DOI || null;
     }
 
     const key = doiCacheKey(title);

@@ -8,8 +8,8 @@ const TOGGLE_KEYS = {
 const DEFAULTS = {
   showUtd24: true, showFt50: true, showAbdc: true, showCustom: true,
   displayMode: "highlight", customJournals: [],
-  enableScihub: true, enableProxy: false, scihubUrl: "", proxyUrl: "",
-  s2ApiKey: "", showCitations: true,
+  enableScihub: false, enableProxy: false, scihubUrl: "", proxyUrl: "",
+  showCitations: true,
 };
 
 function loadPreferences() {
@@ -30,7 +30,7 @@ function loadPreferences() {
       document.getElementById("scihub-url").value = prefs.scihubUrl;
       document.getElementById("proxy-url").value = prefs.proxyUrl;
       document.getElementById("toggle-citations").checked = prefs.showCitations;
-      document.getElementById("s2-api-key").value = prefs.s2ApiKey;
+
 
       updateUrlRowVisibility();
     } catch (_) {}
@@ -69,7 +69,7 @@ function loadStatus() {
               const el = document.getElementById(`count-${key}`);
               if (el) el.textContent = val;
             }
-            statusEl.textContent = `${journals.length} journals | Data: ${updated}`;
+            statusEl.textContent = `Data: ${updated}`;
           } catch (_) {}
         });
       } else {
@@ -202,10 +202,7 @@ document.getElementById("toggle-proxy").addEventListener("change", onAccessChang
 document.getElementById("scihub-url").addEventListener("change", onAccessChange);
 document.getElementById("proxy-url").addEventListener("change", onAccessChange);
 
-// S2 API key
-document.getElementById("s2-api-key").addEventListener("change", (e) => {
-  chrome.storage.sync.set({ s2ApiKey: e.target.value.trim() });
-});
+
 
 // Citation toggle
 document.getElementById("toggle-citations").addEventListener("change", onCitationChange);

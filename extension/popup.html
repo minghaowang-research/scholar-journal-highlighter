@@ -75,15 +75,6 @@
         <div class="section-label">PAPER ACCESS</div>
         <div class="toggle-row">
           <label>
-            <input type="checkbox" id="toggle-scihub" checked />
-            <span class="toggle-label">Sci-Hub links</span>
-          </label>
-        </div>
-        <div class="setting-row" id="scihub-url-row">
-          <input type="text" id="scihub-url" placeholder="https://www.sci-hub.pub/" />
-        </div>
-        <div class="toggle-row">
-          <label>
             <input type="checkbox" id="toggle-proxy" />
             <span class="toggle-label">Library proxy</span>
           </label>
@@ -91,12 +82,14 @@
         <div class="setting-row" id="proxy-url-row">
           <input type="text" id="proxy-url" placeholder="Your library proxy URL prefix" />
         </div>
-      </div>
-
-      <div class="section">
-        <div class="section-label">SEMANTIC SCHOLAR API</div>
-        <div class="setting-row" style="padding-left: 0">
-          <input type="text" id="s2-api-key" placeholder="API key (optional, for higher rate limits)" />
+        <div class="toggle-row">
+          <label>
+            <input type="checkbox" id="toggle-scihub" />
+            <span class="toggle-label">Sci-Hub links</span>
+          </label>
+        </div>
+        <div class="setting-row" id="scihub-url-row">
+          <input type="text" id="scihub-url" placeholder="https://www.sci-hub.pub/" />
         </div>
       </div>
 

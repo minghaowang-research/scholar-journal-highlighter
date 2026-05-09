@@ -5,7 +5,7 @@ let userCustom = [];
 let prefs = {
   showUtd24: true, showFt50: true, showAbdc: true, showCustom: true,
   displayMode: "highlight",
-  enableScihub: true, enableProxy: false, scihubUrl: "", proxyUrl: "",
+  enableScihub: false, enableProxy: false, scihubUrl: "", proxyUrl: "",
   showCitations: true,
 };
 let configData = null;
@@ -279,6 +279,12 @@ function injectAccessButtons(resultEl) {
   const btnContainer = document.createElement("span");
   btnContainer.className = "sjh-access-btns";
 
+  if (prefs.enableProxy && getProxyBase()) {
+    const btn = makeBtn("sjh-btn-proxy", "Library");
+    btn.href = getProxyBase() + stripQueryParams(paperUrl);
+    btnContainer.appendChild(btn);
+  }
+
   if (prefs.enableScihub) {
     const btn = makeBtn("sjh-btn-scihub", "Sci-Hub");
     btnContainer.appendChild(btn);
@@ -294,12 +300,6 @@ function injectAccessButtons(resultEl) {
         btn.href = getScihubBase() + result.doi;
       });
     }
-  }
-
-  if (prefs.enableProxy && getProxyBase()) {
-    const btn = makeBtn("sjh-btn-proxy", "Library");
-    btn.href = getProxyBase() + stripQueryParams(paperUrl);
-    btnContainer.appendChild(btn);
   }
 
   const titleContainer = resultEl.querySelector(".gs_rt");
@@ -333,47 +333,13 @@ function injectAccessButtonsProfile(rowEl) {
     return cached || {};
   }
 
-  if (prefs.enableScihub) {
-    const btn = makeBtn("sjh-btn-scihub", "Sci-Hub");
-    btn.href = "#";
-    btn.addEventListener("click", async (e) => {
-      e.preventDefault();
-      const newTab = window.open("about:blank", "_blank");
-      btn.textContent = "...";
-      const result = await resolve();
-      const target = result.doi || result.publisherUrl;
-      if (target && newTab) {
-        newTab.location.href = getScihubBase() + target;
-        if (result.doi) {
-          btn.textContent = "Sci-Hub";
-        } else if (result.error === "need_api_key") {
-          btn.textContent = "No DOI (add API key)";
-          setTimeout(() => { btn.textContent = "Sci-Hub"; cached = null; }, 5000);
-        } else if (result.error === "rate_limited") {
-          btn.textContent = "No DOI (API limit)";
-          setTimeout(() => { btn.textContent = "Sci-Hub"; cached = null; }, 5000);
-        } else {
-          btn.textContent = "No DOI (via URL)";
-        }
-      } else {
-        if (newTab) newTab.close();
-        if (result.error === "need_api_key" || result.error === "rate_limited") {
-          btn.textContent = result.error === "need_api_key" ? "Add API key" : "API limit";
-          setTimeout(() => { btn.textContent = "Sci-Hub"; cached = null; }, 5000);
-        } else {
-          btn.textContent = result.error === "no_result" ? "No DOI found" : "Not found";
-        }
-      }
-    });
-    btnContainer.appendChild(btn);
-  }
-
   if (prefs.enableProxy && getProxyBase()) {
     const btn = makeBtn("sjh-btn-proxy", "Library");
     btn.href = "#";
     btn.addEventListener("click", async (e) => {
       e.preventDefault();
       const newTab = window.open("about:blank", "_blank");
+      if (newTab) { try { newTab.document.title = "Redirecting via library proxy..."; newTab.document.body.innerText = "Looking up paper URL... This may take a few seconds."; } catch (_) {} }
       btn.textContent = "...";
       const result = await resolve();
       btn.textContent = "Library";
@@ -384,6 +350,40 @@ function injectAccessButtonsProfile(rowEl) {
         if (newTab) newTab.close();
         btn.textContent = "Not found";
         setTimeout(() => { btn.textContent = "Library"; }, 2000);
+      }
+    });
+    btnContainer.appendChild(btn);
+  }
+
+  if (prefs.enableScihub) {
+    const btn = makeBtn("sjh-btn-scihub", "Sci-Hub");
+    btn.href = "#";
+    btn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const newTab = window.open("about:blank", "_blank");
+      if (newTab) { try { newTab.document.title = "Redirecting via Sci-Hub..."; newTab.document.body.innerText = "Looking up paper DOI... This may take a few seconds."; } catch (_) {} }
+      btn.textContent = "...";
+
+      const result = await resolve();
+      const target = result.doi || result.publisherUrl;
+      if (target && newTab) {
+        newTab.location.href = getScihubBase() + target;
+        if (result.doi) {
+          btn.textContent = "Sci-Hub";
+        } else if (result.error === "rate_limited") {
+          btn.textContent = "No DOI (API limit)";
+          setTimeout(() => { btn.textContent = "Sci-Hub"; cached = null; }, 5000);
+        } else {
+          btn.textContent = "No DOI (via URL)";
+        }
+      } else {
+        if (newTab) newTab.close();
+        if (result.error === "rate_limited") {
+          btn.textContent = "API limit";
+          setTimeout(() => { btn.textContent = "Sci-Hub"; cached = null; }, 5000);
+        } else {
+          btn.textContent = result.error === "no_result" ? "No DOI found" : "Not found";
+        }
       }
     });
     btnContainer.appendChild(btn);
@@ -463,7 +463,7 @@ function loadPrefsAndProcess() {
     {
       showUtd24: true, showFt50: true, showAbdc: true, showCustom: true,
       displayMode: "highlight", customJournals: [],
-      enableScihub: true, enableProxy: false, scihubUrl: "", proxyUrl: "",
+      enableScihub: false, enableProxy: false, scihubUrl: "", proxyUrl: "",
       showCitations: true,
     },
     (p) => {

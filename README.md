@@ -2,42 +2,76 @@
 
 A Chrome extension for business school students and researchers. Highlights top-tier journals on Google Scholar so you can quickly spot quality publications when searching for papers, checking citations, or browsing author profiles.
 
-Focuses on UTD24, FT50, and ABDC (A*/A only) -- the journal lists that matter for business research.
+Focuses on UTD24, FT50, and ABDC (A\*/A only) -- the journal lists that matter for business research.
 
-Matching journals appear with colored borders, background tints, and tier badges. Non-matching results can be dimmed or hidden.
+## Important: About Sci-Hub
 
-## Supported Journal Lists
-
-| List | Count | Color | Source |
-|---|---|---|---|
-| UTD24 | 24 | Purple | UT Dallas top 24 business journals |
-| FT50 | 50 | Blue | Financial Times top 50 journals |
-| ABDC (A*/A) | ~850 | Orange | Australian Business Deans Council (A* and A only) |
-| My List | User-defined | Gray | Custom journals added via popup |
+This extension includes an optional Sci-Hub integration for convenience. **Sci-Hub is not endorsed or recommended for bypassing publisher paywalls.** Accessing copyrighted articles without authorization may violate copyright law in your jurisdiction. We strongly encourage you to use your university's library proxy to access papers through legitimate institutional subscriptions. The Sci-Hub feature is **disabled by default** and provided only for users who understand and accept the associated risks.
 
 ## Features
 
-- Highlights on both search results and author profile pages
+### Journal Highlighting
+
+- Matching journals appear with colored borders, background tints, and tier badges
 - Independent toggle for each journal list
 - Non-matching results: show all, dim, or hide
 - Custom journal list with add/remove UI
 - Alias matching for abbreviated journal names (e.g., "JMR" for Journal of Marketing Research)
 - Fuzzy substring matching as fallback
 - Auto-updates journal data from GitHub (7-day cache)
+- Works on both search results and author profile pages
 - Works with Google Scholar's infinite scroll
 
-### Paper Access (v3.0)
+### Paper Access (v3.0+)
 
-- **Sci-Hub links**: adds a Sci-Hub button next to each search result title. Uses Semantic Scholar API to look up DOIs for accurate linking. Sci-Hub URL is user-configurable.
-- **Library proxy**: adds a Library button that opens the paper through your institution's proxy (e.g., EZproxy, OpenAthens). Enter your proxy URL in settings -- works with any university.
+- **Library proxy** (recommended): adds a Library button that opens the paper through your institution's proxy (e.g., EZproxy, OpenAthens). Enter your proxy URL in settings -- works with any university.
+- **Sci-Hub links** (optional): adds a Sci-Hub button next to each search result title. Uses DOI extraction from Google Scholar citation pages, with CrossRef API as fallback. Sci-Hub URL is user-configurable. See [disclaimer](#important-about-sci-hub).
 - **Citation highlighting**: high-citation papers are visually emphasized (100+ green, 500+ blue, 1000+ purple).
+
+## Supported Journal Lists
+
+| List | Journals | Color | Source |
+|---|---|---|---|
+| UTD24 | 24 | Purple | UT Dallas top 24 business journals |
+| FT50 | 50 | Blue | Financial Times top 50 journals |
+| ABDC (A\*/A) | 849 | Orange | Australian Business Deans Council (A\* and A only) |
+| My List | User-defined | Gray | Custom journals added via popup |
 
 ## Install
 
-1. Download the latest release zip from [Releases](../../releases)
-2. Unzip to a folder
-3. Open `chrome://extensions/` and enable Developer mode
-4. Click "Load unpacked" and select the unzipped folder
+### Step 1: Download
+
+Download the latest release zip from [Releases](../../releases) and unzip it to a folder on your computer.
+
+### Step 2: Open Chrome Extensions
+
+Go to `chrome://extensions/` in your browser.
+
+### Step 3: Enable Developer Mode and Load
+
+Turn on **Developer mode** (top-right corner, marked **1** below), then click **Load unpacked** (top-left, marked **2**) and select the unzipped extension folder.
+
+![Enable Developer mode and Load unpacked](docs/images/install-developer-mode.jpeg)
+
+### Step 4: Configure Settings
+
+Click the extension icon in your toolbar to open settings.
+
+**Library proxy (recommended):** Enable "Library proxy" and enter your institution's proxy URL prefix. Examples:
+- EZproxy: `https://ezproxy.yourschool.edu/login?url=`
+- OpenAthens: your institution's OpenAthens URL
+
+**Sci-Hub (optional):** Enable "Sci-Hub links" if you wish to use it. See the [disclaimer above](#important-about-sci-hub).
+
+<!-- [Screenshot: extension settings popup - coming soon] -->
+
+<!-- [Screenshot: Google Scholar with highlighting in action - coming soon] -->
+
+## DOI Lookup
+
+The extension extracts DOIs in two steps:
+1. **Google Scholar citation page** -- parsed for publisher URLs containing DOIs (works for most papers, no external API needed)
+2. **CrossRef API fallback** -- if step 1 finds no DOI, the [CrossRef API](https://api.crossref.org/) is queried by title. No API key required, 50 req/sec rate limit.
 
 ## Development
 
@@ -47,7 +81,7 @@ Matching journals appear with colored borders, background tints, and tier badges
 extension/          Chrome extension source
   manifest.json     Extension manifest (v3)
   content.js        Injects highlighting + access buttons into Google Scholar
-  background.js     Service worker for data fetching, DOI lookup, config
+  background.js     Service worker for data fetching, DOI lookup (CrossRef), config
   popup.html/js/css  Settings popup UI
   journals.json     Bundled journal data (fallback)
   styles.css        Highlighting and button styles
@@ -59,12 +93,12 @@ data/               Journal source data and config
   custom.json       Seed custom list (empty)
   journals.json     Merged build output
   config.json       Default Sci-Hub URL and proxy URL
-  utd24.csv         UTD24 reference CSV
-  ft50.csv          FT50 reference CSV
 
 scripts/            Build tools
   extract_abdc.py   Extract A*/A from ABDC xlsx
   build_journals.py Merge all lists into journals.json
+
+docs/images/        Screenshots for README
 ```
 
 ### Updating Journal Data
