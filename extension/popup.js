@@ -109,7 +109,7 @@ function notifyTab(msgType) {
   chrome.tabs.query({ active: true, currentWindow: true })
     .then((tabs) => {
       if (tabs[0] && tabs[0].url && tabs[0].url.includes("scholar.google.com")) {
-        return chrome.tabs.sendMessage(tabs[0].id, { type: msgType });
+        chrome.tabs.sendMessage(tabs[0].id, { type: msgType }).catch(() => {});
       }
     })
     .catch(() => {});
