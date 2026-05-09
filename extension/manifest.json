@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Scholar Journal Highlighter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Highlights journals on Google Scholar by UTD24, FT50, and SJR rankings",
   "permissions": ["storage"],
   "host_permissions": ["*://scholar.google.com/*"],
