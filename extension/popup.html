@@ -14,6 +14,7 @@
             <input type="checkbox" id="toggle-utd24" checked />
             <span class="color-dot utd24-dot"></span>
             <span class="toggle-label">UTD24</span>
+            <span class="toggle-count" id="count-utd24"></span>
           </label>
         </div>
         <div class="toggle-row">
@@ -21,13 +22,15 @@
             <input type="checkbox" id="toggle-ft50" checked />
             <span class="color-dot ft50-dot"></span>
             <span class="toggle-label">FT50</span>
+            <span class="toggle-count" id="count-ft50"></span>
           </label>
         </div>
         <div class="toggle-row">
           <label>
             <input type="checkbox" id="toggle-sjr" checked />
             <span class="color-dot sjr-dot"></span>
-            <span class="toggle-label">SJR (US Business)</span>
+            <span class="toggle-label">SJR</span>
+            <span class="toggle-count" id="count-sjr"></span>
           </label>
         </div>
       </div>
@@ -52,7 +55,6 @@
 
       <div class="status">
         <span id="data-status">Loading...</span>
-        <button id="refresh-btn">Refresh Data</button>
       </div>
     </div>
     <script src="popup.js"></script>

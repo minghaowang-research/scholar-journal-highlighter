@@ -21,12 +21,21 @@ function loadPreferences() {
 }
 
 function loadStatus() {
-  chrome.storage.local.get(["journalData", "journalDataTimestamp"], (data) => {
+  chrome.storage.local.get(["journalData"], (data) => {
     const statusEl = document.getElementById("data-status");
-    if (data.journalData) {
-      const count = data.journalData.journals.length;
+    if (data.journalData && data.journalData.journals) {
+      const journals = data.journalData.journals;
       const updated = data.journalData.updated || "unknown";
-      statusEl.textContent = `${count} journals | Data: ${updated}`;
+
+      const utd = journals.filter((j) => j.lists.includes("utd24")).length;
+      const ft = journals.filter((j) => j.lists.includes("ft50")).length;
+      const sjr = journals.filter((j) => j.lists.includes("sjr")).length;
+
+      document.getElementById("count-utd24").textContent = utd;
+      document.getElementById("count-ft50").textContent = ft;
+      document.getElementById("count-sjr").textContent = sjr;
+
+      statusEl.textContent = `${journals.length} journals total | Data: ${updated}`;
     } else {
       statusEl.textContent = "No data loaded yet";
     }
@@ -61,17 +70,6 @@ Object.keys(TOGGLE_KEYS).forEach((id) => {
 
 document.querySelectorAll('input[name="displayMode"]').forEach((radio) => {
   radio.addEventListener("change", onModeChange);
-});
-
-document.getElementById("refresh-btn").addEventListener("click", () => {
-  const btn = document.getElementById("refresh-btn");
-  btn.textContent = "Refreshing...";
-  btn.disabled = true;
-  chrome.runtime.sendMessage({ type: "REFRESH_DATA" }, () => {
-    btn.textContent = "Refresh Data";
-    btn.disabled = false;
-    loadStatus();
-  });
 });
 
 loadPreferences();

@@ -50,6 +50,12 @@ h3 {
   font-weight: 500;
 }
 
+.toggle-count {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-left: auto;
+}
+
 .radio-group {
   display: flex;
   gap: 12px;
@@ -64,33 +70,11 @@ h3 {
 }
 
 .status {
-  margin-top: 4px;
   padding-top: 10px;
   border-top: 1px solid #e5e7eb;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 #data-status {
   font-size: 11px;
-  color: #6b7280;
-}
-
-#refresh-btn {
-  font-size: 11px;
-  padding: 3px 8px;
-  cursor: pointer;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  background: #f9fafb;
-}
-
-#refresh-btn:hover {
-  background: #f3f4f6;
-}
-
-#refresh-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+  color: #9ca3af;
 }

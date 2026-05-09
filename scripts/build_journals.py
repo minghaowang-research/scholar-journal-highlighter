@@ -103,13 +103,27 @@ def download_sjr(url: str, output_path: Path) -> bool:
         return False
 
 
+ALLOWED_AREAS = {
+    "Business, Management and Accounting",
+    "Economics, Econometrics and Finance",
+    "Decision Sciences",
+    "Social Sciences",
+}
+
+
 def parse_sjr(csv_path: Path) -> list[dict]:
     journals = []
+    skipped = 0
     with open(csv_path, encoding="utf-8") as f:
         reader = csv.DictReader(f, delimiter=";")
         for row in reader:
             title = row.get("Title", "").strip().strip('"')
             if not title:
+                continue
+
+            areas = {a.strip() for a in row.get("Areas", "").strip('"').split(";")}
+            if not areas or not areas.issubset(ALLOWED_AREAS):
+                skipped += 1
                 continue
 
             sjr_raw = row.get("SJR", "0").replace(",", ".")
@@ -138,6 +152,7 @@ def parse_sjr(csv_path: Path) -> list[dict]:
                 "rank": rank,
                 "categories": row.get("Categories", "").strip().strip('"'),
             })
+    print(f"  Skipped {skipped} non-business journals")
     return journals
 
 
@@ -220,21 +235,15 @@ def build_journals_json(sjr_journals: list[dict], utd24: list[str], ft50: list[s
 
 
 def main():
-    sjr_csv = DATA_DIR / "sjr_raw.csv"
-    local_fallback = DATA_DIR / "SJR.csv"
+    sjr_csv = DATA_DIR / "sjr_source.csv"
 
-    print("Downloading SJR data...")
-    downloaded = download_sjr(SJR_URL, sjr_csv)
+    if not sjr_csv.exists():
+        print("ERROR: data/sjr_source.csv not found.")
+        print("Download from: https://www.scimagojr.com/journalrank.php?area=1400&country=US&type=j")
+        print("Save as data/sjr_source.csv")
+        return
 
-    if not downloaded:
-        if local_fallback.exists():
-            print(f"Using local fallback: {local_fallback}")
-            sjr_csv = local_fallback
-        else:
-            print("ERROR: No SJR data available. Place SJR.csv in data/ folder.")
-            return
-
-    print("Parsing SJR CSV...")
+    print(f"Using SJR source: {sjr_csv}")
     sjr_journals = parse_sjr(sjr_csv)
     print(f"  Found {len(sjr_journals)} SJR journals")
 
@@ -260,8 +269,6 @@ def main():
         json.dump(result, f, indent=2, ensure_ascii=False)
     print(f"Written to {output_path}")
 
-    raw_csv = DATA_DIR / "sjr_raw.csv"
-    raw_csv.unlink(missing_ok=True)
 
 
 if __name__ == "__main__":
