@@ -230,7 +230,7 @@ function ensureUrl(url) {
   if (!url) return "";
   url = url.trim();
   if (url && !/^https?:\/\//i.test(url)) url = "https://" + url;
-  if (url && !url.endsWith("/")) url += "/";
+  if (url && !url.endsWith("/") && !url.includes("?")) url += "/";
   return url;
 }
 
