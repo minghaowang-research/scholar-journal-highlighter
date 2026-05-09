@@ -33,8 +33,8 @@ This extension includes an optional Sci-Hub integration for convenience. **Sci-H
 | List | Journals | Color | Source |
 |---|---|---|---|
 | UTD24 | 24 | Purple | UT Dallas top 24 business journals |
-| FT50 | 50 | Blue | Financial Times top 50 journals |
-| ABDC (A\*/A) | 849 | Orange | Australian Business Deans Council (A\* and A only) |
+| FT50 | 50 | Teal | Financial Times top 50 journals |
+| ABDC (A\*/A) | 849 | Amber | Australian Business Deans Council (A\* and A only) |
 | My List | User-defined | Gray | Custom journals added via popup |
 
 ## Install
@@ -81,6 +81,20 @@ Journal badges (UTD24, FT50), Library/Sci-Hub buttons, and citation highlighting
 Journal badges and access buttons on an author's Google Scholar profile page.
 
 ![Author profile with journal badges](docs/images/profile-page.jpg)
+
+## Accessibility
+
+Colors are designed to be distinguishable for users with color vision deficiency (1 in 12 men, 1 in 200 women in the US). All color-coded elements also carry text labels -- color is never the sole indicator.
+
+- **Journal badges**: purple (UTD24), teal (FT50), amber (ABDC), gray (My List) -- avoids red-green and blue-purple confusion
+- **Citation highlights**: luminance-based gray scale (light to dark) -- works for all colorblind types
+- **All text meets WCAG AA contrast ratio** (4.5:1 minimum)
+
+References:
+- [Color Blindness - UNC School of Medicine](https://www.med.unc.edu/webguide/accessibility/color/)
+- [Colour Blindness Awareness](https://www.colourblindawareness.org/colour-blindness/)
+- [Types of Color Vision Deficiency - NEI](https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/color-blindness/types-color-vision-deficiency)
+- [Color Blindness - Cleveland Clinic](https://my.clevelandclinic.org/health/diseases/11604-color-blindness)
 
 ## DOI Lookup
 

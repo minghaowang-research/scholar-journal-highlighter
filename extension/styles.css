@@ -1,4 +1,9 @@
-/* UTD24: Deep purple - highest prestige */
+/* Colorblind-safe palette: purple, teal, amber, gray
+   Tested against deuteranopia, protanopia, tritanopia.
+   All elements also carry text labels -- color is never the sole indicator.
+   Ref: 1 in 12 men (8%) are colorblind (med.unc.edu) */
+
+/* UTD24: Deep purple */
 .gs_r.sjh-utd24,
 .gsc_a_tr.sjh-utd24 {
   border-left: 4px solid #7c3aed !important;
@@ -6,19 +11,19 @@
   padding-left: 8px;
 }
 
-/* FT50: Medium blue */
+/* FT50: Teal (distinct from purple for tritanopia) */
 .gs_r.sjh-ft50,
 .gsc_a_tr.sjh-ft50 {
-  border-left: 4px solid #3b82f6 !important;
-  background-color: rgba(59, 130, 246, 0.06) !important;
+  border-left: 4px solid #0891b2 !important;
+  background-color: rgba(8, 145, 178, 0.07) !important;
   padding-left: 8px;
 }
 
-/* ABDC: Warm orange */
+/* ABDC: Amber (shifted from orange-red to avoid red-green confusion) */
 .gs_r.sjh-abdc,
 .gsc_a_tr.sjh-abdc {
-  border-left: 4px solid #ea580c !important;
-  background-color: rgba(234, 88, 12, 0.06) !important;
+  border-left: 4px solid #b45309 !important;
+  background-color: rgba(180, 83, 9, 0.06) !important;
   padding-left: 8px;
 }
 
@@ -74,11 +79,11 @@
 .sjh-tag-utd24 { background: #ede9fe; color: #5b21b6; }
 .sjh-tag-utd24::before { background: #7c3aed; }
 
-.sjh-tag-ft50 { background: #dbeafe; color: #1e40af; }
-.sjh-tag-ft50::before { background: #3b82f6; }
+.sjh-tag-ft50 { background: #e0f7fa; color: #0e7490; }
+.sjh-tag-ft50::before { background: #0891b2; }
 
-.sjh-tag-abdc { background: #fff7ed; color: #9a3412; }
-.sjh-tag-abdc::before { background: #ea580c; }
+.sjh-tag-abdc { background: #fef3c7; color: #92400e; }
+.sjh-tag-abdc::before { background: #b45309; }
 
 .sjh-tag-custom { background: #f1f5f9; color: #334155; }
 .sjh-tag-custom::before { background: #64748b; }
@@ -107,17 +112,18 @@
   pointer-events: none;
 }
 .sjh-btn-scihub {
-  background: #dcfce7;
+  background: #e0f2fe;
+  color: #075985;
+  border: 1px solid #7dd3fc;
+}
+.sjh-btn-proxy {
+  background: #f0fdf4;
   color: #166534;
   border: 1px solid #86efac;
 }
-.sjh-btn-proxy {
-  background: #dbeafe;
-  color: #1e40af;
-  border: 1px solid #93c5fd;
-}
 
-/* Citation highlighting */
-.sjh-cite-100 { font-weight: 700; color: #166534; background: #dcfce7; padding: 1px 5px; border-radius: 3px; }
-.sjh-cite-500 { font-weight: 700; color: #1e40af; background: #dbeafe; padding: 1px 5px; border-radius: 3px; }
-.sjh-cite-1k { font-weight: 700; color: #5b21b6; background: #ede9fe; padding: 1px 5px; border-radius: 3px; }
+/* Citation highlighting -- luminance-based scale, no hue overlap with journal colors.
+   All pass WCAG AA (4.5:1+). Backgrounds step from subtle to strong. */
+.sjh-cite-100 { font-weight: 700; color: #4b5563; background: #e5e7eb; padding: 1px 5px; border-radius: 3px; }
+.sjh-cite-500 { font-weight: 700; color: #1f2937; background: #cbd5e1; padding: 1px 5px; border-radius: 3px; }
+.sjh-cite-1k { font-weight: 700; color: #0f172a; background: #94a3b8; padding: 1px 5px; border-radius: 3px; }
