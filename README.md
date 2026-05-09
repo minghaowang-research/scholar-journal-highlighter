@@ -43,19 +43,23 @@ This extension includes an optional Sci-Hub integration for convenience. **Sci-H
 
 Download the latest release zip from [Releases](../../releases) and unzip it to a folder on your computer.
 
-### Step 2: Open Chrome Extensions
+### Step 2: Enable Developer Mode and Load
 
-Go to `chrome://extensions/` in your browser.
-
-### Step 3: Enable Developer Mode and Load
-
-Turn on **Developer mode** (top-right corner, marked **1** below), then click **Load unpacked** (top-left, marked **2**) and select the unzipped extension folder.
+Go to `chrome://extensions/` in your browser. Turn on **Developer mode** (top-right corner, marked **1** below), then click **Load unpacked** (top-left, marked **2**) and select the unzipped extension folder.
 
 ![Enable Developer mode and Load unpacked](docs/images/install-developer-mode.jpeg)
+
+### Step 3: Pin the Extension
+
+Click the puzzle icon in the Chrome toolbar, then click the pin icon (marked **2** below) next to Scholar Journal Highlighter.
+
+![Pin extension to toolbar](docs/images/install-pin-extension.jpg)
 
 ### Step 4: Configure Settings
 
 Click the extension icon in your toolbar to open settings.
+
+![Extension settings popup](docs/images/popup-settings.jpg)
 
 **Library proxy (recommended):** Enable "Library proxy" and enter your institution's proxy URL prefix. Examples:
 - EZproxy: `https://ezproxy.yourschool.edu/login?url=`
@@ -63,9 +67,19 @@ Click the extension icon in your toolbar to open settings.
 
 **Sci-Hub (optional):** Enable "Sci-Hub links" if you wish to use it. See the [disclaimer above](#important-about-sci-hub).
 
-<!-- [Screenshot: extension settings popup - coming soon] -->
+## What It Looks Like
 
-<!-- [Screenshot: Google Scholar with highlighting in action - coming soon] -->
+### Search Results
+
+Journal badges (UTD24, FT50), Library/Sci-Hub buttons, and citation highlighting on Google Scholar search results.
+
+![Google Scholar search results with highlighting](docs/images/search-results.jpg)
+
+### Author Profile
+
+Journal badges and access buttons on an author's Google Scholar profile page.
+
+![Author profile with journal badges](docs/images/profile-page.jpg)
 
 ## DOI Lookup
 
