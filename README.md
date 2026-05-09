@@ -6,10 +6,6 @@ Focuses on UTD24, FT50, and ABDC (A*/A only) -- the journal lists that matter fo
 
 Matching journals appear with colored borders, background tints, and tier badges. Non-matching results can be dimmed or hidden.
 
-### Planned
-
-- Fetch DOI metadata via Semantic Scholar and add Sci-Hub links to search results
-
 ## Supported Journal Lists
 
 | List | Count | Color | Source |
@@ -30,6 +26,12 @@ Matching journals appear with colored borders, background tints, and tier badges
 - Auto-updates journal data from GitHub (7-day cache)
 - Works with Google Scholar's infinite scroll
 
+### Paper Access (v3.0)
+
+- **Sci-Hub links**: adds a Sci-Hub button next to each search result title. Uses Semantic Scholar API to look up DOIs for accurate linking. Sci-Hub URL is user-configurable.
+- **Library proxy**: adds a Library button that opens the paper through your institution's proxy (e.g., EZproxy, OpenAthens). Enter your proxy URL in settings -- works with any university.
+- **Citation highlighting**: high-citation papers are visually emphasized (100+ green, 500+ blue, 1000+ purple).
+
 ## Install
 
 1. Download the latest release zip from [Releases](../../releases)
@@ -44,18 +46,19 @@ Matching journals appear with colored borders, background tints, and tier badges
 ```
 extension/          Chrome extension source
   manifest.json     Extension manifest (v3)
-  content.js        Injects highlighting into Google Scholar pages
-  background.js     Service worker for data fetching/caching
+  content.js        Injects highlighting + access buttons into Google Scholar
+  background.js     Service worker for data fetching, DOI lookup, config
   popup.html/js/css  Settings popup UI
   journals.json     Bundled journal data (fallback)
-  styles.css        Highlighting styles
+  styles.css        Highlighting and button styles
 
-data/               Journal source data
+data/               Journal source data and config
   utd24.json        UTD24 journal names
   ft50.json         FT50 journal names
   abdc.json         ABDC A*/A journals with ratings
   custom.json       Seed custom list (empty)
   journals.json     Merged build output
+  config.json       Default Sci-Hub URL and proxy URL
   utd24.csv         UTD24 reference CSV
   ft50.csv          FT50 reference CSV
 
@@ -71,9 +74,9 @@ Edit `data/utd24.json` or `data/ft50.json` directly, then run the build.
 
 **ABDC** (every 1-2 years):
 1. Download the ABDC Journal Quality List xlsx from [abdc.edu.au](https://abdc.edu.au)
-2. Place it in `data/` (any file matching `ABDC*.xlsx`)
+2. Rename to `ABDC-JQL-2025.xlsx` and place in `data/`
 3. Run: `python scripts/extract_abdc.py`
-4. Delete the xlsx when done
+4. Run: `python scripts/build_journals.py`
 
 **Build merged data:**
 ```bash
@@ -81,9 +84,9 @@ python scripts/build_journals.py
 ```
 This outputs to both `data/journals.json` and `extension/journals.json`.
 
-A GitHub Actions workflow also rebuilds automatically when source JSON files change on main.
+**Auto-update for installed extensions:** The extension fetches journal data and config from this repo on GitHub (7-day cache). When you push updated data, all installed extensions pick up changes within 7 days -- no reinstall needed.
 
-**Auto-update for installed extensions:** The extension fetches journal data from this repo's `data/journals.json` on GitHub (7-day cache). When you push updated journal data, all installed extensions will pick up the new data within 7 days -- no reinstall needed.
+**Updating Sci-Hub URL:** Edit `data/config.json` and push. Users can also override the URL in the extension popup settings.
 
 ### Releasing
 

@@ -82,3 +82,42 @@
 
 .sjh-tag-custom { background: #f1f5f9; color: #334155; }
 .sjh-tag-custom::before { background: #64748b; }
+
+/* Access buttons (Sci-Hub + Library Proxy) */
+.sjh-access-btns {
+  display: inline-flex;
+  gap: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.sjh-btn {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 7px;
+  border-radius: 3px;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 16px;
+  cursor: pointer;
+}
+.sjh-btn:hover { opacity: 0.85; }
+.sjh-btn-loading {
+  opacity: 0.4;
+  pointer-events: none;
+}
+.sjh-btn-scihub {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+.sjh-btn-proxy {
+  background: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #93c5fd;
+}
+
+/* Citation highlighting */
+.sjh-cite-100 { font-weight: 700; color: #166534; background: #dcfce7; padding: 1px 5px; border-radius: 3px; }
+.sjh-cite-500 { font-weight: 700; color: #1e40af; background: #dbeafe; padding: 1px 5px; border-radius: 3px; }
+.sjh-cite-1k { font-weight: 700; color: #5b21b6; background: #ede9fe; padding: 1px 5px; border-radius: 3px; }

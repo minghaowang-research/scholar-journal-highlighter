@@ -7,7 +7,9 @@ const TOGGLE_KEYS = {
 
 const DEFAULTS = {
   showUtd24: true, showFt50: true, showAbdc: true, showCustom: true,
-  displayMode: "dim", customJournals: [],
+  displayMode: "highlight", customJournals: [],
+  enableScihub: true, enableProxy: false, scihubUrl: "", proxyUrl: "",
+  s2ApiKey: "", showCitations: true,
 };
 
 function loadPreferences() {
@@ -22,8 +24,24 @@ function loadPreferences() {
       );
       if (modeRadio) modeRadio.checked = true;
       renderCustomList(prefs.customJournals || []);
+
+      document.getElementById("toggle-scihub").checked = prefs.enableScihub;
+      document.getElementById("toggle-proxy").checked = prefs.enableProxy;
+      document.getElementById("scihub-url").value = prefs.scihubUrl;
+      document.getElementById("proxy-url").value = prefs.proxyUrl;
+      document.getElementById("toggle-citations").checked = prefs.showCitations;
+      document.getElementById("s2-api-key").value = prefs.s2ApiKey;
+
+      updateUrlRowVisibility();
     } catch (_) {}
   });
+}
+
+function updateUrlRowVisibility() {
+  const scihubOn = document.getElementById("toggle-scihub").checked;
+  const proxyOn = document.getElementById("toggle-proxy").checked;
+  document.getElementById("scihub-url-row").style.display = scihubOn ? "block" : "none";
+  document.getElementById("proxy-url-row").style.display = proxyOn ? "block" : "none";
 }
 
 function loadStatus() {
@@ -142,22 +160,54 @@ function onModeChange(e) {
   chrome.storage.sync.set({ displayMode: e.target.value }, () => notifyTab("MODE_CHANGED"));
 }
 
+function onAccessChange() {
+  const settings = {
+    enableScihub: document.getElementById("toggle-scihub").checked,
+    enableProxy: document.getElementById("toggle-proxy").checked,
+    scihubUrl: document.getElementById("scihub-url").value.trim(),
+    proxyUrl: document.getElementById("proxy-url").value.trim(),
+  };
+  updateUrlRowVisibility();
+  chrome.storage.sync.set(settings, () => notifyTab("ACCESS_CHANGED"));
+}
+
+function onCitationChange() {
+  const showCitations = document.getElementById("toggle-citations").checked;
+  chrome.storage.sync.set({ showCitations }, () => notifyTab("CITATION_CHANGED"));
+}
+
+// Journal list toggles
 Object.keys(TOGGLE_KEYS).forEach((id) => {
   document.getElementById(id).addEventListener("change", onToggleChange);
 });
 
+// Display mode radios
 document.querySelectorAll('input[name="displayMode"]').forEach((radio) => {
   radio.addEventListener("change", onModeChange);
 });
 
+// Custom journal management
 document.getElementById("manage-btn").addEventListener("click", () => {
   const section = document.getElementById("custom-section");
   section.style.display = section.style.display === "none" ? "block" : "none";
 });
-
 document.getElementById("custom-add-btn").addEventListener("click", addCustomJournal);
 document.getElementById("custom-input").addEventListener("keydown", (e) => {
   if (e.key === "Enter") addCustomJournal();
 });
+
+// Access settings
+document.getElementById("toggle-scihub").addEventListener("change", onAccessChange);
+document.getElementById("toggle-proxy").addEventListener("change", onAccessChange);
+document.getElementById("scihub-url").addEventListener("change", onAccessChange);
+document.getElementById("proxy-url").addEventListener("change", onAccessChange);
+
+// S2 API key
+document.getElementById("s2-api-key").addEventListener("change", (e) => {
+  chrome.storage.sync.set({ s2ApiKey: e.target.value.trim() });
+});
+
+// Citation toggle
+document.getElementById("toggle-citations").addEventListener("change", onCitationChange);
 
 try { loadPreferences(); loadStatus(); } catch (_) {}

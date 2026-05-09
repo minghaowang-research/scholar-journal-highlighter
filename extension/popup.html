@@ -57,16 +57,55 @@
         <div class="section-label">NON-MATCHING RESULTS</div>
         <div class="radio-group">
           <label>
-            <input type="radio" name="displayMode" value="highlight" />
+            <input type="radio" name="displayMode" value="highlight" checked />
             <span>Show all</span>
           </label>
           <label>
-            <input type="radio" name="displayMode" value="dim" checked />
+            <input type="radio" name="displayMode" value="dim" />
             <span>Dim</span>
           </label>
           <label>
             <input type="radio" name="displayMode" value="hide" />
             <span>Hide</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">PAPER ACCESS</div>
+        <div class="toggle-row">
+          <label>
+            <input type="checkbox" id="toggle-scihub" checked />
+            <span class="toggle-label">Sci-Hub links</span>
+          </label>
+        </div>
+        <div class="setting-row" id="scihub-url-row">
+          <input type="text" id="scihub-url" placeholder="https://www.sci-hub.pub/" />
+        </div>
+        <div class="toggle-row">
+          <label>
+            <input type="checkbox" id="toggle-proxy" />
+            <span class="toggle-label">Library proxy</span>
+          </label>
+        </div>
+        <div class="setting-row" id="proxy-url-row">
+          <input type="text" id="proxy-url" placeholder="https://ezproxy.msu.edu/login?url=" />
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">SEMANTIC SCHOLAR API</div>
+        <div class="setting-row" style="padding-left: 0">
+          <input type="text" id="s2-api-key" placeholder="API key (optional, for higher rate limits)" />
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">CITATIONS</div>
+        <div class="toggle-row">
+          <label>
+            <input type="checkbox" id="toggle-citations" checked />
+            <span class="toggle-label">Highlight high citations</span>
           </label>
         </div>
       </div>

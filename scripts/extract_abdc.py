@@ -15,17 +15,25 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 
 
+EXPECTED_NAME = "ABDC-JQL-2025.xlsx"
+
+
 def find_xlsx():
+    expected = DATA_DIR / EXPECTED_NAME
+    if expected.exists():
+        return expected
     files = list(DATA_DIR.glob("ABDC*.xlsx"))
     if not files:
         print(f"No ABDC xlsx found in {DATA_DIR}")
-        print("Download from https://abdc.edu.au and place in data/")
+        print(f"Download from https://abdc.edu.au and rename to {EXPECTED_NAME}")
         sys.exit(1)
-    if len(files) > 1:
-        print(f"Multiple ABDC xlsx files found: {[f.name for f in files]}")
-        print("Keep only one.")
-        sys.exit(1)
-    return files[0]
+    if len(files) == 1:
+        print(f"Found {files[0].name}, renaming to {EXPECTED_NAME}")
+        files[0].rename(expected)
+        return expected
+    print(f"Multiple ABDC xlsx files found: {[f.name for f in files]}")
+    print(f"Keep only one and rename to {EXPECTED_NAME}")
+    sys.exit(1)
 
 
 def extract(xlsx_path):

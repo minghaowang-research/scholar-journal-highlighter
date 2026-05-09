@@ -60,5 +60,21 @@ h3 { margin: 0 0 14px 0; font-size: 15px; font-weight: 700; }
 .radio-group label {
   display: flex; align-items: center; gap: 4px; cursor: pointer; font-size: 12px;
 }
+/* Access settings URL inputs */
+.setting-row {
+  padding: 2px 0 4px 22px;
+}
+.setting-row input[type="text"] {
+  width: calc(100% - 8px);
+  font-size: 11px;
+  padding: 3px 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 3px;
+  color: #374151;
+}
+.setting-row input[type="text"]::placeholder {
+  color: #9ca3af;
+}
+
 .status { padding-top: 10px; border-top: 1px solid #e5e7eb; }
 #data-status { font-size: 11px; color: #9ca3af; }

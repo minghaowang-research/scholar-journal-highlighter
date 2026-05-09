@@ -2,7 +2,13 @@ let journalData = null;
 let exactMap = new Map();
 let aliasMap = new Map();
 let userCustom = [];
-let prefs = { showUtd24: true, showFt50: true, showAbdc: true, showCustom: true, displayMode: "dim" };
+let prefs = {
+  showUtd24: true, showFt50: true, showAbdc: true, showCustom: true,
+  displayMode: "highlight",
+  enableScihub: true, enableProxy: false, scihubUrl: "", proxyUrl: "",
+  showCitations: true,
+};
+let configData = null;
 
 function normalize(name) {
   return name
@@ -218,11 +224,196 @@ function isProfilePage() {
   return window.location.pathname.includes("/citations");
 }
 
+// --- Access buttons (Sci-Hub + Library Proxy) ---
+
+function ensureUrl(url) {
+  if (!url) return "";
+  url = url.trim();
+  if (url && !/^https?:\/\//i.test(url)) url = "https://" + url;
+  if (url && !url.endsWith("/")) url += "/";
+  return url;
+}
+
+function getScihubBase() {
+  return ensureUrl(prefs.scihubUrl) || ensureUrl(configData && configData.scihubUrl) || "https://www.sci-hub.pub/";
+}
+
+function getProxyBase() {
+  return ensureUrl(prefs.proxyUrl) || ensureUrl(configData && configData.defaultProxyUrl) || "";
+}
+
+function extractDOIFromUrl(url) {
+  const match = url.match(/\b(10\.\d{4,}\/[^\s?#]+)/);
+  if (match) return match[1].replace(/[.,;:)\]]+$/, "");
+  return null;
+}
+
+function stripQueryParams(url) {
+  try { return url.split("?")[0]; } catch (_) { return url; }
+}
+
+function makeBtn(cls, label) {
+  const btn = document.createElement("a");
+  btn.className = "sjh-btn " + cls;
+  btn.textContent = label;
+  btn.target = "_blank";
+  btn.rel = "noopener";
+  return btn;
+}
+
+function injectAccessButtons(resultEl) {
+  if (isProfilePage()) {
+    injectAccessButtonsProfile(resultEl);
+    return;
+  }
+
+  const titleLink = resultEl.querySelector(".gs_rt a");
+  if (!titleLink) return;
+
+  const container = resultEl.closest(".gs_r") || resultEl;
+  if (container.querySelector(".sjh-access-btns")) return;
+
+  const paperUrl = titleLink.href;
+  if (!paperUrl || paperUrl.startsWith("javascript:")) return;
+
+  const btnContainer = document.createElement("span");
+  btnContainer.className = "sjh-access-btns";
+
+  if (prefs.enableScihub) {
+    const btn = makeBtn("sjh-btn-scihub", "Sci-Hub");
+    btnContainer.appendChild(btn);
+
+    const urlDoi = extractDOIFromUrl(paperUrl);
+    if (urlDoi) {
+      btn.href = getScihubBase() + urlDoi;
+    } else {
+      btn.href = getScihubBase() + stripQueryParams(paperUrl);
+      const title = titleLink.textContent.trim();
+      chrome.runtime.sendMessage({ type: "LOOKUP_DOI", title }, (result) => {
+        if (chrome.runtime.lastError || !result || !result.doi) return;
+        btn.href = getScihubBase() + result.doi;
+      });
+    }
+  }
+
+  if (prefs.enableProxy && getProxyBase()) {
+    const btn = makeBtn("sjh-btn-proxy", "Library");
+    btn.href = getProxyBase() + stripQueryParams(paperUrl);
+    btnContainer.appendChild(btn);
+  }
+
+  const titleContainer = resultEl.querySelector(".gs_rt");
+  if (titleContainer) {
+    titleContainer.appendChild(btnContainer);
+  }
+}
+
+function injectAccessButtonsProfile(rowEl) {
+  const tdEl = rowEl.querySelector(".gsc_a_t");
+  if (!tdEl) return;
+  if (rowEl.querySelector(".sjh-access-btns")) return;
+
+  const titleLink = tdEl.querySelector("a");
+  if (!titleLink) return;
+
+  const title = titleLink.textContent.trim();
+  if (!title) return;
+
+  const btnContainer = document.createElement("span");
+  btnContainer.className = "sjh-access-btns";
+
+  if (prefs.enableScihub) {
+    const btn = makeBtn("sjh-btn-scihub", "Sci-Hub");
+    btn.href = "#";
+    const citationUrl = titleLink.href;
+    btn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      btn.textContent = "...";
+
+      let doi = null;
+
+      try {
+        const resp = await fetch(citationUrl);
+        const html = await resp.text();
+        const doc = new DOMParser().parseFromString(html, "text/html");
+        for (const link of doc.querySelectorAll("a[href]")) {
+          const href = link.getAttribute("href");
+          if (href && !href.includes("scholar.google.com") && !href.startsWith("/") && !href.startsWith("#")) {
+            doi = extractDOIFromUrl(href);
+            if (doi) break;
+          }
+        }
+      } catch (_) {}
+
+      if (!doi) {
+        const result = await new Promise((resolve) => {
+          chrome.runtime.sendMessage({ type: "LOOKUP_DOI", title }, resolve);
+        });
+        if (result) doi = result.doi;
+      }
+
+      btn.textContent = "Sci-Hub";
+      if (doi) {
+        window.open(getScihubBase() + doi, "_blank");
+      } else {
+        btn.textContent = "No DOI";
+        setTimeout(() => { btn.textContent = "Sci-Hub"; }, 2000);
+      }
+    });
+    btnContainer.appendChild(btn);
+  }
+
+  if (prefs.enableProxy && getProxyBase()) {
+    const btn = makeBtn("sjh-btn-proxy", "Library");
+    btn.href = getProxyBase() + titleLink.href;
+    btnContainer.appendChild(btn);
+  }
+
+  if (btnContainer.children.length === 0) return;
+
+  const grayDivs = tdEl.querySelectorAll(".gs_gray");
+  if (grayDivs.length > 0) {
+    grayDivs[grayDivs.length - 1].appendChild(btnContainer);
+  } else {
+    tdEl.appendChild(btnContainer);
+  }
+}
+
+// --- Citation highlighting ---
+
+function highlightCitations(resultEl) {
+  if (!prefs.showCitations || isProfilePage()) return;
+
+  const flEl = resultEl.querySelector(".gs_fl");
+  if (!flEl) return;
+
+  const links = flEl.querySelectorAll("a");
+  for (const link of links) {
+    const match = link.textContent.match(/Cited by\s+([\d,]+)/);
+    if (match) {
+      const count = parseInt(match[1].replace(/,/g, ""));
+      if (count >= 1000) link.classList.add("sjh-cite-1k");
+      else if (count >= 500) link.classList.add("sjh-cite-500");
+      else if (count >= 100) link.classList.add("sjh-cite-100");
+      break;
+    }
+  }
+}
+
+// --- Processing ---
+
 function processAllResults() {
   if (isProfilePage()) {
-    document.querySelectorAll(".gsc_a_tr").forEach(processProfileResult);
+    document.querySelectorAll(".gsc_a_tr").forEach((el) => {
+      processProfileResult(el);
+      injectAccessButtonsProfile(el);
+    });
   } else {
-    document.querySelectorAll(".gs_ri").forEach(processSearchResult);
+    document.querySelectorAll(".gs_ri").forEach((el) => {
+      processSearchResult(el);
+      injectAccessButtons(el);
+      highlightCitations(el);
+    });
   }
 }
 
@@ -241,11 +432,20 @@ function clearHighlights() {
     );
   });
   document.querySelectorAll(".sjh-tags").forEach((el) => el.remove());
+  document.querySelectorAll(".sjh-access-btns").forEach((el) => el.remove());
+  document.querySelectorAll(".sjh-cite-100, .sjh-cite-500, .sjh-cite-1k").forEach((el) => {
+    el.classList.remove("sjh-cite-100", "sjh-cite-500", "sjh-cite-1k");
+  });
 }
 
 function loadPrefsAndProcess() {
   chrome.storage.sync.get(
-    { showUtd24: true, showFt50: true, showAbdc: true, showCustom: true, displayMode: "dim", customJournals: [] },
+    {
+      showUtd24: true, showFt50: true, showAbdc: true, showCustom: true,
+      displayMode: "highlight", customJournals: [],
+      enableScihub: true, enableProxy: false, scihubUrl: "", proxyUrl: "",
+      showCitations: true,
+    },
     (p) => {
       prefs = p;
       userCustom = p.customJournals || [];
@@ -259,6 +459,12 @@ function loadPrefsAndProcess() {
 }
 
 function init() {
+  chrome.runtime.sendMessage({ type: "GET_CONFIG" }, (config) => {
+    if (!chrome.runtime.lastError && config) {
+      configData = config;
+    }
+  });
+
   chrome.runtime.sendMessage({ type: "GET_JOURNALS" }, (data) => {
     if (chrome.runtime.lastError) {
       console.warn("Scholar Journal Highlighter:", chrome.runtime.lastError.message);
@@ -299,7 +505,9 @@ function init() {
 }
 
 chrome.runtime.onMessage.addListener((msg) => {
-  if (msg.type === "TOGGLE_CHANGED" || msg.type === "MODE_CHANGED" || msg.type === "CUSTOM_CHANGED") {
+  if (msg.type === "TOGGLE_CHANGED" || msg.type === "MODE_CHANGED" ||
+      msg.type === "CUSTOM_CHANGED" || msg.type === "ACCESS_CHANGED" ||
+      msg.type === "CITATION_CHANGED") {
     loadPrefsAndProcess();
   }
 });
