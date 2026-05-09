@@ -3,6 +3,7 @@ const DATA_URL =
 const CACHE_KEY = "journalData";
 const CACHE_TS_KEY = "journalDataTimestamp";
 const CACHE_TTL = 7 * 24 * 60 * 60 * 1000;
+const CURRENT_VERSION = 3;
 
 async function loadBundledData() {
   const url = chrome.runtime.getURL("journals.json");
@@ -14,9 +15,11 @@ async function fetchJournalData(forceRefresh = false) {
   if (!forceRefresh) {
     const cached = await chrome.storage.local.get([CACHE_KEY, CACHE_TS_KEY]);
     if (cached[CACHE_KEY] && cached[CACHE_TS_KEY]) {
-      const age = Date.now() - cached[CACHE_TS_KEY];
-      if (age < CACHE_TTL) {
-        return cached[CACHE_KEY];
+      if (cached[CACHE_KEY].version === CURRENT_VERSION) {
+        const age = Date.now() - cached[CACHE_TS_KEY];
+        if (age < CACHE_TTL) {
+          return cached[CACHE_KEY];
+        }
       }
     }
   }
@@ -32,8 +35,6 @@ async function fetchJournalData(forceRefresh = false) {
     return data;
   } catch (err) {
     console.warn("Scholar Journal Highlighter: remote fetch failed, using bundled data");
-    const cached = await chrome.storage.local.get([CACHE_KEY]);
-    if (cached[CACHE_KEY]) return cached[CACHE_KEY];
     const bundled = await loadBundledData();
     await chrome.storage.local.set({
       [CACHE_KEY]: bundled,

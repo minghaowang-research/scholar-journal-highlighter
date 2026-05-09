@@ -1,70 +1,64 @@
 body {
-  width: 260px;
+  width: 280px;
   padding: 14px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 13px;
   margin: 0;
 }
-h3 {
-  margin: 0 0 14px 0;
-  font-size: 15px;
-  font-weight: 700;
-}
-.section {
-  margin-bottom: 12px;
-}
+h3 { margin: 0 0 14px 0; font-size: 15px; font-weight: 700; }
+.section { margin-bottom: 12px; }
 .section-label {
-  font-size: 10px;
-  font-weight: 700;
-  color: #9ca3af;
-  letter-spacing: 0.5px;
-  margin-bottom: 6px;
+  font-size: 10px; font-weight: 700; color: #9ca3af;
+  letter-spacing: 0.5px; margin-bottom: 6px;
 }
-.toggle-row {
-  padding: 3px 0;
-}
+.toggle-row { padding: 3px 0; display: flex; align-items: center; }
 .toggle-row label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
+  display: flex; align-items: center; gap: 6px; cursor: pointer; flex: 1;
 }
-.color-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
+.color-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 .utd24-dot  { background: #7c3aed; }
 .ft50-dot   { background: #3b82f6; }
 .abdc-dot   { background: #ea580c; }
-.sjr-dot    { background: #0d9488; }
 .custom-dot { background: #64748b; }
+.toggle-label { font-weight: 500; }
+.toggle-count { font-size: 11px; color: #9ca3af; margin-left: auto; }
 
-.toggle-label {
-  font-weight: 500;
+#manage-btn {
+  font-size: 10px; padding: 1px 6px; cursor: pointer;
+  border: 1px solid #d1d5db; border-radius: 3px; background: #f9fafb;
+  color: #6b7280; margin-left: 4px;
 }
-.toggle-count {
-  font-size: 11px;
-  color: #9ca3af;
-  margin-left: auto;
+#manage-btn:hover { background: #f3f4f6; }
+
+/* Custom journal list */
+#custom-section {
+  border: 1px solid #e5e7eb; border-radius: 6px;
+  padding: 8px; background: #fafafa;
 }
-.radio-group {
-  display: flex;
-  gap: 12px;
+.custom-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 3px 0; font-size: 12px;
 }
+.custom-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.custom-remove {
+  font-size: 10px; padding: 0 4px; cursor: pointer; border: none;
+  background: none; color: #9ca3af; font-weight: 700;
+}
+.custom-remove:hover { color: #ef4444; }
+.add-row { display: flex; gap: 4px; margin-top: 6px; }
+#custom-input {
+  flex: 1; font-size: 12px; padding: 3px 6px;
+  border: 1px solid #d1d5db; border-radius: 3px;
+}
+#custom-add-btn {
+  font-size: 11px; padding: 3px 8px; cursor: pointer;
+  border: 1px solid #d1d5db; border-radius: 3px; background: #f9fafb;
+}
+#custom-add-btn:hover { background: #f3f4f6; }
+
+.radio-group { display: flex; gap: 12px; }
 .radio-group label {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  cursor: pointer;
-  font-size: 12px;
+  display: flex; align-items: center; gap: 4px; cursor: pointer; font-size: 12px;
 }
-.status {
-  padding-top: 10px;
-  border-top: 1px solid #e5e7eb;
-}
-#data-status {
-  font-size: 11px;
-  color: #9ca3af;
-}
+.status { padding-top: 10px; border-top: 1px solid #e5e7eb; }
+#data-status { font-size: 11px; color: #9ca3af; }

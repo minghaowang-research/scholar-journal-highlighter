@@ -35,19 +35,21 @@
         </div>
         <div class="toggle-row">
           <label>
-            <input type="checkbox" id="toggle-sjr" checked />
-            <span class="color-dot sjr-dot"></span>
-            <span class="toggle-label">SJR</span>
-            <span class="toggle-count" id="count-sjr"></span>
-          </label>
-        </div>
-        <div class="toggle-row">
-          <label>
             <input type="checkbox" id="toggle-custom" checked />
             <span class="color-dot custom-dot"></span>
             <span class="toggle-label">My List</span>
             <span class="toggle-count" id="count-custom"></span>
           </label>
+          <button id="manage-btn" title="Manage My List">Edit</button>
+        </div>
+      </div>
+
+      <div class="section" id="custom-section" style="display:none">
+        <div class="section-label">MY LIST</div>
+        <div id="custom-list"></div>
+        <div class="add-row">
+          <input type="text" id="custom-input" placeholder="Journal name..." />
+          <button id="custom-add-btn">Add</button>
         </div>
       </div>
 

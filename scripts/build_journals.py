@@ -1,18 +1,10 @@
 #!/usr/bin/env python3
-"""Download SJR data and merge with UTD24/FT50 into a single journals.json."""
+"""Merge UTD24, FT50, and ABDC journal lists into a single journals.json."""
 
-import csv
 import json
 import re
 from datetime import date
 from pathlib import Path
-
-import requests
-
-SJR_URL = (
-    "https://www.scimagojr.com/journalrank.php"
-    "?area=1400&country=US&type=j&year=2025&out=xls"
-)
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
@@ -70,6 +62,9 @@ ALIASES = {
     "Strategic Management Journal": ["smj", "strateg manage j", "strat. mgmt. j."],
     "The Accounting Review": ["tar", "account rev", "accounting review"],
     "The Review of Financial Studies": ["rfs", "rev financ stud", "review of financial studies"],
+    "Journal of Services Marketing": ["j serv market", "j. serv. marketing"],
+    "Journal of Interactive Marketing": ["j interact market", "j. interact. marketing"],
+    "Journal of Business Research": ["jbr", "j bus res", "j. bus. res."],
 }
 
 
@@ -80,80 +75,6 @@ def normalize(name: str) -> str:
     name = re.sub(r"[:.,'\"()\[\]]", " ", name)
     name = re.sub(r"\s+", " ", name)
     return name.strip()
-
-
-def download_sjr(url: str, output_path: Path) -> bool:
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/120.0.0.0 Safari/537.36"
-        ),
-        "Accept": "text/csv,text/plain,*/*",
-        "Referer": "https://www.scimagojr.com/journalrank.php",
-    }
-    try:
-        resp = requests.get(url, headers=headers, timeout=60)
-        resp.raise_for_status()
-        output_path.write_bytes(resp.content)
-        print(f"Downloaded SJR data: {len(resp.content)} bytes")
-        return True
-    except requests.RequestException as e:
-        print(f"Warning: SJR download failed ({e})")
-        return False
-
-
-ALLOWED_AREAS = {
-    "Business, Management and Accounting",
-    "Economics, Econometrics and Finance",
-    "Decision Sciences",
-    "Social Sciences",
-}
-
-
-def parse_sjr(csv_path: Path) -> list[dict]:
-    journals = []
-    skipped = 0
-    with open(csv_path, encoding="utf-8") as f:
-        reader = csv.DictReader(f, delimiter=";")
-        for row in reader:
-            title = row.get("Title", "").strip().strip('"')
-            if not title:
-                continue
-
-            areas = {a.strip() for a in row.get("Areas", "").strip('"').split(";")}
-            if not areas or not areas.issubset(ALLOWED_AREAS):
-                skipped += 1
-                continue
-
-            sjr_raw = row.get("SJR", "0").replace(",", ".")
-            try:
-                sjr_score = float(sjr_raw)
-            except ValueError:
-                sjr_score = 0.0
-
-            h_index_raw = row.get("H index", "0")
-            try:
-                h_index = int(h_index_raw)
-            except ValueError:
-                h_index = 0
-
-            rank_raw = row.get("Rank", "0")
-            try:
-                rank = int(rank_raw)
-            except ValueError:
-                rank = 0
-
-            journals.append({
-                "name": title,
-                "sjr_score": sjr_score,
-                "quartile": row.get("SJR Best Quartile", "").strip(),
-                "h_index": h_index,
-                "rank": rank,
-                "categories": row.get("Categories", "").strip().strip('"'),
-            })
-    print(f"  Skipped {skipped} non-business journals")
-    return journals
 
 
 def load_list(json_path: Path) -> list[str]:
@@ -167,16 +88,11 @@ def load_abdc(json_path: Path) -> list[dict]:
 
 
 def build_journals_json(
-    sjr_journals: list[dict],
     utd24: list[str],
     ft50: list[str],
     abdc: list[dict],
     custom: list[str],
 ) -> dict:
-    utd24_norm = {normalize(n): n for n in utd24}
-    ft50_norm = {normalize(n): n for n in ft50}
-    custom_norm = {normalize(n): n for n in custom}
-
     merged = {}
 
     def get_entry(name, norm):
@@ -185,28 +101,16 @@ def build_journals_json(
             "normalized": norm,
             "aliases": [],
             "lists": [],
-            "sjr": None,
             "abdc": None,
         })
 
-    for sj in sjr_journals:
-        norm = normalize(sj["name"])
-        entry = get_entry(sj["name"], norm)
-        entry["lists"].append("sjr")
-        entry["sjr"] = {
-            "score": sj["sjr_score"],
-            "quartile": sj["quartile"],
-            "rank": sj["rank"],
-            "hIndex": sj["h_index"],
-        }
-
-    for norm, name in utd24_norm.items():
-        entry = get_entry(name, norm)
+    for name in utd24:
+        entry = get_entry(name, normalize(name))
         if "utd24" not in entry["lists"]:
             entry["lists"].append("utd24")
 
-    for norm, name in ft50_norm.items():
-        entry = get_entry(name, norm)
+    for name in ft50:
+        entry = get_entry(name, normalize(name))
         if "ft50" not in entry["lists"]:
             entry["lists"].append("ft50")
 
@@ -217,8 +121,8 @@ def build_journals_json(
             entry["lists"].append("abdc")
         entry["abdc"] = aj["rating"]
 
-    for norm, name in custom_norm.items():
-        entry = get_entry(name, norm)
+    for name in custom:
+        entry = get_entry(name, normalize(name))
         if "custom" not in entry["lists"]:
             entry["lists"].append("custom")
 
@@ -233,45 +137,33 @@ def build_journals_json(
 
     journals_list = sorted(merged.values(), key=lambda j: j["name"].lower())
 
-    list_order = ["utd24", "ft50", "abdc", "sjr", "custom"]
+    list_order = ["utd24", "ft50", "abdc", "custom"]
     for j in journals_list:
         j["lists"] = [l for l in list_order if l in j["lists"]]
 
     return {
-        "version": 2,
+        "version": 3,
         "updated": date.today().isoformat(),
         "journals": journals_list,
     }
 
 
 def main():
-    sjr_csv = DATA_DIR / "sjr_source.csv"
-
-    if not sjr_csv.exists():
-        print("ERROR: data/sjr_source.csv not found.")
-        print("Download from: https://www.scimagojr.com/journalrank.php?area=1400&country=US&type=j")
-        print("Save as data/sjr_source.csv")
-        return
-
-    print(f"Using SJR source: {sjr_csv}")
-    sjr_journals = parse_sjr(sjr_csv)
-    print(f"  Found {len(sjr_journals)} SJR journals")
-
     print("Loading lists...")
     utd24 = load_list(DATA_DIR / "utd24.json")
     ft50 = load_list(DATA_DIR / "ft50.json")
     abdc = load_abdc(DATA_DIR / "abdc.json")
     custom = load_list(DATA_DIR / "custom.json")
-    print(f"  UTD24: {len(utd24)} journals")
-    print(f"  FT50: {len(ft50)} journals")
-    print(f"  ABDC: {len(abdc)} journals")
-    print(f"  Custom: {len(custom)} journals")
+    print(f"  UTD24: {len(utd24)}")
+    print(f"  FT50: {len(ft50)}")
+    print(f"  ABDC: {len(abdc)}")
+    print(f"  Custom: {len(custom)}")
 
     print("Building merged journals.json...")
-    result = build_journals_json(sjr_journals, utd24, ft50, abdc, custom)
+    result = build_journals_json(utd24, ft50, abdc, custom)
     print(f"  Total unique journals: {len(result['journals'])}")
 
-    for listname in ["utd24", "ft50", "abdc", "sjr", "custom"]:
+    for listname in ["utd24", "ft50", "abdc", "custom"]:
         c = sum(1 for j in result["journals"] if listname in j["lists"])
         print(f"  In {listname}: {c}")
 
@@ -279,7 +171,6 @@ def main():
     with open(output_path, "w") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
     print(f"Written to {output_path}")
-
 
 
 if __name__ == "__main__":

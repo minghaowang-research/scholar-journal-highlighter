@@ -1,7 +1,8 @@
 let journalData = null;
 let exactMap = new Map();
 let aliasMap = new Map();
-let prefs = { showUtd24: true, showFt50: true, showAbdc: true, showSjr: true, showCustom: true, displayMode: "dim" };
+let userCustom = [];
+let prefs = { showUtd24: true, showFt50: true, showAbdc: true, showCustom: true, displayMode: "dim" };
 
 function normalize(name) {
   return name
@@ -25,6 +26,23 @@ function buildLookup(journals) {
       }
     }
   }
+  for (const name of userCustom) {
+    const norm = normalize(name);
+    if (!exactMap.has(norm)) {
+      exactMap.set(norm, {
+        name: name,
+        normalized: norm,
+        aliases: [],
+        lists: ["custom"],
+        abdc: null,
+      });
+    } else {
+      const entry = exactMap.get(norm);
+      if (!entry.lists.includes("custom")) {
+        entry.lists = [...entry.lists, "custom"];
+      }
+    }
+  }
 }
 
 function matchJournal(extractedName) {
@@ -45,7 +63,6 @@ function matchJournal(extractedName) {
   return null;
 }
 
-// For search results pages: extract from "Authors - Journal, Year - publisher" format
 function extractJournalFromSearchResult(gsaEl) {
   const text = gsaEl.textContent;
   const parts = text.split(/\s[-–—]\s/);
@@ -60,10 +77,8 @@ function extractJournalFromSearchResult(gsaEl) {
   return journalName;
 }
 
-// For profile/citation pages: extract from second .gs_gray div ("Journal vol (issue), pages, year")
 function extractJournalFromProfile(gsGrayEl) {
   const text = gsGrayEl.textContent;
-  // Strip volume/issue/pages/year: "Journal Name 70 (1), 3-14, 2006" -> "Journal Name"
   const journalName = text
     .replace(/\d+\s*\([\d\-]+\).*$/, "")
     .replace(/,?\s*\d{4}.*$/, "")
@@ -78,14 +93,8 @@ function getHighestTier(lists) {
   if (lists.includes("utd24")) return "utd24";
   if (lists.includes("ft50")) return "ft50";
   if (lists.includes("abdc")) return "abdc";
-  if (lists.includes("sjr")) return "sjr";
   if (lists.includes("custom")) return "custom";
-  return "sjr";
-}
-
-function getQuartileClass(journal) {
-  if (!journal.sjr || !journal.sjr.quartile) return "";
-  return "sjh-" + journal.sjr.quartile.toLowerCase();
+  return "custom";
 }
 
 function isJournalVisible(journal) {
@@ -93,13 +102,11 @@ function isJournalVisible(journal) {
     if (l === "utd24") return prefs.showUtd24;
     if (l === "ft50") return prefs.showFt50;
     if (l === "abdc") return prefs.showAbdc;
-    if (l === "sjr") return prefs.showSjr;
     if (l === "custom") return prefs.showCustom;
     return false;
   });
 }
 
-// Process a search results page entry (.gs_ri)
 function processSearchResult(resultEl) {
   const gsaEl = resultEl.querySelector(".gs_a");
   if (!gsaEl) return;
@@ -119,12 +126,10 @@ function processSearchResult(resultEl) {
   applyMatch(resultEl, gsaEl, journal);
 }
 
-// Process a profile/citation page entry (tr.gsc_a_tr)
 function processProfileResult(rowEl) {
   const tdEl = rowEl.querySelector(".gsc_a_t");
   if (!tdEl) return;
 
-  // Second .gs_gray div has the journal info
   const grayDivs = tdEl.querySelectorAll(".gs_gray");
   if (grayDivs.length < 2) return;
 
@@ -148,20 +153,12 @@ function buildBadge(journal, tier, visibleLists) {
   const wrapper = document.createElement("span");
   wrapper.className = "sjh-tags";
 
-  if (journal.sjr) {
-    wrapper.title = `SJR: ${journal.sjr.score}, H-index: ${journal.sjr.hIndex}, Rank: #${journal.sjr.rank}`;
-  }
-
   const items = [];
   if (visibleLists.includes("utd24")) items.push({ label: "UTD24", cls: "sjh-tag-utd24" });
   if (visibleLists.includes("ft50")) items.push({ label: "FT50", cls: "sjh-tag-ft50" });
   if (visibleLists.includes("abdc")) {
     const r = journal.abdc || "";
     items.push({ label: r ? `ABDC ${r}` : "ABDC", cls: "sjh-tag-abdc" });
-  }
-  if (visibleLists.includes("sjr")) {
-    const q = journal.sjr ? journal.sjr.quartile : "";
-    items.push({ label: q ? `SJR ${q}` : "SJR", cls: "sjh-tag-sjr" });
   }
   if (visibleLists.includes("custom")) items.push({ label: "My List", cls: "sjh-tag-custom" });
 
@@ -175,27 +172,16 @@ function buildBadge(journal, tier, visibleLists) {
   return wrapper;
 }
 
-function buildQuartilePill(journal) {
-  if (!journal.sjr || !journal.sjr.quartile) return null;
-  const qPill = document.createElement("span");
-  qPill.className = `sjh-quartile ${getQuartileClass(journal)}`;
-  qPill.textContent = journal.sjr.quartile;
-  qPill.title = `SJR Score: ${journal.sjr.score}`;
-  return qPill;
-}
-
 function getVisibleLists(journal) {
   return journal.lists.filter((l) => {
     if (l === "utd24") return prefs.showUtd24;
     if (l === "ft50") return prefs.showFt50;
     if (l === "abdc") return prefs.showAbdc;
-    if (l === "sjr") return prefs.showSjr;
     if (l === "custom") return prefs.showCustom;
     return false;
   });
 }
 
-// Highlight a search results page entry
 function applyMatch(resultEl, gsaEl, journal) {
   const container = resultEl.closest(".gs_r") || resultEl;
   container.classList.add("sjh-processed");
@@ -204,12 +190,9 @@ function applyMatch(resultEl, gsaEl, journal) {
   const tier = getHighestTier(visibleLists);
   container.classList.add("sjh-match", `sjh-${tier}`);
 
-  const qPill = buildQuartilePill(journal);
-  if (qPill) gsaEl.appendChild(qPill);
   gsaEl.appendChild(buildBadge(journal, tier, visibleLists));
 }
 
-// Highlight a profile page entry
 function applyMatchProfile(rowEl, journalGray, journal) {
   rowEl.classList.add("sjh-processed");
 
@@ -217,8 +200,6 @@ function applyMatchProfile(rowEl, journalGray, journal) {
   const tier = getHighestTier(visibleLists);
   rowEl.classList.add("sjh-match", `sjh-${tier}`);
 
-  const qPill = buildQuartilePill(journal);
-  if (qPill) journalGray.appendChild(qPill);
   journalGray.appendChild(buildBadge(journal, tier, visibleLists));
 }
 
@@ -256,18 +237,21 @@ function clearHighlights() {
       "sjh-utd24",
       "sjh-ft50",
       "sjh-abdc",
-      "sjh-sjr",
       "sjh-custom"
     );
   });
-  document.querySelectorAll(".sjh-tags, .sjh-quartile").forEach((el) => el.remove());
+  document.querySelectorAll(".sjh-tags").forEach((el) => el.remove());
 }
 
 function loadPrefsAndProcess() {
   chrome.storage.sync.get(
-    { showUtd24: true, showFt50: true, showAbdc: true, showSjr: true, showCustom: true, displayMode: "dim" },
+    { showUtd24: true, showFt50: true, showAbdc: true, showCustom: true, displayMode: "dim", customJournals: [] },
     (p) => {
       prefs = p;
+      userCustom = p.customJournals || [];
+      if (journalData) {
+        buildLookup(journalData.journals);
+      }
       clearHighlights();
       processAllResults();
     }
@@ -286,7 +270,6 @@ function init() {
     }
 
     journalData = data;
-    buildLookup(data.journals);
     console.log(`Scholar Journal Highlighter: ${data.journals.length} journals loaded`);
     loadPrefsAndProcess();
 
@@ -316,7 +299,7 @@ function init() {
 }
 
 chrome.runtime.onMessage.addListener((msg) => {
-  if (msg.type === "TOGGLE_CHANGED" || msg.type === "MODE_CHANGED") {
+  if (msg.type === "TOGGLE_CHANGED" || msg.type === "MODE_CHANGED" || msg.type === "CUSTOM_CHANGED") {
     loadPrefsAndProcess();
   }
 });

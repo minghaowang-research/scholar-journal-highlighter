@@ -22,14 +22,6 @@
   padding-left: 8px;
 }
 
-/* SJR: Muted teal */
-.gs_r.sjh-sjr,
-.gsc_a_tr.sjh-sjr {
-  border-left: 4px solid #0d9488 !important;
-  background-color: rgba(13, 148, 136, 0.05) !important;
-  padding-left: 8px;
-}
-
 /* Custom/My List: Slate gray */
 .gs_r.sjh-custom,
 .gsc_a_tr.sjh-custom {
@@ -88,24 +80,5 @@
 .sjh-tag-abdc { background: #fff7ed; color: #9a3412; }
 .sjh-tag-abdc::before { background: #ea580c; }
 
-.sjh-tag-sjr { background: #ccfbf1; color: #115e59; }
-.sjh-tag-sjr::before { background: #0d9488; }
-
 .sjh-tag-custom { background: #f1f5f9; color: #334155; }
 .sjh-tag-custom::before { background: #64748b; }
-
-/* SJR Quartile pill */
-.sjh-quartile {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 1px 5px;
-  margin-left: 4px;
-  border-radius: 3px;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-.sjh-q1 { background: #065f46; color: #ecfdf5; }
-.sjh-q2 { background: #1d4ed8; color: #eff6ff; }
-.sjh-q3 { background: #b45309; color: #fffbeb; }
-.sjh-q4 { background: #991b1b; color: #fef2f2; }
