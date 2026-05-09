@@ -322,41 +322,31 @@ function injectAccessButtonsProfile(rowEl) {
   const btnContainer = document.createElement("span");
   btnContainer.className = "sjh-access-btns";
 
+  const citationUrl = titleLink.href;
+  let cached = null;
+
+  async function resolve() {
+    if (cached) return cached;
+    cached = await new Promise((resolve) => {
+      chrome.runtime.sendMessage({ type: "GET_PAPER_ACCESS", citationUrl, title }, resolve);
+    });
+    return cached || {};
+  }
+
   if (prefs.enableScihub) {
     const btn = makeBtn("sjh-btn-scihub", "Sci-Hub");
     btn.href = "#";
-    const citationUrl = titleLink.href;
     btn.addEventListener("click", async (e) => {
       e.preventDefault();
+      const newTab = window.open("about:blank", "_blank");
       btn.textContent = "...";
-
-      let doi = null;
-
-      try {
-        const resp = await fetch(citationUrl);
-        const html = await resp.text();
-        const doc = new DOMParser().parseFromString(html, "text/html");
-        for (const link of doc.querySelectorAll("a[href]")) {
-          const href = link.getAttribute("href");
-          if (href && !href.includes("scholar.google.com") && !href.startsWith("/") && !href.startsWith("#")) {
-            doi = extractDOIFromUrl(href);
-            if (doi) break;
-          }
-        }
-      } catch (_) {}
-
-      if (!doi) {
-        const result = await new Promise((resolve) => {
-          chrome.runtime.sendMessage({ type: "LOOKUP_DOI", title }, resolve);
-        });
-        if (result) doi = result.doi;
-      }
-
+      const result = await resolve();
       btn.textContent = "Sci-Hub";
-      if (doi) {
-        window.open(getScihubBase() + doi, "_blank");
+      if (result.doi && newTab) {
+        newTab.location.href = getScihubBase() + result.doi;
       } else {
-        btn.textContent = "No DOI";
+        if (newTab) newTab.close();
+        btn.textContent = "No DOI found";
         setTimeout(() => { btn.textContent = "Sci-Hub"; }, 2000);
       }
     });
@@ -365,7 +355,22 @@ function injectAccessButtonsProfile(rowEl) {
 
   if (prefs.enableProxy && getProxyBase()) {
     const btn = makeBtn("sjh-btn-proxy", "Library");
-    btn.href = getProxyBase() + titleLink.href;
+    btn.href = "#";
+    btn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const newTab = window.open("about:blank", "_blank");
+      btn.textContent = "...";
+      const result = await resolve();
+      btn.textContent = "Library";
+      const url = result.publisherUrl || (result.doi ? "https://doi.org/" + result.doi : null);
+      if (url && newTab) {
+        newTab.location.href = getProxyBase() + url;
+      } else {
+        if (newTab) newTab.close();
+        btn.textContent = "Not found";
+        setTimeout(() => { btn.textContent = "Library"; }, 2000);
+      }
+    });
     btnContainer.appendChild(btn);
   }
 

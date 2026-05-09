@@ -111,6 +111,52 @@ async function fetchDOI(title) {
   }
 }
 
+function isPublisherUrl(href) {
+  if (!href || href.startsWith("/") || href.startsWith("#") || href.startsWith("javascript:")) return false;
+  const skip = ["scholar.google", "google.com", "googleapis.com", "gstatic.com",
+    "accounts.google", "youtube.com", "support.google", "chrome.google", "mozilla.com"];
+  return !skip.some((d) => href.includes(d));
+}
+
+function extractDOIFromUrl(url) {
+  const match = url.match(/\b(10\.\d{4,}\/[^\s?#]+)/);
+  if (match) return match[1].replace(/[.,;:)\]]+$/, "");
+  return null;
+}
+
+async function resolvePaperFromCitation(citationUrl, title) {
+  let publisherUrl = null;
+  let doi = null;
+
+  try {
+    const resp = await fetch(citationUrl);
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const html = await resp.text();
+    const hrefRegex = /href="([^"]+)"/g;
+    let match;
+    while ((match = hrefRegex.exec(html)) !== null) {
+      const href = match[1].replace(/&amp;/g, "&");
+      if (isPublisherUrl(href)) {
+        const d = extractDOIFromUrl(href);
+        if (d) {
+          doi = d;
+          publisherUrl = href.split("?")[0];
+          break;
+        }
+        if (!publisherUrl) publisherUrl = href.split("?")[0];
+      }
+    }
+  } catch (err) {
+    console.warn("Scholar Journal Highlighter: citation page fetch failed", err);
+  }
+
+  if (!doi) {
+    doi = await lookupDOI(title);
+  }
+
+  return { doi, publisherUrl };
+}
+
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.type === "GET_JOURNALS") {
     fetchJournalData().then(sendResponse);
@@ -126,6 +172,10 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   }
   if (msg.type === "LOOKUP_DOI") {
     lookupDOI(msg.title).then((doi) => sendResponse({ doi }));
+    return true;
+  }
+  if (msg.type === "GET_PAPER_ACCESS") {
+    resolvePaperFromCitation(msg.citationUrl, msg.title).then(sendResponse);
     return true;
   }
 });
