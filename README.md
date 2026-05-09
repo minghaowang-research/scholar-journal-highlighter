@@ -77,6 +77,8 @@ This outputs to both `data/journals.json` and `extension/journals.json`.
 
 A GitHub Actions workflow also rebuilds automatically when source JSON files change on main.
 
+**Auto-update for installed extensions:** The extension fetches journal data from this repo's `data/journals.json` on GitHub (7-day cache). When you push updated journal data, all installed extensions will pick up the new data within 7 days -- no reinstall needed.
+
 ### Releasing
 
 1. Update version in `extension/manifest.json`
