@@ -1,0 +1,5528 @@
+{
+  "version": 1,
+  "updated": "2026-05-08",
+  "journals": [
+    {
+      "name": "Academy of Management Annals",
+      "normalized": "academy of management annals",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 14.367,
+        "quartile": "Q1",
+        "rank": 2,
+        "hIndex": 132
+      }
+    },
+    {
+      "name": "Academy of Management Discoveries",
+      "normalized": "academy of management discoveries",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.416,
+        "quartile": "Q1",
+        "rank": 40,
+        "hIndex": 34
+      }
+    },
+    {
+      "name": "Academy of Management Journal",
+      "normalized": "academy of management journal",
+      "aliases": [
+        "amj",
+        "acad manage j",
+        "acad. manage. j."
+      ],
+      "lists": [
+        "utd24",
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 10.781,
+        "quartile": "Q1",
+        "rank": 5,
+        "hIndex": 410
+      }
+    },
+    {
+      "name": "Academy of Management Learning and Education",
+      "normalized": "academy of management learning and education",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.715,
+        "quartile": "Q1",
+        "rank": 51,
+        "hIndex": 106
+      }
+    },
+    {
+      "name": "Academy of Management Perspectives",
+      "normalized": "academy of management perspectives",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.547,
+        "quartile": "Q1",
+        "rank": 36,
+        "hIndex": 177
+      }
+    },
+    {
+      "name": "Academy of Management Review",
+      "normalized": "academy of management review",
+      "aliases": [
+        "amr",
+        "acad manage rev",
+        "acad. manage. rev."
+      ],
+      "lists": [
+        "utd24",
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 9.996,
+        "quartile": "Q1",
+        "rank": 6,
+        "hIndex": 334
+      }
+    },
+    {
+      "name": "Accounting and Finance",
+      "normalized": "accounting and finance",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.814,
+        "quartile": "Q2",
+        "rank": 142,
+        "hIndex": 77
+      }
+    },
+    {
+      "name": "Accounting and the Public Interest",
+      "normalized": "accounting and the public interest",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.156,
+        "quartile": "Q4",
+        "rank": 326,
+        "hIndex": 14
+      }
+    },
+    {
+      "name": "Accounting Historians Journal",
+      "normalized": "accounting historians journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.256,
+        "quartile": "Q3",
+        "rank": 279,
+        "hIndex": 29
+      }
+    },
+    {
+      "name": "Accounting Horizons",
+      "normalized": "accounting horizons",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.361,
+        "quartile": "Q1",
+        "rank": 91,
+        "hIndex": 98
+      }
+    },
+    {
+      "name": "Accounting Review",
+      "normalized": "accounting review",
+      "aliases": [
+        "tar",
+        "account rev",
+        "accounting review"
+      ],
+      "lists": [
+        "utd24",
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 4.403,
+        "quartile": "Q1",
+        "rank": 26,
+        "hIndex": 217
+      }
+    },
+    {
+      "name": "Accounting, Organizations and Society",
+      "normalized": "accounting organizations and society",
+      "aliases": [
+        "aos",
+        "account organ soc"
+      ],
+      "lists": [
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "ACM Transactions on Economics and Computation",
+      "normalized": "acm transactions on economics and computation",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.316,
+        "quartile": "Q3",
+        "rank": 256,
+        "hIndex": 27
+      }
+    },
+    {
+      "name": "ACM Transactions on Information Systems",
+      "normalized": "acm transactions on information systems",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.932,
+        "quartile": "Q1",
+        "rank": 69,
+        "hIndex": 107
+      }
+    },
+    {
+      "name": "ACM Transactions on Management Information Systems",
+      "normalized": "acm transactions on management information systems",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.913,
+        "quartile": "Q1",
+        "rank": 125,
+        "hIndex": 45
+      }
+    },
+    {
+      "name": "Administration and Society",
+      "normalized": "administration and society",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.073,
+        "quartile": "Q2",
+        "rank": 113,
+        "hIndex": 86
+      }
+    },
+    {
+      "name": "Administrative Science Quarterly",
+      "normalized": "administrative science quarterly",
+      "aliases": [
+        "asq",
+        "admin sci q",
+        "admin. sci. quart."
+      ],
+      "lists": [
+        "utd24",
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Advances in Accounting",
+      "normalized": "advances in accounting",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.431,
+        "quartile": "Q3",
+        "rank": 217,
+        "hIndex": 49
+      }
+    },
+    {
+      "name": "Advances in Consumer Research",
+      "normalized": "advances in consumer research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.112,
+        "quartile": "Q4",
+        "rank": 345,
+        "hIndex": 32
+      }
+    },
+    {
+      "name": "Advances in Developing Human Resources",
+      "normalized": "advances in developing human resources",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.592,
+        "quartile": "Q2",
+        "rank": 180,
+        "hIndex": 67
+      }
+    },
+    {
+      "name": "AIS Transactions on Replication Research",
+      "normalized": "ais transactions on replication research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.145,
+        "quartile": "Q4",
+        "rank": 331,
+        "hIndex": 5
+      }
+    },
+    {
+      "name": "American Business Review",
+      "normalized": "american business review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.251,
+        "quartile": "Q3",
+        "rank": 282,
+        "hIndex": 9
+      }
+    },
+    {
+      "name": "American Economic Review",
+      "normalized": "american economic review",
+      "aliases": [
+        "aer",
+        "am econ rev",
+        "amer. econ. rev."
+      ],
+      "lists": [
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "American Health and Drug Benefits",
+      "normalized": "american health and drug benefits",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.253,
+        "quartile": "Q3",
+        "rank": 280,
+        "hIndex": 42
+      }
+    },
+    {
+      "name": "American Journal of Evaluation",
+      "normalized": "american journal of evaluation",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.655,
+        "quartile": "Q2",
+        "rank": 169,
+        "hIndex": 74
+      }
+    },
+    {
+      "name": "American Review of Public Administration",
+      "normalized": "american review of public administration",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.221,
+        "quartile": "Q2",
+        "rank": 100,
+        "hIndex": 90
+      }
+    },
+    {
+      "name": "AMS Review",
+      "normalized": "ams review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.337,
+        "quartile": "Q1",
+        "rank": 93,
+        "hIndex": 38
+      }
+    },
+    {
+      "name": "Annals of Corporate Governance",
+      "normalized": "annals of corporate governance",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.412,
+        "quartile": "Q2",
+        "rank": 223,
+        "hIndex": 6
+      }
+    },
+    {
+      "name": "Annals of Leisure Research",
+      "normalized": "annals of leisure research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.645,
+        "quartile": "Q2",
+        "rank": 171,
+        "hIndex": 41
+      }
+    },
+    {
+      "name": "Annual Review of Organizational Psychology and Organizational Behavior",
+      "normalized": "annual review of organizational psychology and organizational behavior",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 16.778,
+        "quartile": "Q1",
+        "rank": 1,
+        "hIndex": 98
+      }
+    },
+    {
+      "name": "Artivate",
+      "normalized": "artivate",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.163,
+        "quartile": "Q4",
+        "rank": 321,
+        "hIndex": 7
+      }
+    },
+    {
+      "name": "Asia Pacific Journal of Human Resources",
+      "normalized": "asia pacific journal of human resources",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.346,
+        "quartile": "Q1",
+        "rank": 92,
+        "hIndex": 52
+      }
+    },
+    {
+      "name": "Asia Pacific Journal of Management",
+      "normalized": "asia pacific journal of management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.297,
+        "quartile": "Q1",
+        "rank": 95,
+        "hIndex": 105
+      }
+    },
+    {
+      "name": "ATA Journal of Legal Tax Research",
+      "normalized": "ata journal of legal tax research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.124,
+        "quartile": "Q4",
+        "rank": 341,
+        "hIndex": 4
+      }
+    },
+    {
+      "name": "Auditing",
+      "normalized": "auditing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.32,
+        "quartile": "Q1",
+        "rank": 57,
+        "hIndex": 111
+      }
+    },
+    {
+      "name": "Banking Law Journal",
+      "normalized": "banking law journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.103,
+        "quartile": "Q4",
+        "rank": 350,
+        "hIndex": 7
+      }
+    },
+    {
+      "name": "Behavioral Research in Accounting",
+      "normalized": "behavioral research in accounting",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.679,
+        "quartile": "Q2",
+        "rank": 165,
+        "hIndex": 36
+      }
+    },
+    {
+      "name": "Big Data Research",
+      "normalized": "big data research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.843,
+        "quartile": "Q1",
+        "rank": 135,
+        "hIndex": 51
+      }
+    },
+    {
+      "name": "BioProducts Business",
+      "normalized": "bioproducts business",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.285,
+        "quartile": "Q3",
+        "rank": 267,
+        "hIndex": 7
+      }
+    },
+    {
+      "name": "British Accounting Review",
+      "normalized": "british accounting review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.705,
+        "quartile": "Q1",
+        "rank": 76,
+        "hIndex": 100
+      }
+    },
+    {
+      "name": "British Tax Review",
+      "normalized": "british tax review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.174,
+        "quartile": "Q4",
+        "rank": 317,
+        "hIndex": 5
+      }
+    },
+    {
+      "name": "Brookings Papers on Economic Activity",
+      "normalized": "brookings papers on economic activity",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 4.451,
+        "quartile": "Q1",
+        "rank": 25,
+        "hIndex": 104
+      }
+    },
+    {
+      "name": "Business and Professional Communication Quarterly",
+      "normalized": "business and professional communication quarterly",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.705,
+        "quartile": "Q2",
+        "rank": 160,
+        "hIndex": 47
+      }
+    },
+    {
+      "name": "Business and Professional Ethics Journal",
+      "normalized": "business and professional ethics journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.169,
+        "quartile": "Q4",
+        "rank": 319,
+        "hIndex": 7
+      }
+    },
+    {
+      "name": "Business Lawyer",
+      "normalized": "business lawyer",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.41,
+        "quartile": "Q3",
+        "rank": 224,
+        "hIndex": 25
+      }
+    },
+    {
+      "name": "Business Strategy and Development",
+      "normalized": "business strategy and development",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.831,
+        "quartile": "Q2",
+        "rank": 140,
+        "hIndex": 39
+      }
+    },
+    {
+      "name": "Canadian Journal of Administrative Sciences",
+      "normalized": "canadian journal of administrative sciences",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.395,
+        "quartile": "Q3",
+        "rank": 228,
+        "hIndex": 65
+      }
+    },
+    {
+      "name": "Career Development and Transition for Exceptional Individuals",
+      "normalized": "career development and transition for exceptional individuals",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.691,
+        "quartile": "Q2",
+        "rank": 163,
+        "hIndex": 29
+      }
+    },
+    {
+      "name": "Career Development Quarterly",
+      "normalized": "career development quarterly",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.811,
+        "quartile": "Q2",
+        "rank": 144,
+        "hIndex": 70
+      }
+    },
+    {
+      "name": "Change Management",
+      "normalized": "change management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.165,
+        "quartile": "Q4",
+        "rank": 320,
+        "hIndex": 6
+      }
+    },
+    {
+      "name": "Clothing and Textiles Research Journal",
+      "normalized": "clothing and textiles research journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.625,
+        "quartile": "Q2",
+        "rank": 174,
+        "hIndex": 52
+      }
+    },
+    {
+      "name": "Coaching",
+      "normalized": "coaching",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.572,
+        "quartile": "Q2",
+        "rank": 183,
+        "hIndex": 27
+      }
+    },
+    {
+      "name": "Collection Management",
+      "normalized": "collection management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.356,
+        "quartile": "Q3",
+        "rank": 237,
+        "hIndex": 24
+      }
+    },
+    {
+      "name": "Compensation and Benefits Review",
+      "normalized": "compensation and benefits review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.399,
+        "quartile": "Q2",
+        "rank": 227,
+        "hIndex": 20
+      }
+    },
+    {
+      "name": "Consumption Markets and Culture",
+      "normalized": "consumption markets and culture",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.756,
+        "quartile": "Q2",
+        "rank": 149,
+        "hIndex": 47
+      }
+    },
+    {
+      "name": "Contemporary Accounting Research",
+      "normalized": "contemporary accounting research",
+      "aliases": [
+        "car",
+        "contemp account res"
+      ],
+      "lists": [
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Cornell Hospitality Quarterly",
+      "normalized": "cornell hospitality quarterly",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.13,
+        "quartile": "Q1",
+        "rank": 108,
+        "hIndex": 100
+      }
+    },
+    {
+      "name": "Critical Perspectives on Accounting",
+      "normalized": "critical perspectives on accounting",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.1,
+        "quartile": "Q1",
+        "rank": 63,
+        "hIndex": 97
+      }
+    },
+    {
+      "name": "Current Issues in Auditing",
+      "normalized": "current issues in auditing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.322,
+        "quartile": "Q3",
+        "rank": 252,
+        "hIndex": 22
+      }
+    },
+    {
+      "name": "Data Base for Advances in Information Systems",
+      "normalized": "data base for advances in information systems",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.433,
+        "quartile": "Q2",
+        "rank": 216,
+        "hIndex": 73
+      }
+    },
+    {
+      "name": "Distributed Ledger Technologies",
+      "normalized": "distributed ledger technologies",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.456,
+        "quartile": "Q2",
+        "rank": 208,
+        "hIndex": 11
+      }
+    },
+    {
+      "name": "e-Review of Tourism Research",
+      "normalized": "e-review of tourism research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.199,
+        "quartile": "Q4",
+        "rank": 309,
+        "hIndex": 18
+      }
+    },
+    {
+      "name": "Econometrica",
+      "normalized": "econometrica",
+      "aliases": [],
+      "lists": [
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Economia",
+      "normalized": "economia",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.219,
+        "quartile": "Q4",
+        "rank": 298,
+        "hIndex": 6
+      }
+    },
+    {
+      "name": "Economics of Peace and Security Journal",
+      "normalized": "economics of peace and security journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.222,
+        "quartile": "Q4",
+        "rank": 295,
+        "hIndex": 6
+      }
+    },
+    {
+      "name": "Electricity Journal",
+      "normalized": "electricity journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.826,
+        "quartile": "Q2",
+        "rank": 141,
+        "hIndex": 67
+      }
+    },
+    {
+      "name": "Employee Responsibilities and Rights Journal",
+      "normalized": "employee responsibilities and rights journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.6,
+        "quartile": "Q2",
+        "rank": 178,
+        "hIndex": 42
+      }
+    },
+    {
+      "name": "Engineering Project Organization Journal",
+      "normalized": "engineering project organization journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.162,
+        "quartile": "Q4",
+        "rank": 322,
+        "hIndex": 7
+      }
+    },
+    {
+      "name": "Entrepreneurship Education and Pedagogy",
+      "normalized": "entrepreneurship education and pedagogy",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.536,
+        "quartile": "Q2",
+        "rank": 193,
+        "hIndex": 25
+      }
+    },
+    {
+      "name": "Entrepreneurship Theory and Practice",
+      "normalized": "entrepreneurship theory and practice",
+      "aliases": [
+        "etp",
+        "entrep theory pract"
+      ],
+      "lists": [
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 5.67,
+        "quartile": "Q1",
+        "rank": 18,
+        "hIndex": 224
+      }
+    },
+    {
+      "name": "European Management Review",
+      "normalized": "european management review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.202,
+        "quartile": "Q1",
+        "rank": 102,
+        "hIndex": 54
+      }
+    },
+    {
+      "name": "Event Management",
+      "normalized": "event management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.529,
+        "quartile": "Q2",
+        "rank": 195,
+        "hIndex": 48
+      }
+    },
+    {
+      "name": "Family Business Review",
+      "normalized": "family business review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.853,
+        "quartile": "Q1",
+        "rank": 48,
+        "hIndex": 140
+      }
+    },
+    {
+      "name": "Federal Reserve Bank of St. Louis Review",
+      "normalized": "federal reserve bank of st louis review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.615,
+        "quartile": "Q2",
+        "rank": 177,
+        "hIndex": 43
+      }
+    },
+    {
+      "name": "Financial Accountability and Management",
+      "normalized": "financial accountability and management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.136,
+        "quartile": "Q1",
+        "rank": 107,
+        "hIndex": 58
+      }
+    },
+    {
+      "name": "Financial Management",
+      "normalized": "financial management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.477,
+        "quartile": "Q1",
+        "rank": 39,
+        "hIndex": 88
+      }
+    },
+    {
+      "name": "Financial Markets and Portfolio Management",
+      "normalized": "financial markets and portfolio management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.343,
+        "quartile": "Q3",
+        "rank": 241,
+        "hIndex": 31
+      }
+    },
+    {
+      "name": "Fiscal Studies",
+      "normalized": "fiscal studies",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.542,
+        "quartile": "Q2",
+        "rank": 192,
+        "hIndex": 54
+      }
+    },
+    {
+      "name": "Florida Tax Review",
+      "normalized": "florida tax review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.239,
+        "quartile": "Q3",
+        "rank": 287,
+        "hIndex": 5
+      }
+    },
+    {
+      "name": "Forbes",
+      "normalized": "forbes",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.104,
+        "quartile": "Q4",
+        "rank": 349,
+        "hIndex": 7
+      }
+    },
+    {
+      "name": "Foundations and Trends in Accounting",
+      "normalized": "foundations and trends in accounting",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.055,
+        "quartile": "Q1",
+        "rank": 115,
+        "hIndex": 22
+      }
+    },
+    {
+      "name": "Foundations and Trends in Entrepreneurship",
+      "normalized": "foundations and trends in entrepreneurship",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.998,
+        "quartile": "Q1",
+        "rank": 120,
+        "hIndex": 42
+      }
+    },
+    {
+      "name": "Foundations and Trends in Information Systems",
+      "normalized": "foundations and trends in information systems",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.224,
+        "quartile": "Q4",
+        "rank": 294,
+        "hIndex": 6
+      }
+    },
+    {
+      "name": "Foundations and Trends in Marketing",
+      "normalized": "foundations and trends in marketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.074,
+        "quartile": "Q2",
+        "rank": 112,
+        "hIndex": 18
+      }
+    },
+    {
+      "name": "Frontiers of Health Services Management",
+      "normalized": "frontiers of health services management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.16,
+        "quartile": "Q4",
+        "rank": 323,
+        "hIndex": 26
+      }
+    },
+    {
+      "name": "Futures and Foresight Science",
+      "normalized": "futures and foresight science",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.742,
+        "quartile": "Q1",
+        "rank": 150,
+        "hIndex": 17
+      }
+    },
+    {
+      "name": "Genetic Engineering and Biotechnology News",
+      "normalized": "genetic engineering and biotechnology news",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.108,
+        "quartile": "Q4",
+        "rank": 347,
+        "hIndex": 13
+      }
+    },
+    {
+      "name": "Geneva Papers on Risk and Insurance: Issues and Practice",
+      "normalized": "geneva papers on risk and insurance issues and practice",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.56,
+        "quartile": "Q2",
+        "rank": 187,
+        "hIndex": 46
+      }
+    },
+    {
+      "name": "Global Business and Organizational Excellence",
+      "normalized": "global business and organizational excellence",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.991,
+        "quartile": "Q1",
+        "rank": 66,
+        "hIndex": 37
+      }
+    },
+    {
+      "name": "Global Strategy Journal",
+      "normalized": "global strategy journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.664,
+        "quartile": "Q1",
+        "rank": 31,
+        "hIndex": 60
+      }
+    },
+    {
+      "name": "Group and Organization Management",
+      "normalized": "group and organization management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.543,
+        "quartile": "Q1",
+        "rank": 55,
+        "hIndex": 113
+      }
+    },
+    {
+      "name": "Harvard Business Review",
+      "normalized": "harvard business review",
+      "aliases": [
+        "hbr",
+        "harv bus rev"
+      ],
+      "lists": [
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.356,
+        "quartile": "Q3",
+        "rank": 238,
+        "hIndex": 221
+      }
+    },
+    {
+      "name": "Health Care Management Review",
+      "normalized": "health care management review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.873,
+        "quartile": "Q2",
+        "rank": 130,
+        "hIndex": 71
+      }
+    },
+    {
+      "name": "Health Marketing Quarterly",
+      "normalized": "health marketing quarterly",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.282,
+        "quartile": "Q3",
+        "rank": 268,
+        "hIndex": 35
+      }
+    },
+    {
+      "name": "Hotel Management",
+      "normalized": "hotel management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.102,
+        "quartile": "Q4",
+        "rank": 352,
+        "hIndex": 4
+      }
+    },
+    {
+      "name": "Human Performance",
+      "normalized": "human performance",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.834,
+        "quartile": "Q2",
+        "rank": 139,
+        "hIndex": 87
+      }
+    },
+    {
+      "name": "Human Relations",
+      "normalized": "human relations",
+      "aliases": [
+        "hum relat"
+      ],
+      "lists": [
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Human Resource Development Quarterly",
+      "normalized": "human resource development quarterly",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.52,
+        "quartile": "Q1",
+        "rank": 82,
+        "hIndex": 87
+      }
+    },
+    {
+      "name": "Human Resource Management",
+      "normalized": "human resource management",
+      "aliases": [
+        "hrm",
+        "hum resour manage"
+      ],
+      "lists": [
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 4.598,
+        "quartile": "Q1",
+        "rank": 24,
+        "hIndex": 133
+      }
+    },
+    {
+      "name": "Human Resource Management Journal",
+      "normalized": "human resource management journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.013,
+        "quartile": "Q1",
+        "rank": 47,
+        "hIndex": 107
+      }
+    },
+    {
+      "name": "IBIMA Business Review",
+      "normalized": "ibima business review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.141,
+        "quartile": "Q4",
+        "rank": 333,
+        "hIndex": 13
+      }
+    },
+    {
+      "name": "IEEE Communications Standards Magazine",
+      "normalized": "ieee communications standards magazine",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.629,
+        "quartile": "Q1",
+        "rank": 79,
+        "hIndex": 50
+      }
+    },
+    {
+      "name": "IEEE Engineering Management Review",
+      "normalized": "ieee engineering management review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.638,
+        "quartile": "Q2",
+        "rank": 172,
+        "hIndex": 49
+      }
+    },
+    {
+      "name": "IEEE European Technology and Engineering Management Summit, E-TEMS",
+      "normalized": "ieee european technology and engineering management summit e-tems",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.0,
+        "quartile": "-",
+        "rank": 357,
+        "hIndex": 1
+      }
+    },
+    {
+      "name": "IEEE Potentials",
+      "normalized": "ieee potentials",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.235,
+        "quartile": "Q3",
+        "rank": 288,
+        "hIndex": 42
+      }
+    },
+    {
+      "name": "IEEE Transactions on Engineering Management",
+      "normalized": "ieee transactions on engineering management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.48,
+        "quartile": "Q1",
+        "rank": 85,
+        "hIndex": 124
+      }
+    },
+    {
+      "name": "IEEE Transactions on Professional Communication",
+      "normalized": "ieee transactions on professional communication",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.491,
+        "quartile": "Q2",
+        "rank": 203,
+        "hIndex": 58
+      }
+    },
+    {
+      "name": "ILR Review",
+      "normalized": "ilr review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.838,
+        "quartile": "Q1",
+        "rank": 72,
+        "hIndex": 100
+      }
+    },
+    {
+      "name": "Industrial Marketing Management",
+      "normalized": "industrial marketing management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.851,
+        "quartile": "Q1",
+        "rank": 49,
+        "hIndex": 199
+      }
+    },
+    {
+      "name": "Industrial Relations Journal",
+      "normalized": "industrial relations journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.772,
+        "quartile": "Q2",
+        "rank": 148,
+        "hIndex": 16
+      }
+    },
+    {
+      "name": "Industry and Higher Education",
+      "normalized": "industry and higher education",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.71,
+        "quartile": "Q2",
+        "rank": 158,
+        "hIndex": 41
+      }
+    },
+    {
+      "name": "Information Resources Management Journal",
+      "normalized": "information resources management journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.219,
+        "quartile": "Q4",
+        "rank": 299,
+        "hIndex": 49
+      }
+    },
+    {
+      "name": "Information Systems Research",
+      "normalized": "information systems research",
+      "aliases": [
+        "isr",
+        "inform syst res",
+        "inf. syst. res."
+      ],
+      "lists": [
+        "utd24",
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 5.679,
+        "quartile": "Q1",
+        "rank": 17,
+        "hIndex": 203
+      }
+    },
+    {
+      "name": "INFORMS Journal on Applied Analytics",
+      "normalized": "informs journal on applied analytics",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.842,
+        "quartile": "Q2",
+        "rank": 136,
+        "hIndex": 15
+      }
+    },
+    {
+      "name": "INFORMS Journal on Computing",
+      "normalized": "informs journal on computing",
+      "aliases": [
+        "ijoc",
+        "j on computing",
+        "journal on computing",
+        "informs j comput"
+      ],
+      "lists": [
+        "utd24"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "INFORMS Transactions on Education",
+      "normalized": "informs transactions on education",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.402,
+        "quartile": "Q2",
+        "rank": 226,
+        "hIndex": 10
+      }
+    },
+    {
+      "name": "International Conference on Electrical Energy Systems, ICEES",
+      "normalized": "international conference on electrical energy systems icees",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.0,
+        "quartile": "-",
+        "rank": 358,
+        "hIndex": 1
+      }
+    },
+    {
+      "name": "International Conference on Logistics, LOGISTIQUA",
+      "normalized": "international conference on logistics logistiqua",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.0,
+        "quartile": "-",
+        "rank": 359,
+        "hIndex": 1
+      }
+    },
+    {
+      "name": "International Conference on Social Networks Analysis, Management and Security, SNAMS",
+      "normalized": "international conference on social networks analysis management and security snams",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.117,
+        "quartile": "Q4",
+        "rank": 344,
+        "hIndex": 2
+      }
+    },
+    {
+      "name": "International Entrepreneurship and Management Journal",
+      "normalized": "international entrepreneurship and management journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.014,
+        "quartile": "Q1",
+        "rank": 118,
+        "hIndex": 97
+      }
+    },
+    {
+      "name": "International Food and Agribusiness Management Review",
+      "normalized": "international food and agribusiness management review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.446,
+        "quartile": "Q2",
+        "rank": 211,
+        "hIndex": 53
+      }
+    },
+    {
+      "name": "International Journal of Accounting Information Systems",
+      "normalized": "international journal of accounting information systems",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.747,
+        "quartile": "Q1",
+        "rank": 73,
+        "hIndex": 74
+      }
+    },
+    {
+      "name": "International Journal of Applied Ceramic Technology",
+      "normalized": "international journal of applied ceramic technology",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.445,
+        "quartile": "Q3",
+        "rank": 212,
+        "hIndex": 80
+      }
+    },
+    {
+      "name": "International Journal of Asian Business and Information Management",
+      "normalized": "international journal of asian business and information management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.225,
+        "quartile": "Q4",
+        "rank": 293,
+        "hIndex": 18
+      }
+    },
+    {
+      "name": "International Journal of Business Analytics",
+      "normalized": "international journal of business analytics",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.208,
+        "quartile": "Q4",
+        "rank": 304,
+        "hIndex": 14
+      }
+    },
+    {
+      "name": "International Journal of Business Communication",
+      "normalized": "international journal of business communication",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.047,
+        "quartile": "Q1",
+        "rank": 116,
+        "hIndex": 72
+      }
+    },
+    {
+      "name": "International Journal of Business Data Communications and Networking",
+      "normalized": "international journal of business data communications and networking",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.248,
+        "quartile": "Q3",
+        "rank": 283,
+        "hIndex": 16
+      }
+    },
+    {
+      "name": "International Journal of Business Intelligence Research",
+      "normalized": "international journal of business intelligence research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.172,
+        "quartile": "Q4",
+        "rank": 318,
+        "hIndex": 10
+      }
+    },
+    {
+      "name": "International Journal of Computer Information Systems and Industrial Management Applications",
+      "normalized": "international journal of computer information systems and industrial management applications",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.23,
+        "quartile": "Q3",
+        "rank": 291,
+        "hIndex": 15
+      }
+    },
+    {
+      "name": "International Journal of Customer Relationship Marketing and Management",
+      "normalized": "international journal of customer relationship marketing and management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.304,
+        "quartile": "Q3",
+        "rank": 263,
+        "hIndex": 11
+      }
+    },
+    {
+      "name": "International Journal of e-Business Research",
+      "normalized": "international journal of e-business research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.343,
+        "quartile": "Q3",
+        "rank": 242,
+        "hIndex": 34
+      }
+    },
+    {
+      "name": "International Journal of E-Entrepreneurship and Innovation",
+      "normalized": "international journal of e-entrepreneurship and innovation",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.339,
+        "quartile": "Q3",
+        "rank": 246,
+        "hIndex": 9
+      }
+    },
+    {
+      "name": "International Journal of E-Services and Mobile Applications",
+      "normalized": "international journal of e-services and mobile applications",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.34,
+        "quartile": "Q3",
+        "rank": 244,
+        "hIndex": 17
+      }
+    },
+    {
+      "name": "International Journal of Educational Organization and Leadership",
+      "normalized": "international journal of educational organization and leadership",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.176,
+        "quartile": "Q4",
+        "rank": 316,
+        "hIndex": 9
+      }
+    },
+    {
+      "name": "International Journal of Electronic Commerce",
+      "normalized": "international journal of electronic commerce",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.028,
+        "quartile": "Q1",
+        "rank": 117,
+        "hIndex": 104
+      }
+    },
+    {
+      "name": "International Journal of Enterprise Information Systems",
+      "normalized": "international journal of enterprise information systems",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.26,
+        "quartile": "Q3",
+        "rank": 276,
+        "hIndex": 32
+      }
+    },
+    {
+      "name": "International Journal of Hospitality and Tourism Administration",
+      "normalized": "international journal of hospitality and tourism administration",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.715,
+        "quartile": "Q2",
+        "rank": 155,
+        "hIndex": 47
+      }
+    },
+    {
+      "name": "International Journal of Human Capital and Information Technology Professionals",
+      "normalized": "international journal of human capital and information technology professionals",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.308,
+        "quartile": "Q3",
+        "rank": 261,
+        "hIndex": 19
+      }
+    },
+    {
+      "name": "International Journal of Industrial Organization",
+      "normalized": "international journal of industrial organization",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.449,
+        "quartile": "Q1",
+        "rank": 87,
+        "hIndex": 100
+      }
+    },
+    {
+      "name": "International Journal of Information System Modeling and Design",
+      "normalized": "international journal of information system modeling and design",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.185,
+        "quartile": "Q4",
+        "rank": 314,
+        "hIndex": 20
+      }
+    },
+    {
+      "name": "International Journal of Information Systems and Supply Chain Management",
+      "normalized": "international journal of information systems and supply chain management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.253,
+        "quartile": "Q3",
+        "rank": 281,
+        "hIndex": 21
+      }
+    },
+    {
+      "name": "International Journal of Information Systems in the Service Sector",
+      "normalized": "international journal of information systems in the service sector",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.188,
+        "quartile": "Q4",
+        "rank": 312,
+        "hIndex": 17
+      }
+    },
+    {
+      "name": "International Journal of Information Technology Project Management",
+      "normalized": "international journal of information technology project management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.227,
+        "quartile": "Q3",
+        "rank": 292,
+        "hIndex": 13
+      }
+    },
+    {
+      "name": "International Journal of Interdisciplinary Organizational Studies",
+      "normalized": "international journal of interdisciplinary organizational studies",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.129,
+        "quartile": "Q4",
+        "rank": 339,
+        "hIndex": 6
+      }
+    },
+    {
+      "name": "International Journal of Knowledge and Systems Science",
+      "normalized": "international journal of knowledge and systems science",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.187,
+        "quartile": "Q4",
+        "rank": 313,
+        "hIndex": 12
+      }
+    },
+    {
+      "name": "International Journal of Knowledge Management",
+      "normalized": "international journal of knowledge management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.372,
+        "quartile": "Q2",
+        "rank": 232,
+        "hIndex": 34
+      }
+    },
+    {
+      "name": "International Journal of Management and Sustainability",
+      "normalized": "international journal of management and sustainability",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.216,
+        "quartile": "Q3",
+        "rank": 300,
+        "hIndex": 11
+      }
+    },
+    {
+      "name": "International Journal of Operations and Quantitative Management",
+      "normalized": "international journal of operations and quantitative management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.21,
+        "quartile": "Q4",
+        "rank": 302,
+        "hIndex": 16
+      }
+    },
+    {
+      "name": "International Journal of Operations Research and Information Systems",
+      "normalized": "international journal of operations research and information systems",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.34,
+        "quartile": "Q3",
+        "rank": 245,
+        "hIndex": 10
+      }
+    },
+    {
+      "name": "International Journal of Organizational Diversity",
+      "normalized": "international journal of organizational diversity",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.287,
+        "quartile": "Q3",
+        "rank": 264,
+        "hIndex": 6
+      }
+    },
+    {
+      "name": "International Journal of Precision Engineering and Manufacturing - Green Technology",
+      "normalized": "international journal of precision engineering and manufacturing - green technology",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.19,
+        "quartile": "Q1",
+        "rank": 103,
+        "hIndex": 65
+      }
+    },
+    {
+      "name": "International Journal of Public Policy and Administration Research",
+      "normalized": "international journal of public policy and administration research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.14,
+        "quartile": "Q4",
+        "rank": 334,
+        "hIndex": 6
+      }
+    },
+    {
+      "name": "International Journal of Service Science, Management, Engineering, and Technology",
+      "normalized": "international journal of service science management engineering and technology",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.322,
+        "quartile": "Q3",
+        "rank": 253,
+        "hIndex": 22
+      }
+    },
+    {
+      "name": "International Journal of Spa and Wellness",
+      "normalized": "international journal of spa and wellness",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.436,
+        "quartile": "Q3",
+        "rank": 214,
+        "hIndex": 18
+      }
+    },
+    {
+      "name": "International Journal of Standardization Research",
+      "normalized": "international journal of standardization research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.112,
+        "quartile": "Q4",
+        "rank": 346,
+        "hIndex": 7
+      }
+    },
+    {
+      "name": "International Journal of Stress Management",
+      "normalized": "international journal of stress management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.813,
+        "quartile": "Q1",
+        "rank": 143,
+        "hIndex": 81
+      }
+    },
+    {
+      "name": "International Real Estate Review",
+      "normalized": "international real estate review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.139,
+        "quartile": "Q4",
+        "rank": 335,
+        "hIndex": 20
+      }
+    },
+    {
+      "name": "International Review of Environmental and Resource Economics",
+      "normalized": "international review of environmental and resource economics",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.866,
+        "quartile": "Q2",
+        "rank": 131,
+        "hIndex": 36
+      }
+    },
+    {
+      "name": "International Tax and Public Finance",
+      "normalized": "international tax and public finance",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.735,
+        "quartile": "Q2",
+        "rank": 152,
+        "hIndex": 60
+      }
+    },
+    {
+      "name": "Issues in Accounting Education",
+      "normalized": "issues in accounting education",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.502,
+        "quartile": "Q2",
+        "rank": 201,
+        "hIndex": 36
+      }
+    },
+    {
+      "name": "Issues in Information Systems",
+      "normalized": "issues in information systems",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.207,
+        "quartile": "Q4",
+        "rank": 305,
+        "hIndex": 14
+      }
+    },
+    {
+      "name": "ITMS - International Scientific Conference on Information Technology and Management Science of Riga Technical University",
+      "normalized": "itms - international scientific conference on information technology and management science of riga technical university",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.194,
+        "quartile": "Q4",
+        "rank": 310,
+        "hIndex": 3
+      }
+    },
+    {
+      "name": "Journal for Advancement of Marketing Education",
+      "normalized": "journal for advancement of marketing education",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.12,
+        "quartile": "Q4",
+        "rank": 343,
+        "hIndex": 12
+      }
+    },
+    {
+      "name": "Journal Globalization, Competitiveness and Governability",
+      "normalized": "journal globalization competitiveness and governability",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.132,
+        "quartile": "Q4",
+        "rank": 338,
+        "hIndex": 9
+      }
+    },
+    {
+      "name": "Journal of Accounting and Economics",
+      "normalized": "journal of accounting and economics",
+      "aliases": [
+        "jae",
+        "j account econ",
+        "j. account. econ."
+      ],
+      "lists": [
+        "utd24",
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Journal of Accounting and Public Policy",
+      "normalized": "journal of accounting and public policy",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.97,
+        "quartile": "Q2",
+        "rank": 123,
+        "hIndex": 104
+      }
+    },
+    {
+      "name": "Journal of Accounting Research",
+      "normalized": "journal of accounting research",
+      "aliases": [
+        "jar",
+        "j account res",
+        "j. account. res."
+      ],
+      "lists": [
+        "utd24",
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Journal of Advertising",
+      "normalized": "journal of advertising",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 4.201,
+        "quartile": "Q1",
+        "rank": 27,
+        "hIndex": 151
+      }
+    },
+    {
+      "name": "Journal of Advertising Education",
+      "normalized": "journal of advertising education",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.309,
+        "quartile": "Q3",
+        "rank": 260,
+        "hIndex": 10
+      }
+    },
+    {
+      "name": "Journal of Air Transportation",
+      "normalized": "journal of air transportation",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.413,
+        "quartile": "Q3",
+        "rank": 222,
+        "hIndex": 17
+      }
+    },
+    {
+      "name": "Journal of Applied Communications",
+      "normalized": "journal of applied communications",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.242,
+        "quartile": "Q3",
+        "rank": 286,
+        "hIndex": 11
+      }
+    },
+    {
+      "name": "Journal of Applied Psychology",
+      "normalized": "journal of applied psychology",
+      "aliases": [
+        "jap",
+        "j appl psychol"
+      ],
+      "lists": [
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Journal of Applied Sport Management",
+      "normalized": "journal of applied sport management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.209,
+        "quartile": "Q4",
+        "rank": 303,
+        "hIndex": 5
+      }
+    },
+    {
+      "name": "Journal of Arts Management Law and Society",
+      "normalized": "journal of arts management law and society",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.359,
+        "quartile": "Q3",
+        "rank": 236,
+        "hIndex": 29
+      }
+    },
+    {
+      "name": "Journal of Asia-Pacific Business",
+      "normalized": "journal of asia-pacific business",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.276,
+        "quartile": "Q3",
+        "rank": 271,
+        "hIndex": 25
+      }
+    },
+    {
+      "name": "Journal of Business and Finance Librarianship",
+      "normalized": "journal of business and finance librarianship",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.683,
+        "quartile": "Q2",
+        "rank": 164,
+        "hIndex": 23
+      }
+    },
+    {
+      "name": "Journal of Business and Psychology",
+      "normalized": "journal of business and psychology",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.563,
+        "quartile": "Q1",
+        "rank": 54,
+        "hIndex": 115
+      }
+    },
+    {
+      "name": "Journal of Business and Technical Communication",
+      "normalized": "journal of business and technical communication",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.581,
+        "quartile": "Q2",
+        "rank": 181,
+        "hIndex": 50
+      }
+    },
+    {
+      "name": "Journal of Business Ethics",
+      "normalized": "journal of business ethics",
+      "aliases": [
+        "jbe",
+        "j bus ethics"
+      ],
+      "lists": [
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Journal of Business Logistics",
+      "normalized": "journal of business logistics",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.569,
+        "quartile": "Q1",
+        "rank": 52,
+        "hIndex": 107
+      }
+    },
+    {
+      "name": "Journal of Business Research",
+      "normalized": "journal of business research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.498,
+        "quartile": "Q1",
+        "rank": 37,
+        "hIndex": 322
+      }
+    },
+    {
+      "name": "Journal of Business Venturing",
+      "normalized": "journal of business venturing",
+      "aliases": [
+        "jbv",
+        "j bus ventur"
+      ],
+      "lists": [
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 5.778,
+        "quartile": "Q1",
+        "rank": 16,
+        "hIndex": 246
+      }
+    },
+    {
+      "name": "Journal of Business Venturing Insights",
+      "normalized": "journal of business venturing insights",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.905,
+        "quartile": "Q1",
+        "rank": 70,
+        "hIndex": 53
+      }
+    },
+    {
+      "name": "Journal of Business-to-Business Marketing",
+      "normalized": "journal of business-to-business marketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.566,
+        "quartile": "Q2",
+        "rank": 185,
+        "hIndex": 40
+      }
+    },
+    {
+      "name": "Journal of Career Assessment",
+      "normalized": "journal of career assessment",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.413,
+        "quartile": "Q1",
+        "rank": 89,
+        "hIndex": 87
+      }
+    },
+    {
+      "name": "Journal of Career Development",
+      "normalized": "journal of career development",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.277,
+        "quartile": "Q1",
+        "rank": 96,
+        "hIndex": 67
+      }
+    },
+    {
+      "name": "Journal of Cases on Information Technology",
+      "normalized": "journal of cases on information technology",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.246,
+        "quartile": "Q3",
+        "rank": 284,
+        "hIndex": 24
+      }
+    },
+    {
+      "name": "Journal of Civil Engineering Education",
+      "normalized": "journal of civil engineering education",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.505,
+        "quartile": "Q2",
+        "rank": 199,
+        "hIndex": 55
+      }
+    },
+    {
+      "name": "Journal of Conflict Resolution",
+      "normalized": "journal of conflict resolution",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.893,
+        "quartile": "Q1",
+        "rank": 71,
+        "hIndex": 138
+      }
+    },
+    {
+      "name": "Journal of Construction Engineering and Management",
+      "normalized": "journal of construction engineering and management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.108,
+        "quartile": "Q1",
+        "rank": 110,
+        "hIndex": 158
+      }
+    },
+    {
+      "name": "Journal of Consumer Policy",
+      "normalized": "journal of consumer policy",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.714,
+        "quartile": "Q2",
+        "rank": 156,
+        "hIndex": 66
+      }
+    },
+    {
+      "name": "Journal of Consumer Psychology",
+      "normalized": "journal of consumer psychology",
+      "aliases": [
+        "jcp",
+        "j consum psychol"
+      ],
+      "lists": [
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 5.284,
+        "quartile": "Q1",
+        "rank": 22,
+        "hIndex": 158
+      }
+    },
+    {
+      "name": "Journal of Consumer Research",
+      "normalized": "journal of consumer research",
+      "aliases": [
+        "jcr",
+        "j consumer res",
+        "j. consum. res."
+      ],
+      "lists": [
+        "utd24",
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Journal of Consumer Satisfaction, Dissatisfaction and Complaining Behavior",
+      "normalized": "journal of consumer satisfaction dissatisfaction and complaining behavior",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.234,
+        "quartile": "Q3",
+        "rank": 289,
+        "hIndex": 11
+      }
+    },
+    {
+      "name": "Journal of Contextual Behavioral Science",
+      "normalized": "journal of contextual behavioral science",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.264,
+        "quartile": "Q1",
+        "rank": 97,
+        "hIndex": 58
+      }
+    },
+    {
+      "name": "Journal of Convention and Event Tourism",
+      "normalized": "journal of convention and event tourism",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.389,
+        "quartile": "Q3",
+        "rank": 230,
+        "hIndex": 40
+      }
+    },
+    {
+      "name": "Journal of Corporate Accounting and Finance",
+      "normalized": "journal of corporate accounting and finance",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.421,
+        "quartile": "Q3",
+        "rank": 221,
+        "hIndex": 27
+      }
+    },
+    {
+      "name": "Journal of Creating Value",
+      "normalized": "journal of creating value",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.368,
+        "quartile": "Q3",
+        "rank": 233,
+        "hIndex": 20
+      }
+    },
+    {
+      "name": "Journal of East-West Business",
+      "normalized": "journal of east-west business",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.287,
+        "quartile": "Q3",
+        "rank": 265,
+        "hIndex": 24
+      }
+    },
+    {
+      "name": "Journal of Economics and Business",
+      "normalized": "journal of economics and business",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.783,
+        "quartile": "Q1",
+        "rank": 146,
+        "hIndex": 65
+      }
+    },
+    {
+      "name": "Journal of Electronic Commerce in Organizations",
+      "normalized": "journal of electronic commerce in organizations",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.392,
+        "quartile": "Q3",
+        "rank": 229,
+        "hIndex": 31
+      }
+    },
+    {
+      "name": "Journal of Emerging Technologies in Accounting",
+      "normalized": "journal of emerging technologies in accounting",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.838,
+        "quartile": "Q2",
+        "rank": 138,
+        "hIndex": 34
+      }
+    },
+    {
+      "name": "Journal of Employment Counseling",
+      "normalized": "journal of employment counseling",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.364,
+        "quartile": "Q3",
+        "rank": 235,
+        "hIndex": 38
+      }
+    },
+    {
+      "name": "Journal of Environmental Accounting and Management",
+      "normalized": "journal of environmental accounting and management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.207,
+        "quartile": "Q4",
+        "rank": 306,
+        "hIndex": 18
+      }
+    },
+    {
+      "name": "Journal of Finance",
+      "normalized": "journal of finance",
+      "aliases": [
+        "jf",
+        "j financ",
+        "j. financ."
+      ],
+      "lists": [
+        "utd24",
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Journal of Financial and Quantitative Analysis",
+      "normalized": "journal of financial and quantitative analysis",
+      "aliases": [
+        "jfqa",
+        "j financ quant anal"
+      ],
+      "lists": [
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Journal of Financial Economics",
+      "normalized": "journal of financial economics",
+      "aliases": [
+        "jfe",
+        "j financ econ",
+        "j. financ. econ."
+      ],
+      "lists": [
+        "utd24",
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Journal of Food Distribution Research",
+      "normalized": "journal of food distribution research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.15,
+        "quartile": "Q4",
+        "rank": 328,
+        "hIndex": 7
+      }
+    },
+    {
+      "name": "Journal of Food Products Marketing",
+      "normalized": "journal of food products marketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.564,
+        "quartile": "Q2",
+        "rank": 186,
+        "hIndex": 48
+      }
+    },
+    {
+      "name": "Journal of Futures Markets",
+      "normalized": "journal of futures markets",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.599,
+        "quartile": "Q2",
+        "rank": 179,
+        "hIndex": 69
+      }
+    },
+    {
+      "name": "Journal of Geophysical Research: Machine Learning and Computation",
+      "normalized": "journal of geophysical research machine learning and computation",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.773,
+        "quartile": "Q2",
+        "rank": 147,
+        "hIndex": 8
+      }
+    },
+    {
+      "name": "Journal of Global Business and Technology",
+      "normalized": "journal of global business and technology",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.259,
+        "quartile": "Q3",
+        "rank": 277,
+        "hIndex": 9
+      }
+    },
+    {
+      "name": "Journal of Global Information Management",
+      "normalized": "journal of global information management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.742,
+        "quartile": "Q2",
+        "rank": 151,
+        "hIndex": 55
+      }
+    },
+    {
+      "name": "Journal of Global Marketing",
+      "normalized": "journal of global marketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.981,
+        "quartile": "Q1",
+        "rank": 121,
+        "hIndex": 48
+      }
+    },
+    {
+      "name": "Journal of Global Sport Management",
+      "normalized": "journal of global sport management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.785,
+        "quartile": "Q2",
+        "rank": 145,
+        "hIndex": 23
+      }
+    },
+    {
+      "name": "Journal of Governmental and Nonprofit Accounting",
+      "normalized": "journal of governmental and nonprofit accounting",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.277,
+        "quartile": "Q3",
+        "rank": 270,
+        "hIndex": 4
+      }
+    },
+    {
+      "name": "Journal of Health and Human Services Administration",
+      "normalized": "journal of health and human services administration",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.216,
+        "quartile": "Q4",
+        "rank": 301,
+        "hIndex": 27
+      }
+    },
+    {
+      "name": "Journal of Healthcare Management",
+      "normalized": "journal of healthcare management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.713,
+        "quartile": "Q2",
+        "rank": 157,
+        "hIndex": 57
+      }
+    },
+    {
+      "name": "Journal of Hospitality and Tourism Research",
+      "normalized": "journal of hospitality and tourism research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.953,
+        "quartile": "Q1",
+        "rank": 67,
+        "hIndex": 100
+      }
+    },
+    {
+      "name": "Journal of Hospitality Financial Management",
+      "normalized": "journal of hospitality financial management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.105,
+        "quartile": "Q4",
+        "rank": 348,
+        "hIndex": 16
+      }
+    },
+    {
+      "name": "Journal of Hospitality Marketing and Management",
+      "normalized": "journal of hospitality marketing and management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.291,
+        "quartile": "Q1",
+        "rank": 42,
+        "hIndex": 95
+      }
+    },
+    {
+      "name": "Journal of Human Resources",
+      "normalized": "journal of human resources",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 6.085,
+        "quartile": "Q1",
+        "rank": 15,
+        "hIndex": 135
+      }
+    },
+    {
+      "name": "Journal of Human Resources in Hospitality and Tourism",
+      "normalized": "journal of human resources in hospitality and tourism",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.45,
+        "quartile": "Q3",
+        "rank": 209,
+        "hIndex": 44
+      }
+    },
+    {
+      "name": "Journal of Industrial and Management Optimization",
+      "normalized": "journal of industrial and management optimization",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.347,
+        "quartile": "Q3",
+        "rank": 239,
+        "hIndex": 46
+      }
+    },
+    {
+      "name": "Journal of Industry, Competition and Trade",
+      "normalized": "journal of industry competition and trade",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.434,
+        "quartile": "Q2",
+        "rank": 215,
+        "hIndex": 33
+      }
+    },
+    {
+      "name": "Journal of Information Systems",
+      "normalized": "journal of information systems",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.731,
+        "quartile": "Q2",
+        "rank": 154,
+        "hIndex": 52
+      }
+    },
+    {
+      "name": "Journal of Information Systems Security",
+      "normalized": "journal of information systems security",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.144,
+        "quartile": "Q4",
+        "rank": 332,
+        "hIndex": 3
+      }
+    },
+    {
+      "name": "Journal of Inter-Organizational Relationships",
+      "normalized": "journal of inter-organizational relationships",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.532,
+        "quartile": "Q2",
+        "rank": 194,
+        "hIndex": 3
+      }
+    },
+    {
+      "name": "Journal of Interactive Marketing",
+      "normalized": "journal of interactive marketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.125,
+        "quartile": "Q1",
+        "rank": 45,
+        "hIndex": 142
+      }
+    },
+    {
+      "name": "Journal of Intercollegiate Sport",
+      "normalized": "journal of intercollegiate sport",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.258,
+        "quartile": "Q3",
+        "rank": 278,
+        "hIndex": 6
+      }
+    },
+    {
+      "name": "Journal of International Accounting Research",
+      "normalized": "journal of international accounting research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.526,
+        "quartile": "Q2",
+        "rank": 196,
+        "hIndex": 34
+      }
+    },
+    {
+      "name": "Journal of International Business Studies",
+      "normalized": "journal of international business studies",
+      "aliases": [
+        "jibs",
+        "j int bus stud",
+        "j. int. bus. stud."
+      ],
+      "lists": [
+        "utd24",
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Journal of International Consumer Marketing",
+      "normalized": "journal of international consumer marketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.647,
+        "quartile": "Q2",
+        "rank": 170,
+        "hIndex": 63
+      }
+    },
+    {
+      "name": "Journal of International Food and Agribusiness Marketing",
+      "normalized": "journal of international food and agribusiness marketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.426,
+        "quartile": "Q2",
+        "rank": 220,
+        "hIndex": 36
+      }
+    },
+    {
+      "name": "Journal of International Management",
+      "normalized": "journal of international management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.667,
+        "quartile": "Q1",
+        "rank": 77,
+        "hIndex": 96
+      }
+    },
+    {
+      "name": "Journal of International Marketing",
+      "normalized": "journal of international marketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.726,
+        "quartile": "Q1",
+        "rank": 75,
+        "hIndex": 113
+      }
+    },
+    {
+      "name": "Journal of Internet Commerce",
+      "normalized": "journal of internet commerce",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.979,
+        "quartile": "Q2",
+        "rank": 122,
+        "hIndex": 51
+      }
+    },
+    {
+      "name": "Journal of Investing",
+      "normalized": "journal of investing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.231,
+        "quartile": "Q3",
+        "rank": 290,
+        "hIndex": 11
+      }
+    },
+    {
+      "name": "Journal of Labor Economics",
+      "normalized": "journal of labor economics",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 6.774,
+        "quartile": "Q1",
+        "rank": 11,
+        "hIndex": 143
+      }
+    },
+    {
+      "name": "Journal of Labor Research",
+      "normalized": "journal of labor research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.273,
+        "quartile": "Q3",
+        "rank": 272,
+        "hIndex": 43
+      }
+    },
+    {
+      "name": "Journal of Law, Finance, and Accounting",
+      "normalized": "journal of law finance and accounting",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.203,
+        "quartile": "Q4",
+        "rank": 307,
+        "hIndex": 11
+      }
+    },
+    {
+      "name": "Journal of Leadership and Organizational Studies",
+      "normalized": "journal of leadership and organizational studies",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.539,
+        "quartile": "Q1",
+        "rank": 81,
+        "hIndex": 74
+      }
+    },
+    {
+      "name": "Journal of Macromarketing",
+      "normalized": "journal of macromarketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.844,
+        "quartile": "Q2",
+        "rank": 134,
+        "hIndex": 76
+      }
+    },
+    {
+      "name": "Journal of Management",
+      "normalized": "journal of management",
+      "aliases": [
+        "jom",
+        "j manage",
+        "j. manage."
+      ],
+      "lists": [
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 8.251,
+        "quartile": "Q1",
+        "rank": 8,
+        "hIndex": 315
+      }
+    },
+    {
+      "name": "Journal of Management Accounting Research",
+      "normalized": "journal of management accounting research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.248,
+        "quartile": "Q1",
+        "rank": 98,
+        "hIndex": 38
+      }
+    },
+    {
+      "name": "Journal of Management and Governance",
+      "normalized": "journal of management and governance",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.145,
+        "quartile": "Q1",
+        "rank": 105,
+        "hIndex": 71
+      }
+    },
+    {
+      "name": "Journal of Management Education",
+      "normalized": "journal of management education",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.841,
+        "quartile": "Q1",
+        "rank": 137,
+        "hIndex": 68
+      }
+    },
+    {
+      "name": "Journal of Management in Engineering",
+      "normalized": "journal of management in engineering",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.486,
+        "quartile": "Q1",
+        "rank": 83,
+        "hIndex": 112
+      }
+    },
+    {
+      "name": "Journal of Management Information Systems",
+      "normalized": "journal of management information systems",
+      "aliases": [
+        "jmis",
+        "j manage inform syst"
+      ],
+      "lists": [
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.154,
+        "quartile": "Q1",
+        "rank": 43,
+        "hIndex": 189
+      }
+    },
+    {
+      "name": "Journal of Management Inquiry",
+      "normalized": "journal of management inquiry",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.292,
+        "quartile": "Q1",
+        "rank": 59,
+        "hIndex": 85
+      }
+    },
+    {
+      "name": "Journal of Management Studies",
+      "normalized": "journal of management studies",
+      "aliases": [
+        "jms",
+        "j manage stud"
+      ],
+      "lists": [
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Journal of Marketing",
+      "normalized": "journal of marketing",
+      "aliases": [
+        "jm",
+        "j marketing",
+        "j. marketing"
+      ],
+      "lists": [
+        "utd24",
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 12.226,
+        "quartile": "Q1",
+        "rank": 4,
+        "hIndex": 309
+      }
+    },
+    {
+      "name": "Journal of Marketing Education",
+      "normalized": "journal of marketing education",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.88,
+        "quartile": "Q2",
+        "rank": 129,
+        "hIndex": 72
+      }
+    },
+    {
+      "name": "Journal of Marketing for Higher Education",
+      "normalized": "journal of marketing for higher education",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.181,
+        "quartile": "Q2",
+        "rank": 104,
+        "hIndex": 51
+      }
+    },
+    {
+      "name": "Journal of Marketing Research",
+      "normalized": "journal of marketing research",
+      "aliases": [
+        "jmr",
+        "j marketing res",
+        "j. marketing res."
+      ],
+      "lists": [
+        "utd24",
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 7.363,
+        "quartile": "Q1",
+        "rank": 10,
+        "hIndex": 221
+      }
+    },
+    {
+      "name": "Journal of Money, Credit and Banking",
+      "normalized": "journal of money credit and banking",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.999,
+        "quartile": "Q1",
+        "rank": 65,
+        "hIndex": 133
+      }
+    },
+    {
+      "name": "Journal of Network and Systems Management",
+      "normalized": "journal of network and systems management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.882,
+        "quartile": "Q2",
+        "rank": 128,
+        "hIndex": 51
+      }
+    },
+    {
+      "name": "Journal of Neuroscience, Psychology, and Economics",
+      "normalized": "journal of neuroscience psychology and economics",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.43,
+        "quartile": "Q2",
+        "rank": 219,
+        "hIndex": 33
+      }
+    },
+    {
+      "name": "Journal of Nonprofit and Public Sector Marketing",
+      "normalized": "journal of nonprofit and public sector marketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.548,
+        "quartile": "Q2",
+        "rank": 190,
+        "hIndex": 44
+      }
+    },
+    {
+      "name": "Journal of Nonprofit Education and Leadership",
+      "normalized": "journal of nonprofit education and leadership",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.136,
+        "quartile": "Q4",
+        "rank": 337,
+        "hIndex": 6
+      }
+    },
+    {
+      "name": "Journal of Occupational and Organizational Psychology",
+      "normalized": "journal of occupational and organizational psychology",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.156,
+        "quartile": "Q1",
+        "rank": 62,
+        "hIndex": 152
+      }
+    },
+    {
+      "name": "Journal of Operations Management",
+      "normalized": "journal of operations management",
+      "aliases": [
+        "j oper manage",
+        "j. oper. manage."
+      ],
+      "lists": [
+        "utd24",
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Journal of Organizational and End User Computing",
+      "normalized": "journal of organizational and end user computing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.618,
+        "quartile": "Q2",
+        "rank": 176,
+        "hIndex": 52
+      }
+    },
+    {
+      "name": "Journal of Organizational Behavior Management",
+      "normalized": "journal of organizational behavior management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.493,
+        "quartile": "Q2",
+        "rank": 202,
+        "hIndex": 41
+      }
+    },
+    {
+      "name": "Journal of Park and Recreation Administration",
+      "normalized": "journal of park and recreation administration",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.282,
+        "quartile": "Q3",
+        "rank": 269,
+        "hIndex": 15
+      }
+    },
+    {
+      "name": "Journal of Personnel Psychology",
+      "normalized": "journal of personnel psychology",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.848,
+        "quartile": "Q2",
+        "rank": 133,
+        "hIndex": 44
+      }
+    },
+    {
+      "name": "Journal of Philanthropy and Marketing",
+      "normalized": "journal of philanthropy and marketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.366,
+        "quartile": "Q3",
+        "rank": 234,
+        "hIndex": 28
+      }
+    },
+    {
+      "name": "Journal of Policy Analysis and Management",
+      "normalized": "journal of policy analysis and management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.741,
+        "quartile": "Q1",
+        "rank": 74,
+        "hIndex": 109
+      }
+    },
+    {
+      "name": "Journal of Policy Research in Tourism, Leisure and Events",
+      "normalized": "journal of policy research in tourism leisure and events",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.545,
+        "quartile": "Q2",
+        "rank": 191,
+        "hIndex": 41
+      }
+    },
+    {
+      "name": "Journal of Political Economy",
+      "normalized": "journal of political economy",
+      "aliases": [
+        "jpe",
+        "j polit econ",
+        "j. polit. economy"
+      ],
+      "lists": [
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Journal of Political Marketing",
+      "normalized": "journal of political marketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.675,
+        "quartile": "Q2",
+        "rank": 166,
+        "hIndex": 37
+      }
+    },
+    {
+      "name": "Journal of Portfolio Management",
+      "normalized": "journal of portfolio management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.449,
+        "quartile": "Q2",
+        "rank": 210,
+        "hIndex": 67
+      }
+    },
+    {
+      "name": "Journal of Private Enterprise",
+      "normalized": "journal of private enterprise",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.121,
+        "quartile": "Q4",
+        "rank": 342,
+        "hIndex": 14
+      }
+    },
+    {
+      "name": "Journal of Professions and Organization",
+      "normalized": "journal of professions and organization",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.89,
+        "quartile": "Q2",
+        "rank": 126,
+        "hIndex": 32
+      }
+    },
+    {
+      "name": "Journal of Property Tax Assessment and Administration",
+      "normalized": "journal of property tax assessment and administration",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.147,
+        "quartile": "Q4",
+        "rank": 329,
+        "hIndex": 5
+      }
+    },
+    {
+      "name": "Journal of Psychology",
+      "normalized": "journal of psychology",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.011,
+        "quartile": "Q1",
+        "rank": 119,
+        "hIndex": 88
+      }
+    },
+    {
+      "name": "Journal of Public and Nonprofit Affairs",
+      "normalized": "journal of public and nonprofit affairs",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.311,
+        "quartile": "Q3",
+        "rank": 257,
+        "hIndex": 15
+      }
+    },
+    {
+      "name": "Journal of Public Policy and Marketing",
+      "normalized": "journal of public policy and marketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.165,
+        "quartile": "Q1",
+        "rank": 61,
+        "hIndex": 98
+      }
+    },
+    {
+      "name": "Journal of Quality Assurance in Hospitality and Tourism",
+      "normalized": "journal of quality assurance in hospitality and tourism",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.634,
+        "quartile": "Q2",
+        "rank": 173,
+        "hIndex": 54
+      }
+    },
+    {
+      "name": "Journal of Quality Technology",
+      "normalized": "journal of quality technology",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.658,
+        "quartile": "Q2",
+        "rank": 168,
+        "hIndex": 102
+      }
+    },
+    {
+      "name": "Journal of Real Estate Research",
+      "normalized": "journal of real estate research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.442,
+        "quartile": "Q2",
+        "rank": 213,
+        "hIndex": 41
+      }
+    },
+    {
+      "name": "Journal of Relationship Marketing",
+      "normalized": "journal of relationship marketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.71,
+        "quartile": "Q2",
+        "rank": 159,
+        "hIndex": 39
+      }
+    },
+    {
+      "name": "Journal of Research Administration",
+      "normalized": "journal of research administration",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.323,
+        "quartile": "Q3",
+        "rank": 251,
+        "hIndex": 7
+      }
+    },
+    {
+      "name": "Journal of School Administration Research and Development",
+      "normalized": "journal of school administration research and development",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.194,
+        "quartile": "Q4",
+        "rank": 311,
+        "hIndex": 8
+      }
+    },
+    {
+      "name": "Journal of Service Research",
+      "normalized": "journal of service research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 5.517,
+        "quartile": "Q1",
+        "rank": 20,
+        "hIndex": 165
+      }
+    },
+    {
+      "name": "Journal of Small Business Strategy",
+      "normalized": "journal of small business strategy",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.555,
+        "quartile": "Q2",
+        "rank": 188,
+        "hIndex": 27
+      }
+    },
+    {
+      "name": "Journal of Sport for Development",
+      "normalized": "journal of sport for development",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.325,
+        "quartile": "Q3",
+        "rank": 250,
+        "hIndex": 10
+      }
+    },
+    {
+      "name": "Journal of Sport Management",
+      "normalized": "journal of sport management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.435,
+        "quartile": "Q1",
+        "rank": 88,
+        "hIndex": 96
+      }
+    },
+    {
+      "name": "Journal of Supply Chain Management",
+      "normalized": "journal of supply chain management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.632,
+        "quartile": "Q1",
+        "rank": 33,
+        "hIndex": 125
+      }
+    },
+    {
+      "name": "Journal of Sustainable Marketing",
+      "normalized": "journal of sustainable marketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.261,
+        "quartile": "Q3",
+        "rank": 275,
+        "hIndex": 9
+      }
+    },
+    {
+      "name": "Journal of Teaching in International Business",
+      "normalized": "journal of teaching in international business",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.31,
+        "quartile": "Q3",
+        "rank": 259,
+        "hIndex": 30
+      }
+    },
+    {
+      "name": "Journal of Teaching in Travel and Tourism",
+      "normalized": "journal of teaching in travel and tourism",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.431,
+        "quartile": "Q3",
+        "rank": 218,
+        "hIndex": 37
+      }
+    },
+    {
+      "name": "Journal of Technology Transfer",
+      "normalized": "journal of technology transfer",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.013,
+        "quartile": "Q1",
+        "rank": 64,
+        "hIndex": 115
+      }
+    },
+    {
+      "name": "Journal of Textile and Apparel, Technology and Management",
+      "normalized": "journal of textile and apparel technology and management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.147,
+        "quartile": "Q4",
+        "rank": 330,
+        "hIndex": 34
+      }
+    },
+    {
+      "name": "Journal of the Academy of Marketing Science",
+      "normalized": "journal of the academy of marketing science",
+      "aliases": [
+        "jams",
+        "j acad market sci",
+        "j. acad. marketing sci."
+      ],
+      "lists": [
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 6.426,
+        "quartile": "Q1",
+        "rank": 13,
+        "hIndex": 234
+      }
+    },
+    {
+      "name": "Journal of the American Taxation Association",
+      "normalized": "journal of the american taxation association",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.218,
+        "quartile": "Q1",
+        "rank": 101,
+        "hIndex": 36
+      }
+    },
+    {
+      "name": "Journal of the Association for Consumer Research",
+      "normalized": "journal of the association for consumer research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.566,
+        "quartile": "Q1",
+        "rank": 53,
+        "hIndex": 36
+      }
+    },
+    {
+      "name": "Journal of Travel and Tourism Marketing",
+      "normalized": "journal of travel and tourism marketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.321,
+        "quartile": "Q1",
+        "rank": 56,
+        "hIndex": 118
+      }
+    },
+    {
+      "name": "Journal of Trust Research",
+      "normalized": "journal of trust research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.067,
+        "quartile": "Q1",
+        "rank": 114,
+        "hIndex": 30
+      }
+    },
+    {
+      "name": "Journal of Vocational Behavior",
+      "normalized": "journal of vocational behavior",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.075,
+        "quartile": "Q1",
+        "rank": 46,
+        "hIndex": 209
+      }
+    },
+    {
+      "name": "Journal of World Business",
+      "normalized": "journal of world business",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.353,
+        "quartile": "Q1",
+        "rank": 41,
+        "hIndex": 158
+      }
+    },
+    {
+      "name": "Labor Studies Journal",
+      "normalized": "labor studies journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.409,
+        "quartile": "Q2",
+        "rank": 225,
+        "hIndex": 30
+      }
+    },
+    {
+      "name": "Labor: Studies in Working-Class History",
+      "normalized": "labor studies in working-class history",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.129,
+        "quartile": "Q4",
+        "rank": 340,
+        "hIndex": 7
+      }
+    },
+    {
+      "name": "Leadership Quarterly",
+      "normalized": "leadership quarterly",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 6.124,
+        "quartile": "Q1",
+        "rank": 14,
+        "hIndex": 214
+      }
+    },
+    {
+      "name": "Leisure/ Loisir",
+      "normalized": "leisure/ loisir",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.311,
+        "quartile": "Q3",
+        "rank": 258,
+        "hIndex": 33
+      }
+    },
+    {
+      "name": "Library Leadership and Management",
+      "normalized": "library leadership and management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.183,
+        "quartile": "Q4",
+        "rank": 315,
+        "hIndex": 15
+      }
+    },
+    {
+      "name": "Management Accounting Research",
+      "normalized": "management accounting research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.625,
+        "quartile": "Q1",
+        "rank": 80,
+        "hIndex": 109
+      }
+    },
+    {
+      "name": "Management Communication Quarterly",
+      "normalized": "management communication quarterly",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.861,
+        "quartile": "Q2",
+        "rank": 132,
+        "hIndex": 86
+      }
+    },
+    {
+      "name": "Management Science",
+      "normalized": "management science",
+      "aliases": [
+        "manage sci",
+        "manage. sci.",
+        "mgmt sci"
+      ],
+      "lists": [
+        "utd24",
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 6.428,
+        "quartile": "Q1",
+        "rank": 12,
+        "hIndex": 321
+      }
+    },
+    {
+      "name": "Management Teaching Review",
+      "normalized": "management teaching review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.244,
+        "quartile": "Q3",
+        "rank": 285,
+        "hIndex": 9
+      }
+    },
+    {
+      "name": "Manufacturing and Service Operations Management",
+      "normalized": "manufacturing and service operations management",
+      "aliases": [
+        "msom",
+        "m&som",
+        "manuf serv oper manage"
+      ],
+      "lists": [
+        "utd24",
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 4.661,
+        "quartile": "Q1",
+        "rank": 23,
+        "hIndex": 123
+      }
+    },
+    {
+      "name": "Marketing Letters",
+      "normalized": "marketing letters",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.462,
+        "quartile": "Q1",
+        "rank": 86,
+        "hIndex": 94
+      }
+    },
+    {
+      "name": "Marketing Science",
+      "normalized": "marketing science",
+      "aliases": [
+        "market sci",
+        "mktg sci",
+        "marketing sci"
+      ],
+      "lists": [
+        "utd24",
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 8.324,
+        "quartile": "Q1",
+        "rank": 7,
+        "hIndex": 166
+      }
+    },
+    {
+      "name": "Markets, Globalization and Development Review",
+      "normalized": "markets globalization and development review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.159,
+        "quartile": "Q4",
+        "rank": 324,
+        "hIndex": 7
+      }
+    },
+    {
+      "name": "Middle East Quarterly",
+      "normalized": "middle east quarterly",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.103,
+        "quartile": "Q4",
+        "rank": 351,
+        "hIndex": 22
+      }
+    },
+    {
+      "name": "MIS Quarterly",
+      "normalized": "mis quarterly",
+      "aliases": [
+        "misq",
+        "mis q"
+      ],
+      "lists": [
+        "utd24",
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "MIS Quarterly: Management Information Systems",
+      "normalized": "mis quarterly management information systems",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 4.061,
+        "quartile": "Q1",
+        "rank": 28,
+        "hIndex": 294
+      }
+    },
+    {
+      "name": "MIT Sloan Management Review",
+      "normalized": "mit sloan management review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.619,
+        "quartile": "Q2",
+        "rank": 175,
+        "hIndex": 129
+      }
+    },
+    {
+      "name": "National Tax Journal",
+      "normalized": "national tax journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.232,
+        "quartile": "Q1",
+        "rank": 99,
+        "hIndex": 72
+      }
+    },
+    {
+      "name": "Negotiation and Conflict Management Research",
+      "normalized": "negotiation and conflict management research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.222,
+        "quartile": "Q4",
+        "rank": 296,
+        "hIndex": 24
+      }
+    },
+    {
+      "name": "Negotiation Journal",
+      "normalized": "negotiation journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.328,
+        "quartile": "Q3",
+        "rank": 248,
+        "hIndex": 42
+      }
+    },
+    {
+      "name": "New Directions for Evaluation",
+      "normalized": "new directions for evaluation",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.551,
+        "quartile": "Q2",
+        "rank": 189,
+        "hIndex": 53
+      }
+    },
+    {
+      "name": "New Labor Forum",
+      "normalized": "new labor forum",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.219,
+        "quartile": "Q3",
+        "rank": 297,
+        "hIndex": 15
+      }
+    },
+    {
+      "name": "New Space",
+      "normalized": "new space",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.286,
+        "quartile": "Q3",
+        "rank": 266,
+        "hIndex": 20
+      }
+    },
+    {
+      "name": "Nonprofit Management and Leadership",
+      "normalized": "nonprofit management and leadership",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.89,
+        "quartile": "Q2",
+        "rank": 127,
+        "hIndex": 72
+      }
+    },
+    {
+      "name": "Northwestern Journal of International Law and Business",
+      "normalized": "northwestern journal of international law and business",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.156,
+        "quartile": "Q4",
+        "rank": 327,
+        "hIndex": 11
+      }
+    },
+    {
+      "name": "Nursing Management",
+      "normalized": "nursing management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.327,
+        "quartile": "Q3",
+        "rank": 249,
+        "hIndex": 30
+      }
+    },
+    {
+      "name": "Operations Management Research",
+      "normalized": "operations management research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.648,
+        "quartile": "Q1",
+        "rank": 78,
+        "hIndex": 57
+      }
+    },
+    {
+      "name": "Operations Research",
+      "normalized": "operations research",
+      "aliases": [
+        "oper res",
+        "oper. res."
+      ],
+      "lists": [
+        "utd24",
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Organization and Environment",
+      "normalized": "organization and environment",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.299,
+        "quartile": "Q1",
+        "rank": 58,
+        "hIndex": 91
+      }
+    },
+    {
+      "name": "Organization Development Journal",
+      "normalized": "organization development journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.137,
+        "quartile": "Q4",
+        "rank": 336,
+        "hIndex": 26
+      }
+    },
+    {
+      "name": "Organization Science",
+      "normalized": "organization science",
+      "aliases": [
+        "organ sci",
+        "org. sci.",
+        "orgsci",
+        "org sci"
+      ],
+      "lists": [
+        "utd24",
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 7.929,
+        "quartile": "Q1",
+        "rank": 9,
+        "hIndex": 308
+      }
+    },
+    {
+      "name": "Organization Studies",
+      "normalized": "organization studies",
+      "aliases": [
+        "organ stud",
+        "org stud"
+      ],
+      "lists": [
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Organizational Behavior and Human Decision Processes",
+      "normalized": "organizational behavior and human decision processes",
+      "aliases": [
+        "obhdp",
+        "organ behav hum decis process"
+      ],
+      "lists": [
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.152,
+        "quartile": "Q1",
+        "rank": 44,
+        "hIndex": 195
+      }
+    },
+    {
+      "name": "Organizational Cultures",
+      "normalized": "organizational cultures",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.158,
+        "quartile": "Q4",
+        "rank": 325,
+        "hIndex": 6
+      }
+    },
+    {
+      "name": "Organizational Research Methods",
+      "normalized": "organizational research methods",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 14.268,
+        "quartile": "Q1",
+        "rank": 3,
+        "hIndex": 158
+      }
+    },
+    {
+      "name": "Pacific Asia Journal of the Association for Information Systems",
+      "normalized": "pacific asia journal of the association for information systems",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.733,
+        "quartile": "Q2",
+        "rank": 153,
+        "hIndex": 19
+      }
+    },
+    {
+      "name": "Performance Improvement Quarterly",
+      "normalized": "performance improvement quarterly",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.513,
+        "quartile": "Q2",
+        "rank": 197,
+        "hIndex": 29
+      }
+    },
+    {
+      "name": "Personnel Psychology",
+      "normalized": "personnel psychology",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 5.41,
+        "quartile": "Q1",
+        "rank": 21,
+        "hIndex": 183
+      }
+    },
+    {
+      "name": "Printed Circuit Design and Fab/Circuits Assembly",
+      "normalized": "printed circuit design and fab/circuits assembly",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.1,
+        "quartile": "Q4",
+        "rank": 354,
+        "hIndex": 6
+      }
+    },
+    {
+      "name": "Production and Operations Management",
+      "normalized": "production and operations management",
+      "aliases": [
+        "pom",
+        "prod oper manage",
+        "prod. oper. manag."
+      ],
+      "lists": [
+        "utd24",
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.612,
+        "quartile": "Q1",
+        "rank": 34,
+        "hIndex": 161
+      }
+    },
+    {
+      "name": "Project Management Journal",
+      "normalized": "project management journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.127,
+        "quartile": "Q1",
+        "rank": 109,
+        "hIndex": 72
+      }
+    },
+    {
+      "name": "Psychology and Marketing",
+      "normalized": "psychology and marketing",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.642,
+        "quartile": "Q1",
+        "rank": 32,
+        "hIndex": 166
+      }
+    },
+    {
+      "name": "Psychology of Leaders and Leadership",
+      "normalized": "psychology of leaders and leadership",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.482,
+        "quartile": "Q2",
+        "rank": 204,
+        "hIndex": 22
+      }
+    },
+    {
+      "name": "Public Performance and Management Review",
+      "normalized": "public performance and management review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.097,
+        "quartile": "Q1",
+        "rank": 111,
+        "hIndex": 48
+      }
+    },
+    {
+      "name": "Public Personnel Management",
+      "normalized": "public personnel management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.144,
+        "quartile": "Q1",
+        "rank": 106,
+        "hIndex": 60
+      }
+    },
+    {
+      "name": "Public Services Quarterly",
+      "normalized": "public services quarterly",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.318,
+        "quartile": "Q3",
+        "rank": 255,
+        "hIndex": 21
+      }
+    },
+    {
+      "name": "Public Works Management and Policy",
+      "normalized": "public works management and policy",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.308,
+        "quartile": "Q3",
+        "rank": 262,
+        "hIndex": 33
+      }
+    },
+    {
+      "name": "Publishing Research Quarterly",
+      "normalized": "publishing research quarterly",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.511,
+        "quartile": "Q2",
+        "rank": 198,
+        "hIndex": 27
+      }
+    },
+    {
+      "name": "Quality Management Journal",
+      "normalized": "quality management journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.477,
+        "quartile": "Q2",
+        "rank": 205,
+        "hIndex": 25
+      }
+    },
+    {
+      "name": "Quality Progress",
+      "normalized": "quality progress",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.1,
+        "quartile": "Q4",
+        "rank": 355,
+        "hIndex": 38
+      }
+    },
+    {
+      "name": "Quantitative Finance and Economics",
+      "normalized": "quantitative finance and economics",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.374,
+        "quartile": "Q2",
+        "rank": 231,
+        "hIndex": 9
+      }
+    },
+    {
+      "name": "Quarterly Journal of Economics",
+      "normalized": "quarterly journal of economics",
+      "aliases": [
+        "qje",
+        "q j econ",
+        "quart. j. econ."
+      ],
+      "lists": [
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Research Policy",
+      "normalized": "research policy",
+      "aliases": [
+        "res policy"
+      ],
+      "lists": [
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Review of Accounting Studies",
+      "normalized": "review of accounting studies",
+      "aliases": [
+        "rev account stud"
+      ],
+      "lists": [
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 5.56,
+        "quartile": "Q1",
+        "rank": 19,
+        "hIndex": 118
+      }
+    },
+    {
+      "name": "Review of Corporate Finance",
+      "normalized": "review of corporate finance",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.485,
+        "quartile": "Q1",
+        "rank": 84,
+        "hIndex": 16
+      }
+    },
+    {
+      "name": "Review of Corporate Finance Studies",
+      "normalized": "review of corporate finance studies",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.738,
+        "quartile": "Q1",
+        "rank": 30,
+        "hIndex": 30
+      }
+    },
+    {
+      "name": "Review of Economic Studies",
+      "normalized": "review of economic studies",
+      "aliases": [
+        "rev econ stud",
+        "r econ stud"
+      ],
+      "lists": [
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Review of Finance",
+      "normalized": "review of finance",
+      "aliases": [
+        "rev financ"
+      ],
+      "lists": [
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Review of International Organizations",
+      "normalized": "review of international organizations",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.208,
+        "quartile": "Q1",
+        "rank": 60,
+        "hIndex": 61
+      }
+    },
+    {
+      "name": "Review of Public Personnel Administration",
+      "normalized": "review of public personnel administration",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.952,
+        "quartile": "Q1",
+        "rank": 68,
+        "hIndex": 68
+      }
+    },
+    {
+      "name": "Review of Quantitative Finance and Accounting",
+      "normalized": "review of quantitative finance and accounting",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.7,
+        "quartile": "Q2",
+        "rank": 161,
+        "hIndex": 63
+      }
+    },
+    {
+      "name": "Rutgers Business Review",
+      "normalized": "rutgers business review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.202,
+        "quartile": "Q4",
+        "rank": 308,
+        "hIndex": 10
+      }
+    },
+    {
+      "name": "Sales and Marketing Management",
+      "normalized": "sales and marketing management",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.101,
+        "quartile": "Q4",
+        "rank": 353,
+        "hIndex": 12
+      }
+    },
+    {
+      "name": "Service Science",
+      "normalized": "service science",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.309,
+        "quartile": "Q1",
+        "rank": 94,
+        "hIndex": 29
+      }
+    },
+    {
+      "name": "SIGIR Forum (ACM Special Interest Group on Information Retrieval)",
+      "normalized": "sigir forum acm special interest group on information retrieval",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.0,
+        "quartile": "-",
+        "rank": 360,
+        "hIndex": 111
+      }
+    },
+    {
+      "name": "Simulation and Gaming",
+      "normalized": "simulation and gaming",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.569,
+        "quartile": "Q2",
+        "rank": 184,
+        "hIndex": 78
+      }
+    },
+    {
+      "name": "Sloan Management Review",
+      "normalized": "sloan management review",
+      "aliases": [
+        "smr",
+        "mit sloan manage rev",
+        "sloan manage rev"
+      ],
+      "lists": [
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Social and Environmental Accountability Journal",
+      "normalized": "social and environmental accountability journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.472,
+        "quartile": "Q3",
+        "rank": 207,
+        "hIndex": 29
+      }
+    },
+    {
+      "name": "Social Marketing Quarterly",
+      "normalized": "social marketing quarterly",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.473,
+        "quartile": "Q3",
+        "rank": 206,
+        "hIndex": 38
+      }
+    },
+    {
+      "name": "Space and Culture",
+      "normalized": "space and culture",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.503,
+        "quartile": "Q3",
+        "rank": 200,
+        "hIndex": 53
+      }
+    },
+    {
+      "name": "Sport Management Education Journal",
+      "normalized": "sport management education journal",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.341,
+        "quartile": "Q3",
+        "rank": 243,
+        "hIndex": 17
+      }
+    },
+    {
+      "name": "Sport Marketing Quarterly",
+      "normalized": "sport marketing quarterly",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.578,
+        "quartile": "Q2",
+        "rank": 182,
+        "hIndex": 18
+      }
+    },
+    {
+      "name": "Strategic Entrepreneurship Journal",
+      "normalized": "strategic entrepreneurship journal",
+      "aliases": [
+        "sej",
+        "strateg entrep j"
+      ],
+      "lists": [
+        "ft50",
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.821,
+        "quartile": "Q1",
+        "rank": 29,
+        "hIndex": 82
+      }
+    },
+    {
+      "name": "Strategic Management Journal",
+      "normalized": "strategic management journal",
+      "aliases": [
+        "smj",
+        "strateg manage j",
+        "strat. mgmt. j."
+      ],
+      "lists": [
+        "utd24",
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Strategic Management Review",
+      "normalized": "strategic management review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.693,
+        "quartile": "Q2",
+        "rank": 162,
+        "hIndex": 8
+      }
+    },
+    {
+      "name": "Strategy Science",
+      "normalized": "strategy science",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.56,
+        "quartile": "Q1",
+        "rank": 35,
+        "hIndex": 37
+      }
+    },
+    {
+      "name": "Systemic Practice and Action Research",
+      "normalized": "systemic practice and action research",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.345,
+        "quartile": "Q3",
+        "rank": 240,
+        "hIndex": 45
+      }
+    },
+    {
+      "name": "Technological Forecasting and Social Change",
+      "normalized": "technological forecasting and social change",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 3.479,
+        "quartile": "Q1",
+        "rank": 38,
+        "hIndex": 241
+      }
+    },
+    {
+      "name": "Textile Rental",
+      "normalized": "textile rental",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.1,
+        "quartile": "Q4",
+        "rank": 356,
+        "hIndex": 1
+      }
+    },
+    {
+      "name": "The Review of Financial Studies",
+      "normalized": "review of financial studies",
+      "aliases": [
+        "rfs",
+        "rev financ stud",
+        "rev. financ. stud.",
+        "review of financial studies"
+      ],
+      "lists": [
+        "utd24",
+        "ft50"
+      ],
+      "sjr": null
+    },
+    {
+      "name": "Thunderbird International Business Review",
+      "normalized": "thunderbird international business review",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.661,
+        "quartile": "Q2",
+        "rank": 167,
+        "hIndex": 59
+      }
+    },
+    {
+      "name": "Tourism Analysis",
+      "normalized": "tourism analysis",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.337,
+        "quartile": "Q3",
+        "rank": 247,
+        "hIndex": 51
+      }
+    },
+    {
+      "name": "Tourism in Marine Environments",
+      "normalized": "tourism in marine environments",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.273,
+        "quartile": "Q3",
+        "rank": 273,
+        "hIndex": 28
+      }
+    },
+    {
+      "name": "Tourism Review International",
+      "normalized": "tourism review international",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.322,
+        "quartile": "Q3",
+        "rank": 254,
+        "hIndex": 21
+      }
+    },
+    {
+      "name": "Tourism, Culture and Communication",
+      "normalized": "tourism culture and communication",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.264,
+        "quartile": "Q3",
+        "rank": 274,
+        "hIndex": 24
+      }
+    },
+    {
+      "name": "Voluntas",
+      "normalized": "voluntas",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 0.939,
+        "quartile": "Q1",
+        "rank": 124,
+        "hIndex": 77
+      }
+    },
+    {
+      "name": "Work and Occupations",
+      "normalized": "work and occupations",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 2.84,
+        "quartile": "Q1",
+        "rank": 50,
+        "hIndex": 88
+      }
+    },
+    {
+      "name": "Work, Aging and Retirement",
+      "normalized": "work aging and retirement",
+      "aliases": [],
+      "lists": [
+        "sjr"
+      ],
+      "sjr": {
+        "score": 1.396,
+        "quartile": "Q1",
+        "rank": 90,
+        "hIndex": 45
+      }
+    }
+  ]
+}

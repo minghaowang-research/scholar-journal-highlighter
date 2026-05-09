@@ -1,0 +1,124 @@
+/* Matched results - tier colors (search results + profile rows) */
+/* UTD24: Deep purple - highest prestige */
+.gs_r.sjh-utd24,
+.gsc_a_tr.sjh-utd24 {
+  border-left: 4px solid #7c3aed !important;
+  background-color: rgba(124, 58, 237, 0.07) !important;
+  padding-left: 8px;
+}
+
+/* FT50: Medium blue */
+.gs_r.sjh-ft50,
+.gsc_a_tr.sjh-ft50 {
+  border-left: 4px solid #3b82f6 !important;
+  background-color: rgba(59, 130, 246, 0.06) !important;
+  padding-left: 8px;
+}
+
+/* SJR: Muted teal - broadest tier */
+.gs_r.sjh-sjr,
+.gsc_a_tr.sjh-sjr {
+  border-left: 4px solid #0d9488 !important;
+  background-color: rgba(13, 148, 136, 0.05) !important;
+  padding-left: 8px;
+}
+
+/* Non-matched results - dim or hide */
+.sjh-dimmed {
+  opacity: 0.3 !important;
+  transition: opacity 0.2s ease;
+}
+
+.sjh-dimmed:hover {
+  opacity: 0.85 !important;
+}
+
+.sjh-hidden {
+  display: none !important;
+}
+
+/* Tag container */
+.sjh-tags {
+  display: inline-flex;
+  gap: 4px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* Individual colored tags with dot */
+.sjh-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px 1px 4px;
+  border-radius: 3px;
+  white-space: nowrap;
+  line-height: 16px;
+}
+
+.sjh-tag::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sjh-tag-utd24 {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+.sjh-tag-utd24::before {
+  background: #7c3aed;
+}
+
+.sjh-tag-ft50 {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.sjh-tag-ft50::before {
+  background: #3b82f6;
+}
+
+.sjh-tag-sjr {
+  background: #ccfbf1;
+  color: #115e59;
+}
+.sjh-tag-sjr::before {
+  background: #0d9488;
+}
+
+/* SJR Quartile pill */
+.sjh-quartile {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 5px;
+  margin-left: 4px;
+  border-radius: 3px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.sjh-q1 {
+  background: #065f46;
+  color: #ecfdf5;
+}
+
+.sjh-q2 {
+  background: #1d4ed8;
+  color: #eff6ff;
+}
+
+.sjh-q3 {
+  background: #b45309;
+  color: #fffbeb;
+}
+
+.sjh-q4 {
+  background: #991b1b;
+  color: #fef2f2;
+}

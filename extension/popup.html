@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="popup-container">
+      <h3>Scholar Journal Highlighter</h3>
+
+      <div class="section">
+        <div class="section-label">JOURNAL LISTS</div>
+        <div class="toggle-row">
+          <label>
+            <input type="checkbox" id="toggle-utd24" checked />
+            <span class="color-dot utd24-dot"></span>
+            <span class="toggle-label">UTD24</span>
+          </label>
+        </div>
+        <div class="toggle-row">
+          <label>
+            <input type="checkbox" id="toggle-ft50" checked />
+            <span class="color-dot ft50-dot"></span>
+            <span class="toggle-label">FT50</span>
+          </label>
+        </div>
+        <div class="toggle-row">
+          <label>
+            <input type="checkbox" id="toggle-sjr" checked />
+            <span class="color-dot sjr-dot"></span>
+            <span class="toggle-label">SJR (US Business)</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">NON-MATCHING RESULTS</div>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="displayMode" value="highlight" />
+            <span>Show all</span>
+          </label>
+          <label>
+            <input type="radio" name="displayMode" value="dim" checked />
+            <span>Dim</span>
+          </label>
+          <label>
+            <input type="radio" name="displayMode" value="hide" />
+            <span>Hide</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="status">
+        <span id="data-status">Loading...</span>
+        <button id="refresh-btn">Refresh Data</button>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

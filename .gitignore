@@ -1,0 +1,5 @@
+data/sjr_raw.csv
+data/SJR.csv
+__pycache__/
+*.pyc
+.DS_Store
