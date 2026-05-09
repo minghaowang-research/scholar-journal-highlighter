@@ -1,7 +1,7 @@
 let journalData = null;
 let exactMap = new Map();
 let aliasMap = new Map();
-let prefs = { showUtd24: true, showFt50: true, showSjr: true, displayMode: "dim" };
+let prefs = { showUtd24: true, showFt50: true, showAbdc: true, showSjr: true, showCustom: true, displayMode: "dim" };
 
 function normalize(name) {
   return name
@@ -77,7 +77,9 @@ function extractJournalFromProfile(gsGrayEl) {
 function getHighestTier(lists) {
   if (lists.includes("utd24")) return "utd24";
   if (lists.includes("ft50")) return "ft50";
+  if (lists.includes("abdc")) return "abdc";
   if (lists.includes("sjr")) return "sjr";
+  if (lists.includes("custom")) return "custom";
   return "sjr";
 }
 
@@ -90,7 +92,9 @@ function isJournalVisible(journal) {
   return journal.lists.some((l) => {
     if (l === "utd24") return prefs.showUtd24;
     if (l === "ft50") return prefs.showFt50;
+    if (l === "abdc") return prefs.showAbdc;
     if (l === "sjr") return prefs.showSjr;
+    if (l === "custom") return prefs.showCustom;
     return false;
   });
 }
@@ -151,10 +155,15 @@ function buildBadge(journal, tier, visibleLists) {
   const items = [];
   if (visibleLists.includes("utd24")) items.push({ label: "UTD24", cls: "sjh-tag-utd24" });
   if (visibleLists.includes("ft50")) items.push({ label: "FT50", cls: "sjh-tag-ft50" });
+  if (visibleLists.includes("abdc")) {
+    const r = journal.abdc || "";
+    items.push({ label: r ? `ABDC ${r}` : "ABDC", cls: "sjh-tag-abdc" });
+  }
   if (visibleLists.includes("sjr")) {
     const q = journal.sjr ? journal.sjr.quartile : "";
     items.push({ label: q ? `SJR ${q}` : "SJR", cls: "sjh-tag-sjr" });
   }
+  if (visibleLists.includes("custom")) items.push({ label: "My List", cls: "sjh-tag-custom" });
 
   for (const item of items) {
     const tag = document.createElement("span");
@@ -179,7 +188,9 @@ function getVisibleLists(journal) {
   return journal.lists.filter((l) => {
     if (l === "utd24") return prefs.showUtd24;
     if (l === "ft50") return prefs.showFt50;
+    if (l === "abdc") return prefs.showAbdc;
     if (l === "sjr") return prefs.showSjr;
+    if (l === "custom") return prefs.showCustom;
     return false;
   });
 }
@@ -244,7 +255,9 @@ function clearHighlights() {
       "sjh-hidden",
       "sjh-utd24",
       "sjh-ft50",
-      "sjh-sjr"
+      "sjh-abdc",
+      "sjh-sjr",
+      "sjh-custom"
     );
   });
   document.querySelectorAll(".sjh-tags, .sjh-quartile").forEach((el) => el.remove());
@@ -252,7 +265,7 @@ function clearHighlights() {
 
 function loadPrefsAndProcess() {
   chrome.storage.sync.get(
-    { showUtd24: true, showFt50: true, showSjr: true, displayMode: "dim" },
+    { showUtd24: true, showFt50: true, showAbdc: true, showSjr: true, showCustom: true, displayMode: "dim" },
     (p) => {
       prefs = p;
       clearHighlights();

@@ -1,4 +1,3 @@
-/* Matched results - tier colors (search results + profile rows) */
 /* UTD24: Deep purple - highest prestige */
 .gs_r.sjh-utd24,
 .gsc_a_tr.sjh-utd24 {
@@ -15,7 +14,15 @@
   padding-left: 8px;
 }
 
-/* SJR: Muted teal - broadest tier */
+/* ABDC: Warm orange */
+.gs_r.sjh-abdc,
+.gsc_a_tr.sjh-abdc {
+  border-left: 4px solid #ea580c !important;
+  background-color: rgba(234, 88, 12, 0.06) !important;
+  padding-left: 8px;
+}
+
+/* SJR: Muted teal */
 .gs_r.sjh-sjr,
 .gsc_a_tr.sjh-sjr {
   border-left: 4px solid #0d9488 !important;
@@ -23,16 +30,22 @@
   padding-left: 8px;
 }
 
-/* Non-matched results - dim or hide */
+/* Custom/My List: Slate gray */
+.gs_r.sjh-custom,
+.gsc_a_tr.sjh-custom {
+  border-left: 4px solid #64748b !important;
+  background-color: rgba(100, 116, 139, 0.06) !important;
+  padding-left: 8px;
+}
+
+/* Non-matched results */
 .sjh-dimmed {
   opacity: 0.3 !important;
   transition: opacity 0.2s ease;
 }
-
 .sjh-dimmed:hover {
   opacity: 0.85 !important;
 }
-
 .sjh-hidden {
   display: none !important;
 }
@@ -57,7 +70,6 @@
   white-space: nowrap;
   line-height: 16px;
 }
-
 .sjh-tag::before {
   content: "";
   display: inline-block;
@@ -67,29 +79,20 @@
   flex-shrink: 0;
 }
 
-.sjh-tag-utd24 {
-  background: #ede9fe;
-  color: #5b21b6;
-}
-.sjh-tag-utd24::before {
-  background: #7c3aed;
-}
+.sjh-tag-utd24 { background: #ede9fe; color: #5b21b6; }
+.sjh-tag-utd24::before { background: #7c3aed; }
 
-.sjh-tag-ft50 {
-  background: #dbeafe;
-  color: #1e40af;
-}
-.sjh-tag-ft50::before {
-  background: #3b82f6;
-}
+.sjh-tag-ft50 { background: #dbeafe; color: #1e40af; }
+.sjh-tag-ft50::before { background: #3b82f6; }
 
-.sjh-tag-sjr {
-  background: #ccfbf1;
-  color: #115e59;
-}
-.sjh-tag-sjr::before {
-  background: #0d9488;
-}
+.sjh-tag-abdc { background: #fff7ed; color: #9a3412; }
+.sjh-tag-abdc::before { background: #ea580c; }
+
+.sjh-tag-sjr { background: #ccfbf1; color: #115e59; }
+.sjh-tag-sjr::before { background: #0d9488; }
+
+.sjh-tag-custom { background: #f1f5f9; color: #334155; }
+.sjh-tag-custom::before { background: #64748b; }
 
 /* SJR Quartile pill */
 .sjh-quartile {
@@ -102,23 +105,7 @@
   vertical-align: middle;
   white-space: nowrap;
 }
-
-.sjh-q1 {
-  background: #065f46;
-  color: #ecfdf5;
-}
-
-.sjh-q2 {
-  background: #1d4ed8;
-  color: #eff6ff;
-}
-
-.sjh-q3 {
-  background: #b45309;
-  color: #fffbeb;
-}
-
-.sjh-q4 {
-  background: #991b1b;
-  color: #fef2f2;
-}
+.sjh-q1 { background: #065f46; color: #ecfdf5; }
+.sjh-q2 { background: #1d4ed8; color: #eff6ff; }
+.sjh-q3 { background: #b45309; color: #fffbeb; }
+.sjh-q4 { background: #991b1b; color: #fef2f2; }

@@ -1,23 +1,24 @@
 const TOGGLE_KEYS = {
   "toggle-utd24": "showUtd24",
   "toggle-ft50": "showFt50",
+  "toggle-abdc": "showAbdc",
   "toggle-sjr": "showSjr",
+  "toggle-custom": "showCustom",
 };
 
-function loadPreferences() {
-  chrome.storage.sync.get(
-    { showUtd24: true, showFt50: true, showSjr: true, displayMode: "dim" },
-    (prefs) => {
-      document.getElementById("toggle-utd24").checked = prefs.showUtd24;
-      document.getElementById("toggle-ft50").checked = prefs.showFt50;
-      document.getElementById("toggle-sjr").checked = prefs.showSjr;
+const DEFAULTS = { showUtd24: true, showFt50: true, showAbdc: true, showSjr: true, showCustom: true, displayMode: "dim" };
 
-      const modeRadio = document.querySelector(
-        `input[name="displayMode"][value="${prefs.displayMode}"]`
-      );
-      if (modeRadio) modeRadio.checked = true;
-    }
-  );
+function loadPreferences() {
+  chrome.storage.sync.get(DEFAULTS, (prefs) => {
+    Object.entries(TOGGLE_KEYS).forEach(([id, key]) => {
+      document.getElementById(id).checked = prefs[key];
+    });
+
+    const modeRadio = document.querySelector(
+      `input[name="displayMode"][value="${prefs.displayMode}"]`
+    );
+    if (modeRadio) modeRadio.checked = true;
+  });
 }
 
 function loadStatus() {
@@ -27,13 +28,17 @@ function loadStatus() {
       const journals = data.journalData.journals;
       const updated = data.journalData.updated || "unknown";
 
-      const utd = journals.filter((j) => j.lists.includes("utd24")).length;
-      const ft = journals.filter((j) => j.lists.includes("ft50")).length;
-      const sjr = journals.filter((j) => j.lists.includes("sjr")).length;
+      const counts = { utd24: 0, ft50: 0, abdc: 0, sjr: 0, custom: 0 };
+      for (const j of journals) {
+        for (const l of j.lists) {
+          if (counts[l] !== undefined) counts[l]++;
+        }
+      }
 
-      document.getElementById("count-utd24").textContent = utd;
-      document.getElementById("count-ft50").textContent = ft;
-      document.getElementById("count-sjr").textContent = sjr;
+      for (const [key, val] of Object.entries(counts)) {
+        const el = document.getElementById(`count-${key}`);
+        if (el) el.textContent = val;
+      }
 
       statusEl.textContent = `${journals.length} journals total | Data: ${updated}`;
     } else {
@@ -42,26 +47,23 @@ function loadStatus() {
   });
 }
 
-function notifyTab(msgType) {
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    if (tabs[0]) {
-      chrome.tabs.sendMessage(tabs[0].id, { type: msgType });
+async function notifyTab(msgType) {
+  try {
+    const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
+    if (tabs[0] && tabs[0].url && tabs[0].url.includes("scholar.google.com")) {
+      await chrome.tabs.sendMessage(tabs[0].id, { type: msgType });
     }
-  });
+  } catch (_) {}
 }
 
 function onToggleChange(e) {
   const key = TOGGLE_KEYS[e.target.id];
   if (!key) return;
-  chrome.storage.sync.set({ [key]: e.target.checked }, () => {
-    notifyTab("TOGGLE_CHANGED");
-  });
+  chrome.storage.sync.set({ [key]: e.target.checked }, () => notifyTab("TOGGLE_CHANGED"));
 }
 
 function onModeChange(e) {
-  chrome.storage.sync.set({ displayMode: e.target.value }, () => {
-    notifyTab("MODE_CHANGED");
-  });
+  chrome.storage.sync.set({ displayMode: e.target.value }, () => notifyTab("MODE_CHANGED"));
 }
 
 Object.keys(TOGGLE_KEYS).forEach((id) => {

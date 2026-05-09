@@ -161,21 +161,37 @@ def load_list(json_path: Path) -> list[str]:
         return json.load(f)
 
 
-def build_journals_json(sjr_journals: list[dict], utd24: list[str], ft50: list[str]) -> dict:
+def load_abdc(json_path: Path) -> list[dict]:
+    with open(json_path) as f:
+        return json.load(f)
+
+
+def build_journals_json(
+    sjr_journals: list[dict],
+    utd24: list[str],
+    ft50: list[str],
+    abdc: list[dict],
+    custom: list[str],
+) -> dict:
     utd24_norm = {normalize(n): n for n in utd24}
     ft50_norm = {normalize(n): n for n in ft50}
+    custom_norm = {normalize(n): n for n in custom}
 
     merged = {}
 
-    for sj in sjr_journals:
-        norm = normalize(sj["name"])
-        entry = merged.setdefault(norm, {
-            "name": sj["name"],
+    def get_entry(name, norm):
+        return merged.setdefault(norm, {
+            "name": name,
             "normalized": norm,
             "aliases": [],
             "lists": [],
             "sjr": None,
+            "abdc": None,
         })
+
+    for sj in sjr_journals:
+        norm = normalize(sj["name"])
+        entry = get_entry(sj["name"], norm)
         entry["lists"].append("sjr")
         entry["sjr"] = {
             "score": sj["sjr_score"],
@@ -185,26 +201,26 @@ def build_journals_json(sjr_journals: list[dict], utd24: list[str], ft50: list[s
         }
 
     for norm, name in utd24_norm.items():
-        entry = merged.setdefault(norm, {
-            "name": name,
-            "normalized": norm,
-            "aliases": [],
-            "lists": [],
-            "sjr": None,
-        })
+        entry = get_entry(name, norm)
         if "utd24" not in entry["lists"]:
             entry["lists"].append("utd24")
 
     for norm, name in ft50_norm.items():
-        entry = merged.setdefault(norm, {
-            "name": name,
-            "normalized": norm,
-            "aliases": [],
-            "lists": [],
-            "sjr": None,
-        })
+        entry = get_entry(name, norm)
         if "ft50" not in entry["lists"]:
             entry["lists"].append("ft50")
+
+    for aj in abdc:
+        norm = normalize(aj["name"])
+        entry = get_entry(aj["name"], norm)
+        if "abdc" not in entry["lists"]:
+            entry["lists"].append("abdc")
+        entry["abdc"] = aj["rating"]
+
+    for norm, name in custom_norm.items():
+        entry = get_entry(name, norm)
+        if "custom" not in entry["lists"]:
+            entry["lists"].append("custom")
 
     for canonical, alias_list in ALIASES.items():
         norm = normalize(canonical)
@@ -217,18 +233,12 @@ def build_journals_json(sjr_journals: list[dict], utd24: list[str], ft50: list[s
 
     journals_list = sorted(merged.values(), key=lambda j: j["name"].lower())
 
+    list_order = ["utd24", "ft50", "abdc", "sjr", "custom"]
     for j in journals_list:
-        order = []
-        if "utd24" in j["lists"]:
-            order.append("utd24")
-        if "ft50" in j["lists"]:
-            order.append("ft50")
-        if "sjr" in j["lists"]:
-            order.append("sjr")
-        j["lists"] = order
+        j["lists"] = [l for l in list_order if l in j["lists"]]
 
     return {
-        "version": 1,
+        "version": 2,
         "updated": date.today().isoformat(),
         "journals": journals_list,
     }
@@ -247,22 +257,23 @@ def main():
     sjr_journals = parse_sjr(sjr_csv)
     print(f"  Found {len(sjr_journals)} SJR journals")
 
-    print("Loading UTD24 and FT50...")
+    print("Loading lists...")
     utd24 = load_list(DATA_DIR / "utd24.json")
     ft50 = load_list(DATA_DIR / "ft50.json")
+    abdc = load_abdc(DATA_DIR / "abdc.json")
+    custom = load_list(DATA_DIR / "custom.json")
     print(f"  UTD24: {len(utd24)} journals")
     print(f"  FT50: {len(ft50)} journals")
+    print(f"  ABDC: {len(abdc)} journals")
+    print(f"  Custom: {len(custom)} journals")
 
     print("Building merged journals.json...")
-    result = build_journals_json(sjr_journals, utd24, ft50)
+    result = build_journals_json(sjr_journals, utd24, ft50, abdc, custom)
     print(f"  Total unique journals: {len(result['journals'])}")
 
-    utd_count = sum(1 for j in result["journals"] if "utd24" in j["lists"])
-    ft_count = sum(1 for j in result["journals"] if "ft50" in j["lists"])
-    sjr_count = sum(1 for j in result["journals"] if "sjr" in j["lists"])
-    print(f"  In UTD24: {utd_count}")
-    print(f"  In FT50: {ft_count}")
-    print(f"  In SJR: {sjr_count}")
+    for listname in ["utd24", "ft50", "abdc", "sjr", "custom"]:
+        c = sum(1 for j in result["journals"] if listname in j["lists"])
+        print(f"  In {listname}: {c}")
 
     output_path = DATA_DIR / "journals.json"
     with open(output_path, "w") as f:
