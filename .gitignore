@@ -1,5 +1,6 @@
 data/sjr_raw.csv
 data/SJR.csv
+data/*.xlsx
 __pycache__/
 *.pyc
 .DS_Store

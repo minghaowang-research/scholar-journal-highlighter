@@ -172,6 +172,11 @@ def main():
         json.dump(result, f, indent=2, ensure_ascii=False)
     print(f"Written to {output_path}")
 
+    ext_path = ROOT / "extension" / "journals.json"
+    with open(ext_path, "w") as f:
+        json.dump(result, f, indent=2, ensure_ascii=False)
+    print(f"Copied to {ext_path}")
+
 
 if __name__ == "__main__":
     main()
