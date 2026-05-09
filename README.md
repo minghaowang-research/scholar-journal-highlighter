@@ -61,9 +61,10 @@ Click the extension icon in your toolbar to open settings.
 
 ![Extension settings popup](docs/images/popup-settings.jpg)
 
-**Library proxy (recommended):** Enable "Library proxy" and enter your institution's proxy URL prefix. Examples:
-- EZproxy: `https://ezproxy.yourschool.edu/login?url=`
-- OpenAthens: your institution's OpenAthens URL
+**Library proxy (recommended):** Enable "Library proxy" and enter your institution's EZproxy URL prefix. Example:
+- `https://ezproxy.yourschool.edu/login?url=`
+
+Note: Only EZproxy-style URL prefixes are supported. OpenAthens (SAML-based) authentication is not yet supported.
 
 **Sci-Hub (optional):** Enable "Sci-Hub links" if you wish to use it. See the [disclaimer above](#important-about-sci-hub).
 
