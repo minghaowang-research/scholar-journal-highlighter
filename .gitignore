@@ -3,3 +3,11 @@ data/SJR.csv
 __pycache__/
 *.pyc
 .DS_Store
+
+# Claude session tracking - never commit
+CLAUDE.md
+_SESSION_LOG.md
+_CHANGELOG.md
+_FOLDER_MAP.md
+_DECISIONS.md
+_Archive/
