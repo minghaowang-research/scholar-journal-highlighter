@@ -1,8 +1,14 @@
 # Scholar Journal Highlighter
 
-A Chrome extension that highlights research journals on Google Scholar based on their prestige rankings.
+A Chrome extension for business school students and researchers. Highlights top-tier journals on Google Scholar so you can quickly spot quality publications when searching for papers, checking citations, or browsing author profiles.
 
-When you search on Google Scholar, matching journals appear with colored borders, background tints, and tier badges. Non-matching results can be dimmed or hidden.
+Focuses on UTD24, FT50, and ABDC (A*/A only) -- the journal lists that matter for business research.
+
+Matching journals appear with colored borders, background tints, and tier badges. Non-matching results can be dimmed or hidden.
+
+### Planned
+
+- Fetch DOI metadata via Semantic Scholar and add Sci-Hub links to search results
 
 ## Supported Journal Lists
 
