@@ -341,13 +341,28 @@ function injectAccessButtonsProfile(rowEl) {
       const newTab = window.open("about:blank", "_blank");
       btn.textContent = "...";
       const result = await resolve();
-      btn.textContent = "Sci-Hub";
-      if (result.doi && newTab) {
-        newTab.location.href = getScihubBase() + result.doi;
+      const target = result.doi || result.publisherUrl;
+      if (target && newTab) {
+        newTab.location.href = getScihubBase() + target;
+        if (result.doi) {
+          btn.textContent = "Sci-Hub";
+        } else if (result.error === "need_api_key") {
+          btn.textContent = "No DOI (add API key)";
+          setTimeout(() => { btn.textContent = "Sci-Hub"; cached = null; }, 5000);
+        } else if (result.error === "rate_limited") {
+          btn.textContent = "No DOI (API limit)";
+          setTimeout(() => { btn.textContent = "Sci-Hub"; cached = null; }, 5000);
+        } else {
+          btn.textContent = "No DOI (via URL)";
+        }
       } else {
         if (newTab) newTab.close();
-        btn.textContent = "No DOI found";
-        setTimeout(() => { btn.textContent = "Sci-Hub"; }, 2000);
+        if (result.error === "need_api_key" || result.error === "rate_limited") {
+          btn.textContent = result.error === "need_api_key" ? "Add API key" : "API limit";
+          setTimeout(() => { btn.textContent = "Sci-Hub"; cached = null; }, 5000);
+        } else {
+          btn.textContent = result.error === "no_result" ? "No DOI found" : "Not found";
+        }
       }
     });
     btnContainer.appendChild(btn);

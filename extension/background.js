@@ -87,6 +87,43 @@ async function lookupDOI(title) {
   return fetchDOI(title);
 }
 
+async function lookupDOIWithStatus(title) {
+  const key = doiCacheKey(title);
+  const tsKey = key + "_ts";
+  const cached = await chrome.storage.local.get([key, tsKey]);
+  if (cached[key] !== undefined && cached[tsKey] && Date.now() - cached[tsKey] < DOI_CACHE_TTL) {
+    return { doi: cached[key], error: null };
+  }
+  return fetchDOIWithStatus(title);
+}
+
+async function fetchDOIWithStatus(title) {
+  try {
+    const query = encodeURIComponent(title.substring(0, 300));
+    const s2Settings = await chrome.storage.sync.get({ s2ApiKey: "" });
+    const headers = {};
+    if (s2Settings.s2ApiKey) headers["x-api-key"] = s2Settings.s2ApiKey;
+    const resp = await fetch(`${S2_API}?query=${query}&fields=externalIds&limit=1`, { headers });
+    if (resp.status === 429) {
+      return { doi: null, error: s2Settings.s2ApiKey ? "rate_limited" : "need_api_key" };
+    }
+    if (!resp.ok) return { doi: null, error: "api_error" };
+    const data = await resp.json();
+
+    let doi = null;
+    if (data.data && data.data.length > 0 && data.data[0].externalIds?.DOI) {
+      doi = data.data[0].externalIds.DOI;
+    }
+
+    const key = doiCacheKey(title);
+    await chrome.storage.local.set({ [key]: doi, [key + "_ts"]: Date.now() });
+    return { doi, error: doi ? null : "no_result" };
+  } catch (err) {
+    console.warn("Scholar Journal Highlighter: DOI lookup failed", err);
+    return { doi: null, error: "api_error" };
+  }
+}
+
 async function fetchDOI(title) {
   try {
     const query = encodeURIComponent(title.substring(0, 300));
@@ -151,10 +188,14 @@ async function resolvePaperFromCitation(citationUrl, title) {
   }
 
   if (!doi) {
-    doi = await lookupDOI(title);
+    const lookup = await lookupDOIWithStatus(title);
+    doi = lookup.doi;
+    if (!doi && lookup.error) {
+      return { doi: null, publisherUrl, error: lookup.error };
+    }
   }
 
-  return { doi, publisherUrl };
+  return { doi, publisherUrl, error: null };
 }
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
