@@ -285,7 +285,7 @@ function injectSummaryBar(data) {
   }
   const totalItem = document.createElement("span");
   totalItem.className = "sjh-sum-item sjh-sum-total";
-  totalItem.textContent = total + " total (all publications incl. books, conferences, etc.)";
+  totalItem.textContent = total + " total (all types)";
   bar.appendChild(totalItem);
 
   const table = document.querySelector(".gsc_a_tr")?.closest("table");
