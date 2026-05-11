@@ -267,16 +267,21 @@ document.getElementById("export-btn").addEventListener("click", () => {
 });
 
 document.getElementById("clear-btn").addEventListener("click", () => {
-  chrome.storage.sync.get({ customJournals: [] }, (prefs) => {
+  const btn = document.getElementById("clear-btn");
+  if (btn.dataset.confirm !== "yes") {
+    btn.textContent = "Sure?";
+    btn.dataset.confirm = "yes";
+    setTimeout(() => { btn.textContent = "Clear all"; btn.dataset.confirm = ""; }, 3000);
+    return;
+  }
+  btn.dataset.confirm = "";
+  chrome.storage.sync.set({ customJournals: [] }, () => {
     try {
-      if ((prefs.customJournals || []).length === 0) return;
-      chrome.storage.sync.set({ customJournals: [] }, () => {
-        try {
-          renderCustomList([]);
-          loadStatus();
-          notifyTab("CUSTOM_CHANGED");
-        } catch (_) {}
-      });
+      renderCustomList([]);
+      loadStatus();
+      notifyTab("CUSTOM_CHANGED");
+      btn.textContent = "Cleared";
+      setTimeout(() => { btn.textContent = "Clear all"; }, 1500);
     } catch (_) {}
   });
 });
