@@ -56,6 +56,23 @@ h3 { margin: 0 0 14px 0; font-size: 15px; font-weight: 700; }
 }
 #custom-add-btn:hover { background: #f3f4f6; }
 
+.import-export-row {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 6px;
+}
+.import-export-row button {
+  font-size: 11px;
+  padding: 3px 8px;
+  cursor: pointer;
+  border: 1px solid #d1d5db;
+  border-radius: 3px;
+  background: #f9fafb;
+}
+.import-export-row button:hover { background: #f3f4f6; }
+
 .radio-group { display: flex; gap: 12px; }
 .radio-group label {
   display: flex; align-items: center; gap: 4px; cursor: pointer; font-size: 12px;

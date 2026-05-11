@@ -9,6 +9,7 @@ let prefs = {
   showCitations: true,
 };
 let configData = null;
+let profileCounts = { utd24: 0, ft50: 0, abdcStar: 0, abdcA: 0, custom: 0 };
 
 function normalize(name) {
   return name
@@ -207,6 +208,14 @@ function applyMatchProfile(rowEl, journalGray, journal) {
   rowEl.classList.add("sjh-match", `sjh-${tier}`);
 
   journalGray.appendChild(buildBadge(journal, tier, visibleLists));
+
+  if (visibleLists.includes("utd24")) profileCounts.utd24++;
+  if (visibleLists.includes("ft50")) profileCounts.ft50++;
+  if (visibleLists.includes("abdc")) {
+    if (journal.abdc === "A*") profileCounts.abdcStar++;
+    else profileCounts.abdcA++;
+  }
+  if (visibleLists.includes("custom")) profileCounts.custom++;
 }
 
 function applyNonMatch(el, isProfile) {
@@ -222,6 +231,45 @@ function applyNonMatch(el, isProfile) {
 
 function isProfilePage() {
   return window.location.pathname.includes("/citations");
+}
+
+function injectSummaryBar() {
+  document.querySelectorAll(".sjh-summary-bar").forEach((el) => el.remove());
+
+  const parts = [];
+  if (prefs.showUtd24 && profileCounts.utd24)
+    parts.push({ count: profileCounts.utd24, label: "UTD24", cls: "sjh-sum-utd24" });
+  if (prefs.showFt50 && profileCounts.ft50)
+    parts.push({ count: profileCounts.ft50, label: "FT50", cls: "sjh-sum-ft50" });
+  if (prefs.showAbdc && profileCounts.abdcStar)
+    parts.push({ count: profileCounts.abdcStar, label: "ABDC A*", cls: "sjh-sum-abdc" });
+  if (prefs.showAbdc && profileCounts.abdcA)
+    parts.push({ count: profileCounts.abdcA, label: "ABDC A", cls: "sjh-sum-abdc" });
+  if (prefs.showCustom && profileCounts.custom)
+    parts.push({ count: profileCounts.custom, label: "My List", cls: "sjh-sum-custom" });
+
+  if (parts.length === 0) return;
+
+  const bar = document.createElement("div");
+  bar.className = "sjh-summary-bar";
+
+  for (let i = 0; i < parts.length; i++) {
+    const item = document.createElement("span");
+    item.className = "sjh-sum-item " + parts[i].cls;
+    item.textContent = parts[i].count + " " + parts[i].label;
+    bar.appendChild(item);
+    if (i < parts.length - 1) {
+      const sep = document.createElement("span");
+      sep.className = "sjh-sum-sep";
+      sep.textContent = "|";
+      bar.appendChild(sep);
+    }
+  }
+
+  const table = document.querySelector(".gsc_a_tr")?.closest("table");
+  if (table) {
+    table.parentNode.insertBefore(bar, table);
+  }
 }
 
 // --- Access buttons (Sci-Hub + Library Proxy) ---
@@ -402,7 +450,20 @@ function injectAccessButtonsProfile(rowEl) {
 // --- Citation highlighting ---
 
 function highlightCitations(resultEl) {
-  if (!prefs.showCitations || isProfilePage()) return;
+  if (!prefs.showCitations) return;
+
+  if (isProfilePage()) {
+    const citeCell = resultEl.querySelector(".gsc_a_c");
+    if (!citeCell) return;
+    const text = citeCell.textContent.trim();
+    if (!text) return;
+    const count = parseInt(text.replace(/,/g, ""));
+    if (isNaN(count)) return;
+    if (count >= 1000) resultEl.classList.add("sjh-cite-1k");
+    else if (count >= 500) resultEl.classList.add("sjh-cite-500");
+    else if (count >= 100) resultEl.classList.add("sjh-cite-100");
+    return;
+  }
 
   const flEl = resultEl.querySelector(".gs_fl");
   if (!flEl) return;
@@ -424,10 +485,13 @@ function highlightCitations(resultEl) {
 
 function processAllResults() {
   if (isProfilePage()) {
+    profileCounts = { utd24: 0, ft50: 0, abdcStar: 0, abdcA: 0, custom: 0 };
     document.querySelectorAll(".gsc_a_tr").forEach((el) => {
       processProfileResult(el);
       injectAccessButtonsProfile(el);
+      highlightCitations(el);
     });
+    injectSummaryBar();
   } else {
     document.querySelectorAll(".gs_ri").forEach((el) => {
       processSearchResult(el);
@@ -456,6 +520,7 @@ function clearHighlights() {
   document.querySelectorAll(".sjh-cite-100, .sjh-cite-500, .sjh-cite-1k").forEach((el) => {
     el.classList.remove("sjh-cite-100", "sjh-cite-500", "sjh-cite-1k");
   });
+  document.querySelectorAll(".sjh-summary-bar").forEach((el) => el.remove());
 }
 
 function loadPrefsAndProcess() {

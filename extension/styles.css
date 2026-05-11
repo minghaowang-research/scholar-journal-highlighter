@@ -127,3 +127,27 @@
 .sjh-cite-100 { font-weight: 700; color: #4b5563; background: #e5e7eb; padding: 1px 5px; border-radius: 3px; }
 .sjh-cite-500 { font-weight: 700; color: #1f2937; background: #cbd5e1; padding: 1px 5px; border-radius: 3px; }
 .sjh-cite-1k { font-weight: 700; color: #0f172a; background: #94a3b8; padding: 1px 5px; border-radius: 3px; }
+
+/* Citation highlighting on profile rows */
+.gsc_a_tr.sjh-cite-100 { background-color: rgba(229, 231, 235, 0.5) !important; }
+.gsc_a_tr.sjh-cite-500 { background-color: rgba(203, 213, 225, 0.5) !important; }
+.gsc_a_tr.sjh-cite-1k { background-color: rgba(148, 163, 184, 0.5) !important; }
+
+/* Profile summary bar */
+.sjh-summary-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.sjh-sum-sep { color: #cbd5e1; font-weight: 400; }
+.sjh-sum-utd24 { color: #5b21b6; }
+.sjh-sum-ft50 { color: #0e7490; }
+.sjh-sum-abdc { color: #92400e; }
+.sjh-sum-custom { color: #334155; }
