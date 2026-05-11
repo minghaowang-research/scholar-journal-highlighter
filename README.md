@@ -15,7 +15,7 @@ This extension includes an optional Sci-Hub integration for convenience. **Sci-H
 - Matching journals appear with colored borders, background tints, and tier badges
 - Independent toggle for each journal list
 - Non-matching results: show all, dim, or hide
-- Custom journal list with add/remove UI
+- Custom journal list (My List) with add/remove, import (.xlsx/.csv), export (.csv), and clear all
 - Alias matching for abbreviated journal names (e.g., "JMR" for Journal of Marketing Research)
 - Fuzzy substring matching as fallback
 - Auto-updates journal data from GitHub (7-day cache)
@@ -26,7 +26,8 @@ This extension includes an optional Sci-Hub integration for convenience. **Sci-H
 
 - **Library proxy** (recommended): adds a Library button that opens the paper through your institution's proxy (e.g., EZproxy, OpenAthens). Enter your proxy URL in settings -- works with any university.
 - **Sci-Hub links** (optional): adds a Sci-Hub button next to each search result title. Uses DOI extraction from Google Scholar citation pages, with CrossRef API as fallback. Sci-Hub URL is user-configurable. See [disclaimer](#important-about-sci-hub).
-- **Citation highlighting**: high-citation papers are visually emphasized (100+ green, 500+ blue, 1000+ purple).
+- **Citation highlighting**: high-citation papers are visually emphasized (100+, 500+, 1000+).
+- **Profile summary bar** (v3.2+): on author profile pages, shows publication counts per list with percentages across all publications (e.g., "76 UTD24 (10%) | 105 FT50 (14%) | 777 in Scholar profile").
 
 ## Supported Journal Lists
 
@@ -36,6 +37,8 @@ This extension includes an optional Sci-Hub integration for convenience. **Sci-H
 | FT50 | 50 | Teal | Financial Times top 50 journals |
 | ABDC (A\*/A) | 849 | Amber | Australian Business Deans Council (A\* and A only) |
 | My List | User-defined | Gray | Custom journals added via popup |
+
+**My List notes:** Journal names must match exactly how they appear on Google Scholar -- no typos, no extra spaces. The extension uses fuzzy matching, but the closer your entry is to the actual name on Scholar, the more reliable the match. You can import a list from `.xlsx` or `.csv` (column A, one journal per row, first row is skipped as header). A [sample CSV](docs/sample-import.csv) is included in this repo.
 
 ## Install
 
