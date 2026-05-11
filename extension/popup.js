@@ -266,6 +266,21 @@ document.getElementById("export-btn").addEventListener("click", () => {
   });
 });
 
+document.getElementById("clear-btn").addEventListener("click", () => {
+  chrome.storage.sync.get({ customJournals: [] }, (prefs) => {
+    try {
+      if ((prefs.customJournals || []).length === 0) return;
+      chrome.storage.sync.set({ customJournals: [] }, () => {
+        try {
+          renderCustomList([]);
+          loadStatus();
+          notifyTab("CUSTOM_CHANGED");
+        } catch (_) {}
+      });
+    } catch (_) {}
+  });
+});
+
 async function parseCsvFile(file) {
   const text = await file.text();
   const lines = text.split(/\r?\n/);
