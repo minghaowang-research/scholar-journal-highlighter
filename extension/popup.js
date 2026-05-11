@@ -270,8 +270,10 @@ document.getElementById("clear-btn").addEventListener("click", () => {
   const btn = document.getElementById("clear-btn");
   if (btn.dataset.confirm !== "yes") {
     btn.textContent = "Sure?";
+    btn.style.color = "#dc2626";
+    btn.style.borderColor = "#dc2626";
     btn.dataset.confirm = "yes";
-    setTimeout(() => { btn.textContent = "Clear all"; btn.dataset.confirm = ""; }, 3000);
+    setTimeout(() => { btn.textContent = "Clear all"; btn.style.color = ""; btn.style.borderColor = ""; btn.dataset.confirm = ""; }, 3000);
     return;
   }
   btn.dataset.confirm = "";
