@@ -192,6 +192,53 @@ async function resolvePaperFromCitation(citationUrl, title) {
   return { doi, publisherUrl, error: null };
 }
 
+async function fetchAllProfilePublications(profileUrl) {
+  const url = new URL(profileUrl);
+  const userId = url.searchParams.get("user");
+  if (!userId) return { journalNames: [], total: 0 };
+
+  const hl = url.searchParams.get("hl") || "en";
+  const allJournals = [];
+  let cstart = 0;
+  const pagesize = 100;
+
+  while (true) {
+    const fetchUrl = `https://scholar.google.com/citations?user=${userId}&hl=${hl}&cstart=${cstart}&pagesize=${pagesize}`;
+    try {
+      const resp = await fetch(fetchUrl);
+      if (!resp.ok) break;
+      const html = await resp.text();
+
+      const rowRegex = /<tr class="gsc_a_tr[^"]*"[^>]*>([\s\S]*?)<\/tr>/g;
+      let rowMatch;
+      let rowCount = 0;
+      while ((rowMatch = rowRegex.exec(html)) !== null) {
+        rowCount++;
+        const rowHtml = rowMatch[1];
+        const grayRegex = /<div class="gs_gray[^"]*"[^>]*>([\s\S]*?)<\/div>/g;
+        let grayMatch;
+        let grayIndex = 0;
+        while ((grayMatch = grayRegex.exec(rowHtml)) !== null) {
+          if (grayIndex === 1) {
+            const text = grayMatch[1].replace(/<[^>]*>/g, "").replace(/&amp;/g, "&").trim();
+            allJournals.push(text);
+            break;
+          }
+          grayIndex++;
+        }
+      }
+
+      if (rowCount < pagesize) break;
+      cstart += pagesize;
+    } catch (err) {
+      console.warn("Scholar Journal Highlighter: profile fetch failed", err);
+      break;
+    }
+  }
+
+  return { journalNames: allJournals, total: allJournals.length };
+}
+
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.type === "GET_JOURNALS") {
     fetchJournalData().then(sendResponse);
@@ -211,6 +258,10 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   }
   if (msg.type === "GET_PAPER_ACCESS") {
     resolvePaperFromCitation(msg.citationUrl, msg.title).then(sendResponse);
+    return true;
+  }
+  if (msg.type === "FETCH_PROFILE_COUNTS") {
+    fetchAllProfilePublications(msg.profileUrl).then(sendResponse);
     return true;
   }
 });

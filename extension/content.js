@@ -9,7 +9,8 @@ let prefs = {
   showCitations: true,
 };
 let configData = null;
-let profileCounts = { utd24: 0, ft50: 0, abdcStar: 0, abdcA: 0, custom: 0 };
+let profileData = null;
+let profileFetchInProgress = false;
 
 function normalize(name) {
   return name
@@ -84,16 +85,18 @@ function extractJournalFromSearchResult(gsaEl) {
   return journalName;
 }
 
-function extractJournalFromProfile(gsGrayEl) {
-  const text = gsGrayEl.textContent;
+function cleanProfileJournalText(text) {
   const journalName = text
     .replace(/\d+\s*\([\d\-]+\).*$/, "")
     .replace(/,?\s*\d{4}.*$/, "")
     .replace(/\d+,\s*\d+[-–]\d+.*$/, "")
     .trim();
-
   if (!journalName || /^\d+$/.test(journalName)) return null;
   return journalName;
+}
+
+function extractJournalFromProfile(gsGrayEl) {
+  return cleanProfileJournalText(gsGrayEl.textContent);
 }
 
 function getHighestTier(lists) {
@@ -208,14 +211,6 @@ function applyMatchProfile(rowEl, journalGray, journal) {
   rowEl.classList.add("sjh-match", `sjh-${tier}`);
 
   journalGray.appendChild(buildBadge(journal, tier, visibleLists));
-
-  if (visibleLists.includes("utd24")) profileCounts.utd24++;
-  if (visibleLists.includes("ft50")) profileCounts.ft50++;
-  if (visibleLists.includes("abdc")) {
-    if (journal.abdc === "A*") profileCounts.abdcStar++;
-    else profileCounts.abdcA++;
-  }
-  if (visibleLists.includes("custom")) profileCounts.custom++;
 }
 
 function applyNonMatch(el, isProfile) {
@@ -233,30 +228,46 @@ function isProfilePage() {
   return window.location.pathname.includes("/citations");
 }
 
-function injectSummaryBar() {
+function injectSummaryBar(data) {
   document.querySelectorAll(".sjh-summary-bar").forEach((el) => el.remove());
 
-  const parts = [];
-  if (prefs.showUtd24 && profileCounts.utd24)
-    parts.push({ count: profileCounts.utd24, label: "UTD24", cls: "sjh-sum-utd24" });
-  if (prefs.showFt50 && profileCounts.ft50)
-    parts.push({ count: profileCounts.ft50, label: "FT50", cls: "sjh-sum-ft50" });
-  if (prefs.showAbdc && profileCounts.abdcStar)
-    parts.push({ count: profileCounts.abdcStar, label: "ABDC A*", cls: "sjh-sum-abdc" });
-  if (prefs.showAbdc && profileCounts.abdcA)
-    parts.push({ count: profileCounts.abdcA, label: "ABDC A", cls: "sjh-sum-abdc" });
-  if (prefs.showCustom && profileCounts.custom)
-    parts.push({ count: profileCounts.custom, label: "My List", cls: "sjh-sum-custom" });
+  const total = data.total;
+  const counts = { utd24: 0, ft50: 0, abdcStar: 0, abdcA: 0, custom: 0 };
+  for (const text of data.journalNames) {
+    const journalName = cleanProfileJournalText(text);
+    if (!journalName) continue;
+    const journal = matchJournal(journalName);
+    if (!journal) continue;
+    const vl = getVisibleLists(journal);
+    if (vl.includes("utd24")) counts.utd24++;
+    if (vl.includes("ft50")) counts.ft50++;
+    if (vl.includes("abdc")) {
+      if (journal.abdc === "A*") counts.abdcStar++;
+      else counts.abdcA++;
+    }
+    if (vl.includes("custom")) counts.custom++;
+  }
 
-  if (parts.length === 0) return;
+  const parts = [];
+  if (prefs.showUtd24 && counts.utd24)
+    parts.push({ count: counts.utd24, label: "UTD24", cls: "sjh-sum-utd24" });
+  if (prefs.showFt50 && counts.ft50)
+    parts.push({ count: counts.ft50, label: "FT50", cls: "sjh-sum-ft50" });
+  if (prefs.showAbdc && counts.abdcStar)
+    parts.push({ count: counts.abdcStar, label: "ABDC A*", cls: "sjh-sum-abdc" });
+  if (prefs.showAbdc && counts.abdcA)
+    parts.push({ count: counts.abdcA, label: "ABDC A", cls: "sjh-sum-abdc" });
+  if (prefs.showCustom && counts.custom)
+    parts.push({ count: counts.custom, label: "My List", cls: "sjh-sum-custom" });
 
   const bar = document.createElement("div");
   bar.className = "sjh-summary-bar";
 
   for (let i = 0; i < parts.length; i++) {
+    const pct = total > 0 ? Math.round((parts[i].count / total) * 100) : 0;
     const item = document.createElement("span");
     item.className = "sjh-sum-item " + parts[i].cls;
-    item.textContent = parts[i].count + " " + parts[i].label;
+    item.textContent = parts[i].count + " " + parts[i].label + " (" + pct + "%)";
     bar.appendChild(item);
     if (i < parts.length - 1) {
       const sep = document.createElement("span");
@@ -266,14 +277,31 @@ function injectSummaryBar() {
     }
   }
 
-  const showMoreBtn = document.getElementById("gsc_bpf_more");
-  if (showMoreBtn && !showMoreBtn.disabled && window.getComputedStyle(showMoreBtn).display !== "none") {
-    const loading = document.createElement("span");
-    loading.className = "sjh-sum-loading";
-    loading.textContent = "loading...";
-    bar.appendChild(loading);
+  if (parts.length > 0) {
+    const sep = document.createElement("span");
+    sep.className = "sjh-sum-sep";
+    sep.textContent = "|";
+    bar.appendChild(sep);
   }
+  const totalItem = document.createElement("span");
+  totalItem.className = "sjh-sum-item sjh-sum-total";
+  totalItem.textContent = total + " total";
+  bar.appendChild(totalItem);
 
+  const table = document.querySelector(".gsc_a_tr")?.closest("table");
+  if (table) {
+    table.parentNode.insertBefore(bar, table);
+  }
+}
+
+function injectLoadingSummaryBar() {
+  document.querySelectorAll(".sjh-summary-bar").forEach((el) => el.remove());
+  const bar = document.createElement("div");
+  bar.className = "sjh-summary-bar";
+  const loading = document.createElement("span");
+  loading.className = "sjh-sum-loading";
+  loading.textContent = "Counting all publications...";
+  bar.appendChild(loading);
   const table = document.querySelector(".gsc_a_tr")?.closest("table");
   if (table) {
     table.parentNode.insertBefore(bar, table);
@@ -492,24 +520,30 @@ function highlightCitations(resultEl) {
 
 // --- Processing ---
 
-function loadAllProfileResults() {
-  const btn = document.getElementById("gsc_bpf_more");
-  if (!btn || btn.disabled) return;
-  const style = window.getComputedStyle(btn);
-  if (style.display === "none" || style.visibility === "hidden") return;
-  btn.click();
-  setTimeout(loadAllProfileResults, 500);
-}
-
 function processAllResults() {
   if (isProfilePage()) {
-    profileCounts = { utd24: 0, ft50: 0, abdcStar: 0, abdcA: 0, custom: 0 };
     document.querySelectorAll(".gsc_a_tr").forEach((el) => {
       processProfileResult(el);
       injectAccessButtonsProfile(el);
       highlightCitations(el);
     });
-    injectSummaryBar();
+    if (profileData) {
+      injectSummaryBar(profileData);
+    } else {
+      injectLoadingSummaryBar();
+      if (!profileFetchInProgress) {
+        profileFetchInProgress = true;
+        chrome.runtime.sendMessage(
+          { type: "FETCH_PROFILE_COUNTS", profileUrl: window.location.href },
+          (data) => {
+            profileFetchInProgress = false;
+            if (chrome.runtime.lastError || !data) return;
+            profileData = data;
+            injectSummaryBar(data);
+          }
+        );
+      }
+    }
   } else {
     document.querySelectorAll(".gs_ri").forEach((el) => {
       processSearchResult(el);
@@ -604,10 +638,6 @@ function init() {
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
-
-    if (isProfilePage()) {
-      setTimeout(loadAllProfileResults, 1000);
-    }
   });
 }
 
