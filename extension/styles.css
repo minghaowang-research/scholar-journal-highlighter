@@ -128,11 +128,6 @@
 .sjh-cite-500 { font-weight: 700; color: #1f2937; background: #cbd5e1; padding: 1px 5px; border-radius: 3px; }
 .sjh-cite-1k { font-weight: 700; color: #0f172a; background: #94a3b8; padding: 1px 5px; border-radius: 3px; }
 
-/* Citation highlighting on profile rows */
-.gsc_a_tr.sjh-cite-100 { background-color: rgba(229, 231, 235, 0.5) !important; }
-.gsc_a_tr.sjh-cite-500 { background-color: rgba(203, 213, 225, 0.5) !important; }
-.gsc_a_tr.sjh-cite-1k { background-color: rgba(148, 163, 184, 0.5) !important; }
-
 /* Profile summary bar */
 .sjh-summary-bar {
   display: flex;
@@ -151,3 +146,4 @@
 .sjh-sum-ft50 { color: #0e7490; }
 .sjh-sum-abdc { color: #92400e; }
 .sjh-sum-custom { color: #334155; }
+.sjh-sum-loading { color: #9ca3af; font-weight: 400; font-style: italic; }

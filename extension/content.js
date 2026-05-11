@@ -266,6 +266,14 @@ function injectSummaryBar() {
     }
   }
 
+  const showMoreBtn = document.getElementById("gsc_bpf_more");
+  if (showMoreBtn && !showMoreBtn.disabled && window.getComputedStyle(showMoreBtn).display !== "none") {
+    const loading = document.createElement("span");
+    loading.className = "sjh-sum-loading";
+    loading.textContent = "loading...";
+    bar.appendChild(loading);
+  }
+
   const table = document.querySelector(".gsc_a_tr")?.closest("table");
   if (table) {
     table.parentNode.insertBefore(bar, table);
@@ -455,13 +463,14 @@ function highlightCitations(resultEl) {
   if (isProfilePage()) {
     const citeCell = resultEl.querySelector(".gsc_a_c");
     if (!citeCell) return;
-    const text = citeCell.textContent.trim();
+    const citeTarget = citeCell.querySelector("a") || citeCell;
+    const text = citeTarget.textContent.trim();
     if (!text) return;
     const count = parseInt(text.replace(/,/g, ""));
     if (isNaN(count)) return;
-    if (count >= 1000) resultEl.classList.add("sjh-cite-1k");
-    else if (count >= 500) resultEl.classList.add("sjh-cite-500");
-    else if (count >= 100) resultEl.classList.add("sjh-cite-100");
+    if (count >= 1000) citeTarget.classList.add("sjh-cite-1k");
+    else if (count >= 500) citeTarget.classList.add("sjh-cite-500");
+    else if (count >= 100) citeTarget.classList.add("sjh-cite-100");
     return;
   }
 
@@ -482,6 +491,15 @@ function highlightCitations(resultEl) {
 }
 
 // --- Processing ---
+
+function loadAllProfileResults() {
+  const btn = document.getElementById("gsc_bpf_more");
+  if (!btn || btn.disabled) return;
+  const style = window.getComputedStyle(btn);
+  if (style.display === "none" || style.visibility === "hidden") return;
+  btn.click();
+  setTimeout(loadAllProfileResults, 500);
+}
 
 function processAllResults() {
   if (isProfilePage()) {
@@ -586,6 +604,10 @@ function init() {
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
+
+    if (isProfilePage()) {
+      setTimeout(loadAllProfileResults, 1000);
+    }
   });
 }
 
