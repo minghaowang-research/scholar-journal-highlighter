@@ -274,6 +274,7 @@ function injectSummaryBar(data) {
     item.className = "sjh-sum-item sjh-sum-clickable " + parts[i].cls;
     if (activeFilter === parts[i].filterKey) item.classList.add("sjh-sum-active");
     item.textContent = parts[i].count + " " + parts[i].label + " (" + pct + "%)";
+    item.title = "Click to show only " + parts[i].label + " papers";
     const fk = parts[i].filterKey;
     item.addEventListener("click", () => handleFilterClick(fk));
     bar.appendChild(item);
