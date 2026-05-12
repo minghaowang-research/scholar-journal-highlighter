@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Scholar Journal Highlighter",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "Highlights journals on Google Scholar by UTD24, FT50, ABDC with Sci-Hub and library proxy access",
   "permissions": ["storage"],
   "host_permissions": ["*://scholar.google.com/*"],

@@ -148,3 +148,20 @@
 .sjh-sum-custom { color: #334155; }
 .sjh-sum-total { color: #6b7280; }
 .sjh-sum-loading { color: #9ca3af; font-weight: 400; font-style: italic; }
+
+/* Summary bar filter */
+.sjh-filtered-out { display: none !important; }
+.sjh-sum-clickable {
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 2px 6px;
+  transition: background 0.15s ease;
+}
+.sjh-sum-clickable:hover { background: rgba(0, 0, 0, 0.06); }
+.sjh-sum-active {
+  background: rgba(0, 0, 0, 0.08) !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.sjh-sum-show-all { cursor: pointer; color: #3b82f6; }
+.sjh-sum-show-all:hover { text-decoration: underline; }
