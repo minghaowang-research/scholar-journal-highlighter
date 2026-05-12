@@ -300,7 +300,7 @@ function injectSummaryBar(data) {
   if (!activeFilter && parts.length > 0) {
     const hint = document.createElement("span");
     hint.className = "sjh-sum-hint";
-    hint.textContent = "clickable to filter";
+    hint.textContent = "click to filter";
     bar.appendChild(hint);
   }
 
