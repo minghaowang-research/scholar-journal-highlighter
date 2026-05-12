@@ -4,6 +4,12 @@ A Chrome extension for business school students and researchers. Highlights top-
 
 Focuses on UTD24, FT50, and ABDC (A\*/A only) -- the journal lists that matter for business research.
 
+## 📌 A Note on This Project
+
+I built this for myself as a business school researcher, and it already does everything I need day-to-day -- journal highlighting, library proxy access, citation badges, custom lists, and more. I'm happy to share it with fellow scholars! 🎓
+
+That said, this is primarily a personal tool, so updates may be infrequent. If you have a feature idea that could benefit business researchers as a whole, please open an [issue](../../issues) -- I do keep an eye on them! Just know that this is geared toward business/management researchers who live and breathe UTD24 and FT50, so it may not cover every discipline.
+
 ## Important: About Sci-Hub
 
 This extension includes an optional Sci-Hub integration for convenience. **Sci-Hub is not endorsed or recommended for bypassing publisher paywalls.** Accessing copyrighted articles without authorization may violate copyright law in your jurisdiction. We strongly encourage you to use your university's library proxy to access papers through legitimate institutional subscriptions. The Sci-Hub feature is **disabled by default** and provided only for users who understand and accept the associated risks.
