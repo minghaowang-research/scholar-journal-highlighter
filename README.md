@@ -58,17 +58,14 @@ Go to `chrome://extensions/` in your browser. Turn on **Developer mode** (top-ri
 
 ![Enable Developer mode and Load unpacked](docs/images/install-developer-mode.jpeg)
 
-### Step 3: Pin the Extension
+### Step 3: Pin the Extension and Configure Settings
 
-Click the puzzle icon in the Chrome toolbar, then click the pin icon (marked **2** below) next to Scholar Journal Highlighter.
+Click the puzzle icon in Chrome, then pin Scholar Journal Highlighter. Click the extension icon to open settings.
 
-![Pin extension to toolbar](docs/images/install-pin-extension.jpg)
-
-### Step 4: Configure Settings
-
-Click the extension icon in your toolbar to open settings.
-
-![Extension settings popup](docs/images/popup-settings.jpg)
+<table><tr>
+<td><img src="docs/images/install-pin-extension.jpg" width="280" alt="Pin extension to toolbar"></td>
+<td><img src="docs/images/popup-settings.jpg" width="280" alt="Extension settings popup"></td>
+</tr></table>
 
 **Library proxy (recommended):** Enable "Library proxy" and enter your institution's EZproxy URL prefix. Example:
 - `https://ezproxy.yourschool.edu/login?url=`
@@ -87,9 +84,9 @@ Journal badges (UTD24, FT50), Library/Sci-Hub buttons, and citation highlighting
 
 ### Author Profile
 
-Journal badges and access buttons on an author's Google Scholar profile page.
+Publication summary bar with counts and percentages, journal badges, access buttons, and citation highlighting. Click any count to filter.
 
-![Author profile with journal badges](docs/images/profile-page.jpg)
+![Author profile with summary bar and journal badges](docs/images/profile-page.jpg)
 
 ## Accessibility
 
