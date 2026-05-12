@@ -165,4 +165,4 @@
 }
 .sjh-sum-show-all { cursor: pointer; color: #3b82f6; }
 .sjh-sum-show-all:hover { text-decoration: underline; }
-.sjh-sum-hint { color: #9ca3af; font-weight: 400; font-size: 11px; font-style: italic; margin-left: auto; }
+.sjh-sum-hint { color: #9ca3af; font-weight: 400; font-size: 13px; font-style: italic; margin-left: auto; }
