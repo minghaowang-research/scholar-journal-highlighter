@@ -64,6 +64,7 @@ Click the puzzle icon in Chrome, then pin Scholar Journal Highlighter. Click the
 
 <table><tr>
 <td><img src="docs/images/install-pin-extension.jpg" width="280" alt="Pin extension to toolbar"></td>
+<td width="40"></td>
 <td><img src="docs/images/popup-settings.jpg" width="280" alt="Extension settings popup"></td>
 </tr></table>
 
