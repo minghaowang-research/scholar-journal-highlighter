@@ -297,6 +297,13 @@ function injectSummaryBar(data) {
   totalItem.textContent = total + " in Scholar profile";
   bar.appendChild(totalItem);
 
+  if (!activeFilter && parts.length > 0) {
+    const hint = document.createElement("span");
+    hint.className = "sjh-sum-hint";
+    hint.textContent = "click to filter";
+    bar.appendChild(hint);
+  }
+
   if (activeFilter) {
     const sep2 = document.createElement("span");
     sep2.className = "sjh-sum-sep";
