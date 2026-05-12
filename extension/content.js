@@ -527,21 +527,23 @@ function processAllResults() {
       injectAccessButtonsProfile(el);
       highlightCitations(el);
     });
-    if (profileData) {
-      injectSummaryBar(profileData);
-    } else {
-      injectLoadingSummaryBar();
-      if (!profileFetchInProgress) {
-        profileFetchInProgress = true;
-        chrome.runtime.sendMessage(
-          { type: "FETCH_PROFILE_COUNTS", profileUrl: window.location.href },
-          (data) => {
-            profileFetchInProgress = false;
-            if (chrome.runtime.lastError || !data) return;
-            profileData = data;
-            injectSummaryBar(data);
-          }
-        );
+    if (prefs.showProfileSummary) {
+      if (profileData) {
+        injectSummaryBar(profileData);
+      } else {
+        injectLoadingSummaryBar();
+        if (!profileFetchInProgress) {
+          profileFetchInProgress = true;
+          chrome.runtime.sendMessage(
+            { type: "FETCH_PROFILE_COUNTS", profileUrl: window.location.href },
+            (data) => {
+              profileFetchInProgress = false;
+              if (chrome.runtime.lastError || !data) return;
+              profileData = data;
+              if (prefs.showProfileSummary) injectSummaryBar(data);
+            }
+          );
+        }
       }
     }
   } else {
@@ -581,7 +583,7 @@ function loadPrefsAndProcess() {
       showUtd24: true, showFt50: true, showAbdc: true, showCustom: true,
       displayMode: "highlight", customJournals: [],
       enableScihub: false, enableProxy: false, scihubUrl: "", proxyUrl: "",
-      showCitations: true,
+      showCitations: true, showProfileSummary: true,
     },
     (p) => {
       prefs = p;

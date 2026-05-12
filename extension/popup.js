@@ -9,7 +9,7 @@ const DEFAULTS = {
   showUtd24: true, showFt50: true, showAbdc: true, showCustom: true,
   displayMode: "highlight", customJournals: [],
   enableScihub: false, enableProxy: false, scihubUrl: "", proxyUrl: "",
-  showCitations: true,
+  showCitations: true, showProfileSummary: true,
 };
 
 function loadPreferences() {
@@ -30,6 +30,7 @@ function loadPreferences() {
       document.getElementById("scihub-url").value = prefs.scihubUrl;
       document.getElementById("proxy-url").value = prefs.proxyUrl;
       document.getElementById("toggle-citations").checked = prefs.showCitations;
+      document.getElementById("toggle-summary").checked = prefs.showProfileSummary;
 
 
       updateUrlRowVisibility();
@@ -395,5 +396,11 @@ document.getElementById("proxy-url").addEventListener("change", onAccessChange);
 
 // Citation toggle
 document.getElementById("toggle-citations").addEventListener("change", onCitationChange);
+
+// Summary bar toggle
+document.getElementById("toggle-summary").addEventListener("change", () => {
+  const showProfileSummary = document.getElementById("toggle-summary").checked;
+  chrome.storage.sync.set({ showProfileSummary }, () => notifyTab("TOGGLE_CHANGED"));
+});
 
 try { loadPreferences(); loadStatus(); } catch (_) {}
