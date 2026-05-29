@@ -238,32 +238,34 @@ function injectSummaryBar(data) {
 
   const total = data.total;
   const counts = { utd24: 0, ft50: 0, abdcStar: 0, abdcA: 0, custom: 0 };
-  for (const text of data.journalNames) {
-    const journalName = cleanProfileJournalText(text);
+  const cites = { utd24: 0, ft50: 0, abdcStar: 0, abdcA: 0, custom: 0 };
+  for (const pub of data.publications) {
+    const journalName = cleanProfileJournalText(pub.name);
     if (!journalName) continue;
     const journal = matchJournal(journalName);
     if (!journal) continue;
+    const c = pub.cites || 0;
     const vl = getVisibleLists(journal);
-    if (vl.includes("utd24")) counts.utd24++;
-    if (vl.includes("ft50")) counts.ft50++;
+    if (vl.includes("utd24")) { counts.utd24++; cites.utd24 += c; }
+    if (vl.includes("ft50")) { counts.ft50++; cites.ft50 += c; }
     if (vl.includes("abdc")) {
-      if (journal.abdc === "A*") counts.abdcStar++;
-      else counts.abdcA++;
+      if (journal.abdc === "A*") { counts.abdcStar++; cites.abdcStar += c; }
+      else { counts.abdcA++; cites.abdcA += c; }
     }
-    if (vl.includes("custom")) counts.custom++;
+    if (vl.includes("custom")) { counts.custom++; cites.custom += c; }
   }
 
   const parts = [];
   if (prefs.showUtd24 && counts.utd24)
-    parts.push({ count: counts.utd24, label: "UTD24", cls: "sjh-sum-utd24", filterKey: "utd24" });
+    parts.push({ count: counts.utd24, cites: cites.utd24, label: "UTD24", cls: "sjh-sum-utd24", filterKey: "utd24" });
   if (prefs.showFt50 && counts.ft50)
-    parts.push({ count: counts.ft50, label: "FT50", cls: "sjh-sum-ft50", filterKey: "ft50" });
+    parts.push({ count: counts.ft50, cites: cites.ft50, label: "FT50", cls: "sjh-sum-ft50", filterKey: "ft50" });
   if (prefs.showAbdc && counts.abdcStar)
-    parts.push({ count: counts.abdcStar, label: "ABDC A*", cls: "sjh-sum-abdc", filterKey: "abdcStar" });
+    parts.push({ count: counts.abdcStar, cites: cites.abdcStar, label: "ABDC A*", cls: "sjh-sum-abdc", filterKey: "abdcStar" });
   if (prefs.showAbdc && counts.abdcA)
-    parts.push({ count: counts.abdcA, label: "ABDC A", cls: "sjh-sum-abdc", filterKey: "abdcA" });
+    parts.push({ count: counts.abdcA, cites: cites.abdcA, label: "ABDC A", cls: "sjh-sum-abdc", filterKey: "abdcA" });
   if (prefs.showCustom && counts.custom)
-    parts.push({ count: counts.custom, label: "My List", cls: "sjh-sum-custom", filterKey: "custom" });
+    parts.push({ count: counts.custom, cites: cites.custom, label: "My List", cls: "sjh-sum-custom", filterKey: "custom" });
 
   const bar = document.createElement("div");
   bar.className = "sjh-summary-bar";
@@ -273,7 +275,7 @@ function injectSummaryBar(data) {
     const item = document.createElement("span");
     item.className = "sjh-sum-item sjh-sum-clickable " + parts[i].cls;
     if (activeFilter === parts[i].filterKey) item.classList.add("sjh-sum-active");
-    item.textContent = parts[i].count + " " + parts[i].label + " (" + pct + "%)";
+    item.textContent = parts[i].count + " " + parts[i].label + " (" + pct + "%, " + parts[i].cites.toLocaleString() + " cites)";
     item.title = "Click to show only " + parts[i].label + " papers";
     const fk = parts[i].filterKey;
     item.addEventListener("click", () => handleFilterClick(fk));

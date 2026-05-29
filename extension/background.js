@@ -195,7 +195,7 @@ async function resolvePaperFromCitation(citationUrl, title) {
 async function fetchAllProfilePublications(profileUrl) {
   const url = new URL(profileUrl);
   const userId = url.searchParams.get("user");
-  if (!userId) return { journalNames: [], total: 0 };
+  if (!userId) return { publications: [], total: 0 };
 
   const hl = url.searchParams.get("hl") || "en";
   const allJournals = [];
@@ -215,13 +215,15 @@ async function fetchAllProfilePublications(profileUrl) {
       while ((rowMatch = rowRegex.exec(html)) !== null) {
         rowCount++;
         const rowHtml = rowMatch[1];
+        const citeMatch = rowHtml.match(/class="gsc_a_ac[^"]*"[^>]*>([\d,]*)</);
+        const cites = citeMatch ? parseInt(citeMatch[1].replace(/,/g, ""), 10) || 0 : 0;
         const grayRegex = /<div class="gs_gray[^"]*"[^>]*>([\s\S]*?)<\/div>/g;
         let grayMatch;
         let grayIndex = 0;
         while ((grayMatch = grayRegex.exec(rowHtml)) !== null) {
           if (grayIndex === 1) {
             const text = grayMatch[1].replace(/<[^>]*>/g, "").replace(/&amp;/g, "&").trim();
-            allJournals.push(text);
+            allJournals.push({ name: text, cites });
             break;
           }
           grayIndex++;
@@ -236,7 +238,7 @@ async function fetchAllProfilePublications(profileUrl) {
     }
   }
 
-  return { journalNames: allJournals, total: allJournals.length };
+  return { publications: allJournals, total: allJournals.length };
 }
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
