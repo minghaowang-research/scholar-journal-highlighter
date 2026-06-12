@@ -62,14 +62,6 @@ function matchJournal(extractedName) {
   if (exactMap.has(norm)) return exactMap.get(norm);
   if (aliasMap.has(norm)) return aliasMap.get(norm);
 
-  for (const [key, journal] of exactMap) {
-    if (norm.includes(key) || key.includes(norm)) {
-      const ratio =
-        Math.min(norm.length, key.length) / Math.max(norm.length, key.length);
-      if (ratio > 0.55) return journal;
-    }
-  }
-
   return null;
 }
 
@@ -78,22 +70,16 @@ function extractJournalFromSearchResult(gsaEl) {
   const parts = text.split(/\s[-–—]\s/);
   if (parts.length < 2) return null;
 
-  const journalYearPart = parts[1];
-  const journalName = journalYearPart.replace(/,?\s*\d{4}.*$/, "").trim();
-
-  if (!journalName || /^\d+$/.test(journalName)) return null;
+  const journalName = cleanProfileJournalText(parts[1]);
+  if (!journalName) return null;
   if (journalName.includes(".com") || journalName.includes(".org")) return null;
 
   return journalName;
 }
 
 function cleanProfileJournalText(text) {
-  const journalName = text
-    .replace(/\d+\s*\([\d\-]+\).*$/, "")
-    .replace(/,?\s*\d{4}.*$/, "")
-    .replace(/\d+,\s*\d+[-–]\d+.*$/, "")
-    .trim();
-  if (!journalName || /^\d+$/.test(journalName)) return null;
+  const journalName = text.replace(/\s*\d.*$/, "").replace(/[,.\s]+$/, "");
+  if (!journalName) return null;
   return journalName;
 }
 
