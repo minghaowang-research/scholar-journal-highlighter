@@ -32,7 +32,7 @@ function buildLookup(journals) {
     exactMap.set(j.normalized, j);
     if (j.aliases) {
       for (const a of j.aliases) {
-        aliasMap.set(a.toLowerCase(), j);
+        aliasMap.set(normalize(a), j);
       }
     }
   }

@@ -34,6 +34,7 @@ async function fetchJournalData(forceRefresh = false) {
     const resp = await fetch(DATA_URL);
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     const data = await resp.json();
+    if (data.version !== CURRENT_VERSION) throw new Error(`unsupported data version ${data.version}`);
     await chrome.storage.local.set({
       [CACHE_KEY]: data,
       [CACHE_TS_KEY]: Date.now(),
