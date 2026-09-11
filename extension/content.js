@@ -17,7 +17,7 @@ let filterExpanding = false;
 function normalize(name) {
   return name
     .toLowerCase()
-    .replace(/\bthe\b/g, " ")
+    .replace(/^the\s+/, "")
     .replace(/&/g, "and")
     .replace(/[:.,'"\(\)\[\]]/g, " ")
     .replace(/…/g, "")

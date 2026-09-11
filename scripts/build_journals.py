@@ -70,7 +70,7 @@ ALIASES = {
 
 def normalize(name: str) -> str:
     name = name.lower().strip()
-    name = re.sub(r"\bthe\b", " ", name)
+    name = re.sub(r"^the\s+", "", name)
     name = name.replace("&", "and")
     name = re.sub(r"[:.,'\"()\[\]]", " ", name)
     name = re.sub(r"\s+", " ", name)

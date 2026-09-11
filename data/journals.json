@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updated": "2026-09-11",
+  "updated": "2026-05-09",
   "journals": [
     {
       "name": "Abacus",
@@ -481,7 +481,7 @@
     },
     {
       "name": "Annals of the Institute of Statistical Mathematics",
-      "normalized": "annals of institute of statistical mathematics",
+      "normalized": "annals of the institute of statistical mathematics",
       "aliases": [],
       "lists": [
         "abdc"
@@ -985,7 +985,7 @@
     },
     {
       "name": "Business Strategy and the Environment",
-      "normalized": "business strategy and environment",
+      "normalized": "business strategy and the environment",
       "aliases": [],
       "lists": [
         "abdc"
@@ -1147,7 +1147,7 @@
     },
     {
       "name": "Columbia Journal of Law and the Arts",
-      "normalized": "columbia journal of law and arts",
+      "normalized": "columbia journal of law and the arts",
       "aliases": [],
       "lists": [
         "abdc"
@@ -1192,7 +1192,7 @@
     },
     {
       "name": "Communications of the Association for Information Systems",
-      "normalized": "communications of association for information systems",
+      "normalized": "communications of the association for information systems",
       "aliases": [],
       "lists": [
         "abdc"
@@ -5167,7 +5167,7 @@
     },
     {
       "name": "Journal of the Academy of Marketing Science",
-      "normalized": "journal of academy of marketing science",
+      "normalized": "journal of the academy of marketing science",
       "aliases": [
         "jams",
         "j acad market sci",
@@ -5181,7 +5181,7 @@
     },
     {
       "name": "Journal of the American Statistical Association",
-      "normalized": "journal of american statistical association",
+      "normalized": "journal of the american statistical association",
       "aliases": [],
       "lists": [
         "abdc"
@@ -5190,7 +5190,7 @@
     },
     {
       "name": "Journal of the American Taxation Association",
-      "normalized": "journal of american taxation association",
+      "normalized": "journal of the american taxation association",
       "aliases": [],
       "lists": [
         "abdc"
@@ -5199,7 +5199,7 @@
     },
     {
       "name": "Journal of the Association for Information Systems",
-      "normalized": "journal of association for information systems",
+      "normalized": "journal of the association for information systems",
       "aliases": [],
       "lists": [
         "abdc"
@@ -5208,7 +5208,7 @@
     },
     {
       "name": "Journal of the Association of Environmental and Resource Economists",
-      "normalized": "journal of association of environmental and resource economists",
+      "normalized": "journal of the association of environmental and resource economists",
       "aliases": [],
       "lists": [
         "abdc"
@@ -5217,7 +5217,7 @@
     },
     {
       "name": "Journal of the European Economic Association",
-      "normalized": "journal of european economic association",
+      "normalized": "journal of the european economic association",
       "aliases": [],
       "lists": [
         "abdc"
@@ -5226,7 +5226,7 @@
     },
     {
       "name": "Journal of the Japanese and International Economies",
-      "normalized": "journal of japanese and international economies",
+      "normalized": "journal of the japanese and international economies",
       "aliases": [],
       "lists": [
         "abdc"
@@ -5235,7 +5235,7 @@
     },
     {
       "name": "Journal of the Operational Research Society",
-      "normalized": "journal of operational research society",
+      "normalized": "journal of the operational research society",
       "aliases": [],
       "lists": [
         "abdc"
@@ -5244,7 +5244,7 @@
     },
     {
       "name": "Journal of the Royal Statistical Society, Series A (Statistics in Society)",
-      "normalized": "journal of royal statistical society series a statistics in society",
+      "normalized": "journal of the royal statistical society series a statistics in society",
       "aliases": [],
       "lists": [
         "abdc"
@@ -5253,7 +5253,7 @@
     },
     {
       "name": "Journal of the Royal Statistical Society, Series B (Statistical Methodology)",
-      "normalized": "journal of royal statistical society series b statistical methodology",
+      "normalized": "journal of the royal statistical society series b statistical methodology",
       "aliases": [],
       "lists": [
         "abdc"
@@ -5262,7 +5262,7 @@
     },
     {
       "name": "Journal of the Royal Statistical Society, Series C (Applied Statistics)",
-      "normalized": "journal of royal statistical society series c applied statistics",
+      "normalized": "journal of the royal statistical society series c applied statistics",
       "aliases": [],
       "lists": [
         "abdc"
@@ -5271,7 +5271,7 @@
     },
     {
       "name": "Journal of the Royal Statistical Society, Series D (The Statistician)",
-      "normalized": "journal of royal statistical society series d statistician",
+      "normalized": "journal of the royal statistical society series d the statistician",
       "aliases": [],
       "lists": [
         "abdc"
@@ -6310,7 +6310,7 @@
     },
     {
       "name": "Public Law: the constitutional and administrative law of the Commonwealth",
-      "normalized": "public law constitutional and administrative law of commonwealth",
+      "normalized": "public law the constitutional and administrative law of the commonwealth",
       "aliases": [],
       "lists": [
         "abdc"
@@ -6631,7 +6631,7 @@
     },
     {
       "name": "Review of Economics of the Household",
-      "normalized": "review of economics of household",
+      "normalized": "review of economics of the household",
       "aliases": [],
       "lists": [
         "abdc"
