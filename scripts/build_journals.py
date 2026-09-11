@@ -41,7 +41,7 @@ ALIASES = {
     "Journal of Marketing Research": ["jmr", "j marketing res", "j. marketing res."],
     "Journal of Operations Management": ["j oper manage", "j. oper. manage."],
     "Journal of Political Economy": ["jpe", "j polit econ", "j. polit. economy"],
-    "Journal of the Academy of Marketing Science": ["jams", "j acad market sci", "j. acad. marketing sci."],
+    "Journal of the Academy of Marketing Science": ["jams", "j acad market sci", "j. acad. marketing sci.", "journal of academy of marketing science"],
     "Management Science": ["manage sci", "manage. sci.", "mgmt sci"],
     "Manufacturing and Service Operations Management": ["msom", "m&som", "manuf serv oper manage"],
     "Marketing Science": ["market sci", "mktg sci", "marketing sci"],
