@@ -45,8 +45,18 @@ function updateUrlRowVisibility() {
   document.getElementById("proxy-url-row").style.display = proxyOn ? "block" : "none";
 }
 
+function formatAge(ts) {
+  if (!ts) return "";
+  const mins = Math.round((Date.now() - ts) / 60000);
+  if (mins < 1) return "just now";
+  if (mins < 60) return `${mins}m ago`;
+  const hrs = Math.round(mins / 60);
+  if (hrs < 24) return `${hrs}h ago`;
+  return `${Math.round(hrs / 24)}d ago`;
+}
+
 function loadStatus() {
-  chrome.storage.local.get(["journalData"], (data) => {
+  chrome.storage.local.get(["journalData", "journalDataTimestamp", "journalDataSource"], (data) => {
     try {
       const statusEl = document.getElementById("data-status");
       if (!statusEl) return;
@@ -70,7 +80,9 @@ function loadStatus() {
               const el = document.getElementById(`count-${key}`);
               if (el) el.textContent = val;
             }
-            statusEl.textContent = `Data: ${updated}`;
+            const src = data.journalDataSource || "unknown";
+            const age = formatAge(data.journalDataTimestamp);
+            statusEl.textContent = `Data: ${updated} (${src}${age ? ", fetched " + age : ""})`;
           } catch (_) {}
         });
       } else {
@@ -404,3 +416,15 @@ document.getElementById("toggle-summary").addEventListener("change", () => {
 });
 
 try { loadPreferences(); loadStatus(); } catch (_) {}
+
+document.getElementById("refresh-btn").addEventListener("click", () => {
+  const btn = document.getElementById("refresh-btn");
+  btn.disabled = true;
+  btn.textContent = "Refreshing...";
+  chrome.runtime.sendMessage({ type: "REFRESH_DATA" }, () => {
+    btn.textContent = "Refresh";
+    btn.disabled = false;
+    loadStatus();
+    notifyTab("DATA_REFRESHED");
+  });
+});

@@ -729,10 +729,19 @@ function init() {
 chrome.runtime.onMessage.addListener((msg) => {
   if (msg.type === "TOGGLE_CHANGED" || msg.type === "MODE_CHANGED" ||
       msg.type === "CUSTOM_CHANGED" || msg.type === "ACCESS_CHANGED" ||
-      msg.type === "CITATION_CHANGED") {
+      msg.type === "CITATION_CHANGED" || msg.type === "DATA_REFRESHED") {
     activeFilter = null;
     filterExpanding = false;
     document.querySelectorAll(".sjh-filtered-out").forEach((el) => el.classList.remove("sjh-filtered-out"));
+
+    if (msg.type === "DATA_REFRESHED") {
+      // journalData is held in memory, so a refreshed list needs re-fetching
+      chrome.runtime.sendMessage({ type: "GET_JOURNALS" }, (data) => {
+        if (!chrome.runtime.lastError && data && data.journals) journalData = data;
+        loadPrefsAndProcess();
+      });
+      return;
+    }
     loadPrefsAndProcess();
   }
 });

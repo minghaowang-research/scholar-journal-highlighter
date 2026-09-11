@@ -94,5 +94,8 @@ h3 { margin: 0 0 14px 0; font-size: 15px; font-weight: 700; }
   color: #9ca3af;
 }
 
-.status { padding-top: 10px; border-top: 1px solid #e5e7eb; }
+.status { padding-top: 10px; border-top: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+#refresh-btn { font-size: 11px; color: #6b7280; background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 4px; padding: 2px 8px; cursor: pointer; }
+#refresh-btn:hover { background: #e5e7eb; }
+#refresh-btn:disabled { opacity: 0.6; cursor: default; }
 #data-status { font-size: 11px; color: #9ca3af; }

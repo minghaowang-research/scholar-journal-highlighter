@@ -4,9 +4,10 @@ const CONFIG_URL =
   "https://raw.githubusercontent.com/minghaowang-research/scholar-journal-highlighter/main/data/config.json";
 const CACHE_KEY = "journalData";
 const CACHE_TS_KEY = "journalDataTimestamp";
+const CACHE_SRC_KEY = "journalDataSource";
 const CONFIG_CACHE_KEY = "configData";
 const CONFIG_CACHE_TS_KEY = "configDataTimestamp";
-const CACHE_TTL = 7 * 24 * 60 * 60 * 1000;
+const CACHE_TTL = 24 * 60 * 60 * 1000;
 const DOI_CACHE_TTL = 7 * 24 * 60 * 60 * 1000;
 const CURRENT_VERSION = 3;
 const CROSSREF_API = "https://api.crossref.org/works";
@@ -38,6 +39,7 @@ async function fetchJournalData(forceRefresh = false) {
     await chrome.storage.local.set({
       [CACHE_KEY]: data,
       [CACHE_TS_KEY]: Date.now(),
+      [CACHE_SRC_KEY]: "remote",
     });
     return data;
   } catch (err) {
@@ -46,6 +48,7 @@ async function fetchJournalData(forceRefresh = false) {
     await chrome.storage.local.set({
       [CACHE_KEY]: bundled,
       [CACHE_TS_KEY]: Date.now(),
+      [CACHE_SRC_KEY]: "bundled",
     });
     return bundled;
   }
