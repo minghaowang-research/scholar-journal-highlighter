@@ -365,7 +365,7 @@ function getProxyBase() {
 function buildProxyUrl(targetUrl) {
   const base = getProxyBase();
   if (!base) return "";
-  if (base.includes("?url=")) return base + encodeURIComponent(targetUrl);
+  if (base.includes("openathens.net")) return base + encodeURIComponent(targetUrl);
   return base + targetUrl;
 }
 
