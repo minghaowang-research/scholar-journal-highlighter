@@ -77,6 +77,16 @@ function extractJournalFromSearchResult(gsaEl) {
   return journalName;
 }
 
+function extractJournalFromExpandedGsa(gsaEl) {
+  if (!gsaEl.querySelector(".gs_fmaa")) return null;
+  let text = "";
+  for (let node = gsaEl.querySelector(".gs_fmaa").nextSibling; node; node = node.nextSibling) {
+    if (node.nodeType === 3) text += node.textContent;
+    else break;
+  }
+  return cleanProfileJournalText(text.trim());
+}
+
 function cleanProfileJournalText(text) {
   const journalName = text.replace(/\s*\d.*$/, "").replace(/[,.\s]+$/, "");
   if (!journalName) return null;
@@ -109,7 +119,12 @@ function processSearchResult(resultEl) {
   const gsaEl = resultEl.querySelector(".gs_a");
   if (!gsaEl) return;
 
-  const journalName = extractJournalFromSearchResult(gsaEl);
+  let journalName = null;
+  for (const el of resultEl.querySelectorAll(".gs_a")) {
+    const expanded = extractJournalFromExpandedGsa(el);
+    if (expanded) { journalName = expanded; break; }
+  }
+  if (!journalName) journalName = extractJournalFromSearchResult(gsaEl);
   if (!journalName) {
     applyNonMatch(resultEl);
     return;
