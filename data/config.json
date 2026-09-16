@@ -1,5 +1,5 @@
 {
   "scihubUrl": "https://www.sci-hub.pub/",
-  "defaultProxyUrl": "https://go.openathens.net/redirector/msu.edu?url=",
+  "defaultProxyUrl": "https://ezproxy.msu.edu/login?url=",
   "updated": "2026-09-16"
 }
