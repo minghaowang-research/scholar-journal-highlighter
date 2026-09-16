@@ -149,7 +149,8 @@ async function fetchDOI(title) {
 function isPublisherUrl(href) {
   if (!href || href.startsWith("/") || href.startsWith("#") || href.startsWith("javascript:")) return false;
   const skip = ["scholar.google", "google.com", "googleapis.com", "gstatic.com",
-    "accounts.google", "youtube.com", "support.google", "chrome.google", "mozilla.com"];
+    "accounts.google", "youtube.com", "support.google", "chrome.google", "mozilla.com",
+    "ezproxy.", "proxy1.cl.", "proxy2.cl.", "openathens.net"];
   return !skip.some((d) => href.includes(d));
 }
 
