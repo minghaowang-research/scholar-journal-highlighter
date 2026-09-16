@@ -362,6 +362,13 @@ function getProxyBase() {
   return ensureUrl(prefs.proxyUrl) || ensureUrl(configData && configData.defaultProxyUrl) || "";
 }
 
+function buildProxyUrl(targetUrl) {
+  const base = getProxyBase();
+  if (!base) return "";
+  if (base.includes("?url=")) return base + encodeURIComponent(targetUrl);
+  return base + targetUrl;
+}
+
 function extractDOIFromUrl(url) {
   const match = url.match(/\b(10\.\d{4,}\/[^\s?#]+)/);
   if (match) return match[1].replace(/[.,;:)\]]+$/, "");
@@ -401,7 +408,7 @@ function injectAccessButtons(resultEl) {
 
   if (prefs.enableProxy && getProxyBase()) {
     const btn = makeBtn("sjh-btn-proxy", "Library");
-    btn.href = getProxyBase() + stripQueryParams(paperUrl);
+    btn.href = buildProxyUrl(stripQueryParams(paperUrl));
     btnContainer.appendChild(btn);
   }
 
@@ -465,7 +472,7 @@ function injectAccessButtonsProfile(rowEl) {
       btn.textContent = "Library";
       const url = result.publisherUrl || (result.doi ? "https://doi.org/" + result.doi : null);
       if (url && newTab) {
-        newTab.location.href = getProxyBase() + url;
+        newTab.location.href = buildProxyUrl(url);
       } else {
         if (newTab) newTab.close();
         btn.textContent = "Not found";
