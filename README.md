@@ -23,14 +23,14 @@ This extension includes an optional Sci-Hub integration for convenience. **Sci-H
 - Non-matching results: show all, dim, or hide
 - Custom journal list (My List) with add/remove, import (.xlsx/.csv), export (.csv), and clear all
 - Alias matching for abbreviated journal names (e.g., "JMR" for Journal of Marketing Research)
-- Fuzzy substring matching as fallback
-- Auto-updates journal data from GitHub (7-day cache)
+- Auto-updates journal data from GitHub (24-hour cache, manual Refresh button in settings)
 - Works on both search results and author profile pages
 - Works with Google Scholar's infinite scroll
 
 ### Paper Access (v3.0+)
 
 - **Library proxy** (recommended): adds a Library button that opens the paper through your institution's proxy (e.g., EZproxy, OpenAthens). Enter your proxy URL in settings -- works with any university.
+- **EBSCO links** (v3.4+, optional): adds an EBSCO button that opens the paper's full text (usually the PDF page) through EBSCO's link resolver, using the paper's DOI. Works only if your library subscribes to EBSCO and your browser is logged in (campus network or school login); coverage depends on your library's EBSCO databases. Useful for journals your library has only through EBSCO (e.g., INFORMS journals at some schools). Turn it on in settings and enter your EBSCO link pattern, with `{doi}` where the DOI goes; the button appears only after a pattern is entered. Example (EBSCO's link resolver): `https://openurl.ebsco.com/fulltext/doi:{doi}?sid=ebsco:plink:crawler&id=ebsco:doi:{doi}&crl=f`.
 - **Sci-Hub links** (optional): adds a Sci-Hub button next to each search result title. Uses DOI extraction from Google Scholar citation pages, with CrossRef API as fallback. Sci-Hub URL is user-configurable. See [disclaimer](#important-about-sci-hub).
 - **Citation highlighting**: high-citation papers are visually emphasized (100+, 500+, 1000+).
 - **Profile summary bar** (v3.2+): on author profile pages, shows publication counts per list with percentages across all publications (e.g., "76 UTD24 (10%) | 105 FT50 (14%) | 777 in Scholar profile").
@@ -44,7 +44,7 @@ This extension includes an optional Sci-Hub integration for convenience. **Sci-H
 | ABDC (A\*/A) | 849 | Amber | Australian Business Deans Council (A\* and A only) |
 | My List | User-defined | Gray | Custom journals added via popup |
 
-**My List notes:** Journal names must match exactly how they appear on Google Scholar -- no typos, no extra spaces. The extension uses fuzzy matching, but the closer your entry is to the actual name on Scholar, the more reliable the match. You can import a list from `.xlsx` or `.csv` (column A, one journal per row, first row is skipped as header). A [sample CSV](docs/sample-import.csv) is included in this repo.
+**My List notes:** Journal names must match exactly how they appear on Google Scholar -- no typos, no extra spaces. Matching is exact (ignoring case and punctuation), so copy the name as Scholar shows it. You can import a list from `.xlsx` or `.csv` (column A, one journal per row, first row is skipped as header). A [sample CSV](docs/sample-import.csv) is included in this repo.
 
 ## Install
 
@@ -68,10 +68,16 @@ Click the puzzle icon in Chrome, then pin Scholar Journal Highlighter. Click the
 <td><img src="docs/images/popup-settings.jpg" width="280" alt="Extension settings popup"></td>
 </tr></table>
 
-**Library proxy (recommended):** Enable "Library proxy" and enter your institution's EZproxy URL prefix. Example:
-- `https://ezproxy.yourschool.edu/login?url=`
+**Library proxy (recommended):** Enable "Library proxy" and enter your institution's proxy URL prefix. Examples:
+- EZproxy: `https://ezproxy.yourschool.edu/login?url=`
+- OpenAthens: `https://go.openathens.net/redirector/yourschool.edu?url=`
 
-Note: Only EZproxy-style URL prefixes are supported. OpenAthens (SAML-based) authentication is not yet supported.
+The extension formats the paper link correctly for each type. With OpenAthens, the paper opens on the publisher's normal address (no proxy name in the URL); look for "Access provided by [your school]" on the page.
+
+**EBSCO links (optional):** Enable "EBSCO links" and enter your EBSCO link pattern with `{doi}` where the DOI goes. Example:
+- `https://openurl.ebsco.com/fulltext/doi:{doi}?sid=ebsco:plink:crawler&id=ebsco:doi:{doi}&crl=f`
+
+EBSCO only has full text for items in your library's EBSCO databases. SSRN working papers and other items your library does not cover show "No exact match".
 
 **Sci-Hub (optional):** Enable "Sci-Hub links" if you wish to use it. See the [disclaimer above](#important-about-sci-hub).
 

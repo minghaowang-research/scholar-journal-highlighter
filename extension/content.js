@@ -5,7 +5,7 @@ let userCustom = [];
 let prefs = {
   showUtd24: true, showFt50: true, showAbdc: true, showCustom: true,
   displayMode: "highlight",
-  enableScihub: false, enableProxy: false, scihubUrl: "", proxyUrl: "",
+  enableScihub: false, enableProxy: false, scihubUrl: "", proxyUrl: "", enableEbsco: false, ebscoUrl: "",
   showCitations: true,
 };
 let configData = null;
@@ -344,7 +344,7 @@ function injectLoadingSummaryBar() {
   }
 }
 
-// --- Access buttons (Sci-Hub + Library Proxy) ---
+// --- Access buttons (Sci-Hub + Library Proxy + EBSCO) ---
 
 function ensureUrl(url) {
   if (!url) return "";
@@ -369,9 +369,35 @@ function buildProxyUrl(targetUrl) {
   return base + targetUrl;
 }
 
+// EBSCO link: the user's own link pattern with {doi} where the DOI goes (no built-in default,
+// since EBSCO access depends on each library). Example: EBSCO's OpenURL link resolver,
+// https://openurl.ebsco.com/fulltext/doi:{doi}?sid=ebsco:plink:crawler&id=ebsco:doi:{doi}&crl=f
+function getEbscoTemplate() {
+  const tpl = (prefs.ebscoUrl || "").replace(/\s+/g, "");
+  return tpl.includes("{doi}") ? tpl : "";
+}
+
+function buildEbscoUrl(doi) {
+  return getEbscoTemplate().split("{doi}").join(encodeURIComponent(doi));
+}
+
+// EBSCO shows a "View details through your institution / Open in a new window" page instead of
+// the PDF page when the visit comes from Google Scholar, so EBSCO links are opened without a referrer.
+function openNoReferrer(tab, url) {
+  try {
+    const a = tab.document.createElement("a");
+    a.href = url;
+    a.rel = "noreferrer";
+    tab.document.body.appendChild(a);
+    a.click();
+  } catch (_) {
+    tab.location.href = url;
+  }
+}
+
 function extractDOIFromUrl(url) {
   const match = url.match(/\b(10\.\d{4,}\/[^\s?#]+)/);
-  if (match) return match[1].replace(/[.,;:)\]]+$/, "");
+  if (match) return match[1].replace(/\.pdf$/i, "").replace(/[.,;:)\]]+$/, "");
   return null;
 }
 
@@ -425,6 +451,29 @@ function injectAccessButtons(resultEl) {
       chrome.runtime.sendMessage({ type: "LOOKUP_DOI", title }, (result) => {
         if (chrome.runtime.lastError || !result || !result.doi) return;
         btn.href = getScihubBase() + result.doi;
+      });
+    }
+  }
+
+  if (prefs.enableEbsco && getEbscoTemplate()) {
+    const btn = makeBtn("sjh-btn-ebsco", "EBSCO");
+    btn.rel = "noopener noreferrer";
+    btnContainer.appendChild(btn);
+    const urlDoi = extractDOIFromUrl(paperUrl);
+    if (urlDoi) {
+      btn.href = buildEbscoUrl(urlDoi);
+    } else {
+      btn.href = "#";
+      btn.classList.add("sjh-btn-loading");
+      const title = titleLink.textContent.trim();
+      chrome.runtime.sendMessage({ type: "LOOKUP_DOI", title }, (result) => {
+        btn.classList.remove("sjh-btn-loading");
+        if (chrome.runtime.lastError || !result || !result.doi) {
+          btn.textContent = "EBSCO: no DOI";
+          btn.removeAttribute("href");
+          return;
+        }
+        btn.href = buildEbscoUrl(result.doi);
       });
     }
   }
@@ -511,6 +560,27 @@ function injectAccessButtonsProfile(rowEl) {
         } else {
           btn.textContent = result.error === "no_result" ? "No DOI found" : "Not found";
         }
+      }
+    });
+    btnContainer.appendChild(btn);
+  }
+
+  if (prefs.enableEbsco && getEbscoTemplate()) {
+    const btn = makeBtn("sjh-btn-ebsco", "EBSCO");
+    btn.href = "#";
+    btn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const newTab = window.open("about:blank", "_blank");
+      if (newTab) { try { newTab.document.title = "Opening EBSCO..."; newTab.document.body.innerText = "Looking up paper DOI... This may take a few seconds."; } catch (_) {} }
+      btn.textContent = "...";
+      const result = await resolve();
+      btn.textContent = "EBSCO";
+      if (result.doi && newTab) {
+        openNoReferrer(newTab, buildEbscoUrl(result.doi));
+      } else {
+        if (newTab) newTab.close();
+        btn.textContent = result.error === "rate_limited" ? "API limit" : "No DOI found";
+        setTimeout(() => { btn.textContent = "EBSCO"; cached = null; }, 3000);
       }
     });
     btnContainer.appendChild(btn);
@@ -687,7 +757,7 @@ function loadPrefsAndProcess() {
     {
       showUtd24: true, showFt50: true, showAbdc: true, showCustom: true,
       displayMode: "highlight", customJournals: [],
-      enableScihub: false, enableProxy: false, scihubUrl: "", proxyUrl: "",
+      enableScihub: false, enableProxy: false, scihubUrl: "", proxyUrl: "", enableEbsco: false, ebscoUrl: "",
       showCitations: true, showProfileSummary: true,
     },
     (p) => {

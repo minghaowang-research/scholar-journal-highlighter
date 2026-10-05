@@ -156,7 +156,7 @@ function isPublisherUrl(href) {
 
 function extractDOIFromUrl(url) {
   const match = url.match(/\b(10\.\d{4,}\/[^\s?#]+)/);
-  if (match) return match[1].replace(/[.,;:)\]]+$/, "");
+  if (match) return match[1].replace(/\.pdf$/i, "").replace(/[.,;:)\]]+$/, "");
   return null;
 }
 

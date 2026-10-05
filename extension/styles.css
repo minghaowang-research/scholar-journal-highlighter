@@ -88,7 +88,7 @@
 .sjh-tag-custom { background: #f1f5f9; color: #334155; }
 .sjh-tag-custom::before { background: #64748b; }
 
-/* Access buttons (Sci-Hub + Library Proxy) */
+/* Access buttons (Sci-Hub + Library Proxy + EBSCO) */
 .sjh-access-btns {
   display: inline-flex;
   gap: 4px;
@@ -120,6 +120,11 @@
   background: #f0fdf4;
   color: #166534;
   border: 1px solid #86efac;
+}
+.sjh-btn-ebsco {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
 }
 
 /* Citation highlighting -- luminance-based scale, no hue overlap with journal colors.

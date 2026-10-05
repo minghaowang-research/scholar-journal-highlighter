@@ -8,7 +8,7 @@ const TOGGLE_KEYS = {
 const DEFAULTS = {
   showUtd24: true, showFt50: true, showAbdc: true, showCustom: true,
   displayMode: "highlight", customJournals: [],
-  enableScihub: false, enableProxy: false, scihubUrl: "", proxyUrl: "",
+  enableScihub: false, enableProxy: false, scihubUrl: "", proxyUrl: "", enableEbsco: false, ebscoUrl: "",
   showCitations: true, showProfileSummary: true,
 };
 
@@ -29,6 +29,8 @@ function loadPreferences() {
       document.getElementById("toggle-proxy").checked = prefs.enableProxy;
       document.getElementById("scihub-url").value = prefs.scihubUrl;
       document.getElementById("proxy-url").value = prefs.proxyUrl;
+      document.getElementById("toggle-ebsco").checked = prefs.enableEbsco;
+      document.getElementById("ebsco-url").value = prefs.ebscoUrl;
       document.getElementById("toggle-citations").checked = prefs.showCitations;
       document.getElementById("toggle-summary").checked = prefs.showProfileSummary;
 
@@ -43,6 +45,8 @@ function updateUrlRowVisibility() {
   const proxyOn = document.getElementById("toggle-proxy").checked;
   document.getElementById("scihub-url-row").style.display = scihubOn ? "block" : "none";
   document.getElementById("proxy-url-row").style.display = proxyOn ? "block" : "none";
+  document.getElementById("ebsco-url-row").style.display =
+    document.getElementById("toggle-ebsco").checked ? "block" : "none";
 }
 
 function formatAge(ts) {
@@ -179,6 +183,8 @@ function onAccessChange() {
     enableProxy: document.getElementById("toggle-proxy").checked,
     scihubUrl: document.getElementById("scihub-url").value.trim(),
     proxyUrl: document.getElementById("proxy-url").value.trim(),
+    enableEbsco: document.getElementById("toggle-ebsco").checked,
+    ebscoUrl: document.getElementById("ebsco-url").value.trim(),
   };
   updateUrlRowVisibility();
   chrome.storage.sync.set(settings, () => notifyTab("ACCESS_CHANGED"));
@@ -403,6 +409,8 @@ document.getElementById("toggle-scihub").addEventListener("change", onAccessChan
 document.getElementById("toggle-proxy").addEventListener("change", onAccessChange);
 document.getElementById("scihub-url").addEventListener("change", onAccessChange);
 document.getElementById("proxy-url").addEventListener("change", onAccessChange);
+document.getElementById("toggle-ebsco").addEventListener("change", onAccessChange);
+document.getElementById("ebsco-url").addEventListener("change", onAccessChange);
 
 
 

@@ -18,3 +18,4 @@ icon-drafts/
 # Build output (regenerable via scripts/build_release.sh)
 dist/
 *.zip
+_NEXT_SESSION_PLAN.md
