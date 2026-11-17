@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <link rel="stylesheet" href="popup.css" />
   </head>
@@ -40,7 +40,7 @@
             <span class="toggle-label">My List</span>
             <span class="toggle-count" id="count-custom"></span>
           </label>
-          <button id="manage-btn" title="Manage My List">Edit</button>
+          <button id="manage-btn" title="Manage My List" aria-expanded="false" aria-controls="custom-section">Edit</button>
         </div>
       </div>
 
@@ -48,7 +48,7 @@
         <div class="section-label">MY LIST</div>
         <div id="custom-list"></div>
         <div class="add-row">
-          <input type="text" id="custom-input" placeholder="Journal name..." />
+          <input type="text" id="custom-input" aria-label="Journal name to add to My List" placeholder="Journal name..." />
           <button id="custom-add-btn">Add</button>
         </div>
         <div class="import-export-row">
@@ -87,7 +87,7 @@
           </label>
         </div>
         <div class="setting-row" id="proxy-url-row">
-          <input type="text" id="proxy-url" placeholder="Your library proxy URL prefix" />
+          <input type="text" id="proxy-url" aria-label="Library proxy URL prefix" placeholder="Your library proxy URL prefix" />
         </div>
         <div class="toggle-row">
           <label>
@@ -96,7 +96,7 @@
           </label>
         </div>
         <div class="setting-row" id="ebsco-url-row">
-          <input type="text" id="ebsco-url" placeholder="Your EBSCO link with {doi}, e.g. https://openurl.ebsco.com/fulltext/doi:{doi}?..." />
+          <input type="text" id="ebsco-url" aria-label="EBSCO link pattern" placeholder="Your EBSCO link with {doi}, e.g. https://openurl.ebsco.com/fulltext/doi:{doi}?..." />
         </div>
         <div class="toggle-row">
           <label>
@@ -105,7 +105,7 @@
           </label>
         </div>
         <div class="setting-row" id="scihub-url-row">
-          <input type="text" id="scihub-url" placeholder="https://www.sci-hub.pub/" />
+          <input type="text" id="scihub-url" aria-label="Sci-Hub URL" placeholder="https://www.sci-hub.pub/" />
         </div>
       </div>
 

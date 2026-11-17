@@ -110,6 +110,7 @@ function renderCustomList(journals) {
     const removeBtn = document.createElement("button");
     removeBtn.className = "custom-remove";
     removeBtn.textContent = "x";
+    removeBtn.setAttribute("aria-label", "Remove " + name);
     removeBtn.addEventListener("click", () => removeCustomJournal(name));
 
     row.appendChild(label);
@@ -206,13 +207,15 @@ document.querySelectorAll('input[name="displayMode"]').forEach((radio) => {
 });
 
 // Custom journal management
-document.getElementById("manage-btn").addEventListener("click", () => {
+document.getElementById("manage-btn").addEventListener("click", (e) => {
   const section = document.getElementById("custom-section");
-  section.style.display = section.style.display === "none" ? "block" : "none";
+  const open = section.style.display === "none";
+  section.style.display = open ? "block" : "none";
+  e.currentTarget.setAttribute("aria-expanded", String(open));
 });
 document.getElementById("custom-add-btn").addEventListener("click", addCustomJournal);
 document.getElementById("custom-input").addEventListener("keydown", (e) => {
-  if (e.key === "Enter") addCustomJournal();
+  if (e.key === "Enter" && !e.isComposing) addCustomJournal();
 });
 
 // Import / Export
